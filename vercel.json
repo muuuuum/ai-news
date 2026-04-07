@@ -4,12 +4,20 @@
     {
       "src": "api/slack_webhook.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "api/news_webhook.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/slack_webhook",
       "dest": "/api/slack_webhook.py"
+    },
+    {
+      "src": "/api/news_webhook",
+      "dest": "/api/news_webhook.py"
     }
   ]
 }
