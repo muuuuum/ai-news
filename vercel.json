@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/slack_webhook.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/slack_webhook",
+      "dest": "/api/slack_webhook.py"
+    }
+  ]
+}
