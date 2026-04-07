@@ -12,6 +12,7 @@ import hmac
 import hashlib
 import tempfile
 import time
+import threading
 
 import requests
 import openpyxl
@@ -389,17 +390,22 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({"challenge": payload["challenge"]}).encode())
             return
 
-        # イベント処理
-        if payload.get("type") == "event_callback":
-            event = payload.get("event", {})
-            # app_mention イベントのみ処理
-            if event.get("type") == "app_mention":
-                # bot自身の投稿は無視
-                if event.get("bot_id"):
-                    self.send_response(200)
-                    self.end_headers()
-                    return
-                process_event(event)
+        # Slackのリトライは無視
+        retry_num = self.headers.get("X-Slack-Retry-Num")
+        if retry_num:
+            self.send_response(200)
+            self.end_headers()
+            return
 
+        # 先に200を返す（Slackの3秒タイムアウト対策）
         self.send_response(200)
         self.end_headers()
+
+        # イベント処理（レスポンス後に実行）
+        if payload.get("type") == "event_callback":
+            event = payload.get("event", {})
+            if event.get("type") == "app_mention" and not event.get("bot_id"):
+                try:
+                    process_event(event)
+                except Exception as e:
+                    print(f"Error processing event: {e}")
