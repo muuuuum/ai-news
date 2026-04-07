@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: sales-list-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scripts/sales_list_server.py
+    envVars:
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_APP_TOKEN
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        value: muuuuum/ai-news
