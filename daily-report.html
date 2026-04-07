@@ -422,7 +422,7 @@ function saveReports(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(da
 const datePicker = document.getElementById('reportDate');
 const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
 
-function toDateStr(d) { return d.toISOString().split('T')[0]; }
+function toDateStr(d) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
 function setToday() { datePicker.value = toDateStr(new Date()); onDateChange(); }
 function changeDate(delta) {
   const d = new Date(datePicker.value);
