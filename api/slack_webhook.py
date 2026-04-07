@@ -43,6 +43,38 @@ def slack_post(channel, text, thread_ts=None):
     return resp.json().get("ok", False)
 
 
+def slack_upload_file(channel, file_path, title, comment):
+    """Slackにファイルをアップロード"""
+    headers = {"Authorization": f"Bearer {SLACK_BOT_TOKEN}"}
+    file_size = os.path.getsize(file_path)
+
+    # Step 1: アップロードURL取得
+    resp1 = requests.get(
+        "https://slack.com/api/files.getUploadURLExternal",
+        headers=headers,
+        params={"filename": os.path.basename(file_path), "length": file_size},
+    )
+    data1 = resp1.json()
+    if not data1.get("ok"):
+        return False
+
+    # Step 2: ファイルアップロード
+    with open(file_path, "rb") as f:
+        requests.post(data1["upload_url"], data=f.read(), headers={"Content-Type": "application/octet-stream"})
+
+    # Step 3: 完了 & チャンネル共有
+    resp3 = requests.post(
+        "https://slack.com/api/files.completeUploadExternal",
+        headers={**headers, "Content-Type": "application/json"},
+        json={
+            "files": [{"id": data1["file_id"], "title": title}],
+            "channel_id": channel,
+            "initial_comment": comment,
+        },
+    )
+    return resp3.json().get("ok", False)
+
+
 def verify_slack_request(headers, body):
     """Slackリクエストの署名を検証"""
     if not SLACK_SIGNING_SECRET:
@@ -293,6 +325,18 @@ def process_event(event):
             slack_post(channel, f"⚠️ 「{keyword}」に該当するエントリが見つかりませんでした。", thread_ts)
         return
 
+    # エクセル表示（ファイルをアップロード）
+    if re.search(r"エクセル表示|Excel表示|ファイル|ダウンロード", clean, re.IGNORECASE):
+        path = get_excel_path()
+        ok = slack_upload_file(
+            channel, path,
+            "ステークホルダーリスト.xlsx",
+            "📋 最新のステークホルダーリストです。"
+        )
+        if not ok:
+            slack_post(channel, "⚠️ ファイルのアップロードに失敗しました。", thread_ts)
+        return
+
     # 一覧
     if re.search(r"一覧|リスト|list|表示|確認", clean, re.IGNORECASE):
         entries = get_all_entries()
@@ -318,7 +362,8 @@ def process_event(event):
         "*【追加】*\n```\n@営業リストBot 追加\n会社名: 株式会社ABC\n名前: 田中太郎\n"
         "協業: ○\nクライアント見込み: ◎\n重要度: 高\nメモ: 来月打ち合わせ予定```\n\n"
         "*【削除】*\n```\n@営業リストBot 削除 株式会社ABC```\n\n"
-        "*【一覧表示】*\n```\n@営業リストBot 一覧```"
+        "*【一覧表示】*\n```\n@営業リストBot 一覧```\n\n"
+        "*【エクセル表示】*\n```\n@営業リストBot エクセル表示```"
     ), thread_ts)
 
 
