@@ -1,5 +1,11 @@
 {
   "version": 2,
+  "crons": [
+    {
+      "path": "/api/daily_post",
+      "schedule": "0 0 * * *"
+    }
+  ],
   "builds": [
     {
       "src": "api/slack_webhook.py",
@@ -7,6 +13,10 @@
     },
     {
       "src": "api/news_webhook.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/daily_post.py",
       "use": "@vercel/python"
     }
   ],
@@ -18,6 +28,10 @@
     {
       "src": "/api/news_webhook",
       "dest": "/api/news_webhook.py"
+    },
+    {
+      "src": "/api/daily_post",
+      "dest": "/api/daily_post.py"
     }
   ]
 }
