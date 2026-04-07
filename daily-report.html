@@ -561,22 +561,6 @@
       <div class="card-title">⚙️ 設定</div>
 
       <div style="margin-bottom:20px">
-        <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:8px;">Gemini API キー（週次レビューのAI生成に使用）</label>
-        <div style="display:flex;gap:8px;">
-          <input type="password" id="apiKeyInput" placeholder="AIza..." style="flex:1;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;">
-          <button class="btn btn-primary" onclick="saveApiKey()">保存</button>
-        </div>
-        <p style="font-size:0.8rem;color:var(--text-sub);margin-top:8px;">
-          ※ Google AI Studio（https://aistudio.google.com/apikey）でAPIキーを取得できます。<br>
-          ※ APIキーはブラウザのローカルストレージに保存されます。サーバーには送信されません。<br>
-          ※ 未設定でもAIレビュー以外の機能は全て使えます。
-        </p>
-        <div id="apiKeyStatus" style="margin-top:8px;font-size:0.85rem;"></div>
-      </div>
-
-      <hr style="border:none;border-top:1px solid var(--border);margin:20px 0;">
-
-      <div style="margin-bottom:20px">
         <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:8px;">データ管理</label>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button class="btn btn-secondary" onclick="exportData()">📤 データをエクスポート</button>
@@ -603,7 +587,7 @@
 //  State & Storage
 // ──────────────────────────────────────
 const STORAGE_KEY = 'daily_reports';
-const API_KEY_KEY = 'daily_reports_api_key';
+const GEMINI_API_KEY = 'AIzaSyCHTWE4XDLtrPqLfvVgWT7K788lS7n7PAI';
 
 function getReports() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
@@ -876,17 +860,7 @@ function showWeekEntries(week) {
   } else {
     document.getElementById('aiReviewResult').innerHTML = '';
     btn.innerHTML = '✨ AIレビューを生成';
-    const apiKey = localStorage.getItem(API_KEY_KEY);
-    if (apiKey) {
-      generateWeeklyReview(); // 未生成なら自動で分析を開始
-    } else {
-      document.getElementById('aiReviewResult').innerHTML = `
-        <div class="card" style="margin-top:16px; background:#f8fafc; border: 2px dashed var(--border);">
-          <div style="text-align:center; padding:20px; color:var(--text-sub);">
-            <p>💡 APIキーを設定すると、この週の振り返りを元にした「オススメの本」や「思考の整え方」をAIが自動で作成します。</p>
-          </div>
-        </div>`;
-    }
+    generateWeeklyReview();
   }
 }
 
@@ -900,12 +874,7 @@ document.getElementById('weekSelect').addEventListener('change', function() {
 //  AI Review Generation
 // ──────────────────────────────────────
 async function generateWeeklyReview() {
-  const apiKey = localStorage.getItem(API_KEY_KEY);
-  if (!apiKey) {
-    switchView('settings');
-    showToast('⚠️ APIキーを設定してください');
-    return;
-  }
+  const apiKey = GEMINI_API_KEY;
 
   const weeks = getWeekOptions();
   const idx = parseInt(document.getElementById('weekSelect').value);
@@ -1020,26 +989,6 @@ function renderAIReview(markdown) {
 }
 
 // ──────────────────────────────────────
-//  Settings
-// ──────────────────────────────────────
-function saveApiKey() {
-  const key = document.getElementById('apiKeyInput').value.trim();
-  if (key) {
-    localStorage.setItem(API_KEY_KEY, key);
-    document.getElementById('apiKeyInput').value = '';
-    document.getElementById('apiKeyStatus').innerHTML = '<span style="color:var(--success);">✓ APIキーを保存しました</span>';
-    showToast('✓ APIキーを保存しました');
-  }
-}
-
-function loadApiKeyStatus() {
-  const key = localStorage.getItem(API_KEY_KEY);
-  if (key) {
-    document.getElementById('apiKeyStatus').innerHTML = '<span style="color:var(--success);">✓ APIキーは設定済みです</span>';
-  }
-}
-
-// ──────────────────────────────────────
 //  Data Export / Import
 // ──────────────────────────────────────
 function exportData() {
@@ -1114,7 +1063,6 @@ document.querySelectorAll('textarea').forEach(ta => {
 // ──────────────────────────────────────
 setToday();
 updateStreak();
-loadApiKeyStatus();
 datePicker.addEventListener('change', onDateChange);
 </script>
 </body>
