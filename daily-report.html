@@ -62,6 +62,21 @@
     font-size: 0.85rem;
     font-weight: 600;
   }
+  .sync-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .sync-badge:hover { background: rgba(255,255,255,0.25); }
+  .sync-badge.syncing { opacity: 0.6; pointer-events: none; }
+  .header-badges { display: flex; gap: 8px; align-items: center; }
 
   .tabs {
     max-width: 800px;
@@ -250,6 +265,7 @@
 
   @media (max-width: 600px) {
     .header-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .header-badges { flex-wrap: wrap; }
     .tabs { overflow-x: auto; }
     .tab { white-space: nowrap; padding: 8px 14px; font-size: 0.82rem; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
@@ -261,8 +277,13 @@
 <header class="header">
   <div class="header-inner">
     <h1>Hiromu's Daily Report<span>RGP日報（山木さんを超えるまで〜）</span></h1>
-    <div class="streak-badge" id="streakBadge">
-      🔥 <span id="streakCount">0</span>日連続
+    <div class="header-badges">
+      <div class="streak-badge" id="streakBadge">
+        🔥 <span id="streakCount">0</span>日連続
+      </div>
+      <div class="sync-badge" id="syncBadge" onclick="manualSync()" title="クラウド同期">
+        ☁️ 同期
+      </div>
     </div>
   </div>
 </header>
@@ -458,6 +479,7 @@ function saveReport() {
   saveReports(reports);
   updateStreak();
   showToast('✓ 保存しました');
+  cloudSave();
 }
 
 function clearForm() {
@@ -851,12 +873,123 @@ document.querySelectorAll('#view-write textarea').forEach(ta => {
   });
 });
 
+// ── Cloud Sync (GitHub Gist) ──
+const GIST_ID_KEY = 'daily_reports_gist_id';
+
+function getGistId() {
+  const hashMatch = location.hash.match(/gist=([a-f0-9]+)/);
+  if (hashMatch) {
+    localStorage.setItem(GIST_ID_KEY, hashMatch[1]);
+    return hashMatch[1];
+  }
+  return localStorage.getItem(GIST_ID_KEY);
+}
+
+function setSyncStatus(status) {
+  const badge = document.getElementById('syncBadge');
+  if (status === 'syncing') { badge.classList.add('syncing'); badge.textContent = '☁️ 同期中...'; }
+  else if (status === 'done') { badge.classList.remove('syncing'); badge.textContent = '☁️ 同期済'; }
+  else { badge.classList.remove('syncing'); badge.textContent = '☁️ 同期'; }
+}
+
+async function cloudSave() {
+  const reports = getReports();
+  const weeklyReviews = JSON.parse(localStorage.getItem('weekly_reviews') || '{}');
+  const payload = JSON.stringify({ reports, weeklyReviews, syncedAt: new Date().toISOString() }, null, 2);
+  const gistId = getGistId();
+
+  setSyncStatus('syncing');
+  try {
+    if (gistId) {
+      const res = await fetch(`https://api.github.com/gists/${gistId}`, {
+        method: 'PATCH',
+        headers: { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ files: { 'daily-reports.json': { content: payload } } })
+      });
+      if (!res.ok) throw new Error('update failed');
+    } else {
+      const res = await fetch('https://api.github.com/gists', {
+        method: 'POST',
+        headers: { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          description: 'Daily Report Sync Data',
+          public: false,
+          files: { 'daily-reports.json': { content: payload } }
+        })
+      });
+      if (!res.ok) throw new Error('create failed');
+      const gist = await res.json();
+      localStorage.setItem(GIST_ID_KEY, gist.id);
+      history.replaceState(null, '', `#gist=${gist.id}`);
+      showToast('☁️ 同期URL: このページのURLをスマホで開いてください');
+    }
+    setSyncStatus('done');
+  } catch (e) {
+    setSyncStatus('error');
+    showToast('⚠️ クラウド同期に失敗しました');
+  }
+}
+
+async function cloudLoad() {
+  const gistId = getGistId();
+  if (!gistId) return false;
+
+  setSyncStatus('syncing');
+  try {
+    const res = await fetch(`https://api.github.com/gists/${gistId}`, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if (!res.ok) { setSyncStatus('idle'); return false; }
+    const gist = await res.json();
+    const file = gist.files['daily-reports.json'];
+    if (!file) { setSyncStatus('idle'); return false; }
+    const cloud = JSON.parse(file.content);
+
+    if (cloud.reports) {
+      const local = getReports();
+      const merged = { ...local };
+      for (const [date, data] of Object.entries(cloud.reports)) {
+        if (!merged[date] || (data.updatedAt && (!merged[date].updatedAt || data.updatedAt > merged[date].updatedAt))) {
+          merged[date] = data;
+        }
+      }
+      saveReports(merged);
+    }
+    if (cloud.weeklyReviews) {
+      const localReviews = JSON.parse(localStorage.getItem('weekly_reviews') || '{}');
+      const mergedReviews = { ...localReviews, ...cloud.weeklyReviews };
+      localStorage.setItem('weekly_reviews', JSON.stringify(mergedReviews));
+    }
+    setSyncStatus('done');
+    return true;
+  } catch (e) {
+    setSyncStatus('idle');
+    return false;
+  }
+}
+
+async function manualSync() {
+  const loaded = await cloudLoad();
+  if (loaded) {
+    loadReport(datePicker.value);
+    updateStreak();
+    showToast('☁️ クラウドからデータを取得しました');
+  } else {
+    await cloudSave();
+    showToast('☁️ クラウドにデータをアップロードしました');
+  }
+}
+
 // ── Init ──
-setToday();
-updateStreak();
-datePicker.addEventListener('change', onDateChange);
-const savedName = localStorage.getItem('comment_name');
-if (savedName) document.getElementById('commentName').value = savedName;
+(async () => {
+  setToday();
+  updateStreak();
+  datePicker.addEventListener('change', onDateChange);
+  const savedName = localStorage.getItem('comment_name');
+  if (savedName) document.getElementById('commentName').value = savedName;
+  const loaded = await cloudLoad();
+  if (loaded) { loadReport(datePicker.value); updateStreak(); }
+})();
 </script>
 </body>
 </html>
