@@ -458,7 +458,6 @@
   <button class="tab active" data-view="write" onclick="switchView('write')">📝 記入</button>
   <button class="tab" data-view="history" onclick="switchView('history')">📋 履歴</button>
   <button class="tab" data-view="weekly" onclick="switchView('weekly')">📊 週次レビュー</button>
-  <button class="tab" data-view="settings" onclick="switchView('settings')">⚙️ 設定</button>
 </nav>
 
 <!-- Main -->
@@ -555,24 +554,6 @@
     <div id="aiReviewResult"></div>
   </div>
 
-  <!-- ===== Settings View ===== -->
-  <div class="view" id="view-settings">
-    <div class="card" style="margin-top:16px">
-      <div class="card-title">⚙️ 設定</div>
-
-      <div style="margin-bottom:20px">
-        <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:8px;">データ管理</label>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-secondary" onclick="exportData()">📤 データをエクスポート</button>
-          <label class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;">
-            📥 インポート
-            <input type="file" accept=".json" onchange="importData(event)" style="display:none;">
-          </label>
-          <button class="btn btn-danger" onclick="clearAllData()">🗑️ 全データ削除</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </main>
 
