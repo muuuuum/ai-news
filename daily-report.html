@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Hiromu's Daily Report - RGP日報（山木さんを超えるまで〜）</title>
 <style>
   :root {
@@ -478,7 +481,8 @@ function saveReport() {
   };
   saveReports(reports);
   updateStreak();
-  showToast('✓ 保存しました');
+  showToast('✓ 保存中...');
+  cloudSave().then(ok => { if (ok) showToast('✓ 保存しました'); });
 }
 
 function clearForm() {
@@ -863,27 +867,43 @@ async function postComment() {
   }
 }
 
-// ── Auto-save ──
+// ── Auto-save (local only, no cloud push) ──
 let autoSaveTimer = null;
 document.querySelectorAll('#view-write textarea').forEach(ta => {
   ta.addEventListener('input', () => {
     clearTimeout(autoSaveTimer);
-    autoSaveTimer = setTimeout(() => saveReport(), 3000);
+    autoSaveTimer = setTimeout(() => {
+      const dateStr = datePicker.value;
+      if (!dateStr) return;
+      const reports = getReports();
+      reports[dateStr] = {
+        taskContent: document.getElementById('taskContent').value,
+        challenges: document.getElementById('challenges').value,
+        insights: document.getElementById('insights').value,
+        tomorrow: document.getElementById('tomorrow').value,
+        updatedAt: new Date().toISOString()
+      };
+      saveReports(reports);
+      updateStreak();
+    }, 3000);
   });
 });
 
-// ── Cloud Sync (GitHub Repo Contents API) ──
+// ── Cloud Storage (GitHub Repo Contents API) ──
 const SYNC_PATH = 'data/reports.json';
 const SYNC_API = `https://api.github.com/repos/muuuuum/ai-news/contents/${SYNC_PATH}`;
+const RAW_URL = `https://raw.githubusercontent.com/muuuuum/ai-news/main/${SYNC_PATH}`;
 let fileSha = null;
 
 function setSyncStatus(status) {
   const badge = document.getElementById('syncBadge');
-  if (status === 'syncing') { badge.classList.add('syncing'); badge.textContent = '☁️ 同期中...'; }
-  else if (status === 'done') { badge.classList.remove('syncing'); badge.textContent = '☁️ 同期済'; }
+  if (status === 'syncing') { badge.classList.add('syncing'); badge.textContent = '☁️ 保存中...'; }
+  else if (status === 'done') { badge.classList.remove('syncing'); badge.textContent = '☁️ 保存済'; }
+  else if (status === 'error') { badge.classList.remove('syncing'); badge.textContent = '⚠️ エラー'; }
   else { badge.classList.remove('syncing'); badge.textContent = '☁️ 同期'; }
 }
 
+// GitHub にデータをアップロード
 async function cloudSave() {
   const reports = getReports();
   const weeklyReviews = JSON.parse(localStorage.getItem('weekly_reviews') || '{}');
@@ -892,6 +912,13 @@ async function cloudSave() {
 
   setSyncStatus('syncing');
   try {
+    // SHA を取得（最新を確認）
+    if (!fileSha) {
+      const check = await fetch(SYNC_API, {
+        headers: { 'Authorization': `token ${GH_TOKEN}`, 'Accept': 'application/vnd.github+json' }
+      });
+      if (check.ok) { fileSha = (await check.json()).sha; }
+    }
     const body = { message: 'sync daily reports', content: encoded };
     if (fileSha) body.sha = fileSha;
     const res = await fetch(SYNC_API, {
@@ -899,35 +926,42 @@ async function cloudSave() {
       headers: { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
-    if (!res.ok) throw new Error(`upload failed: ${res.status}`);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || res.status);
+    }
     const data = await res.json();
     fileSha = data.content.sha;
     setSyncStatus('done');
     return true;
   } catch (e) {
-    setSyncStatus('idle');
-    showToast('⚠️ クラウド同期に失敗しました');
+    console.error('cloudSave error:', e);
+    setSyncStatus('error');
+    showToast('⚠️ 保存失敗: ' + e.message);
     return false;
   }
 }
 
+// GitHub からデータを読み込み
 async function cloudLoad() {
   setSyncStatus('syncing');
   try {
-    const res = await fetch(SYNC_API, {
+    // キャッシュ回避のためタイムスタンプ付きで取得
+    const res = await fetch(RAW_URL + '?t=' + Date.now());
+    if (!res.ok) { setSyncStatus('idle'); return false; }
+    const cloud = await res.json();
+
+    // SHA も取得しておく（保存時に必要）
+    const metaRes = await fetch(SYNC_API, {
       headers: { 'Authorization': `token ${GH_TOKEN}`, 'Accept': 'application/vnd.github+json' }
     });
-    if (res.status === 404) { setSyncStatus('idle'); return false; }
-    if (!res.ok) { setSyncStatus('idle'); return false; }
-    const data = await res.json();
-    fileSha = data.sha;
-    const decoded = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-    const cloud = JSON.parse(decoded);
+    if (metaRes.ok) { fileSha = (await metaRes.json()).sha; }
 
     if (cloud.reports) {
       const local = getReports();
-      const merged = { ...local };
-      for (const [date, entry] of Object.entries(cloud.reports)) {
+      const merged = { ...cloud.reports };
+      // ローカルの方が新しいデータがあれば上書き
+      for (const [date, entry] of Object.entries(local)) {
         if (!merged[date] || (entry.updatedAt && (!merged[date].updatedAt || entry.updatedAt > merged[date].updatedAt))) {
           merged[date] = entry;
         }
@@ -936,25 +970,26 @@ async function cloudLoad() {
     }
     if (cloud.weeklyReviews) {
       const localReviews = JSON.parse(localStorage.getItem('weekly_reviews') || '{}');
-      const mergedReviews = { ...localReviews, ...cloud.weeklyReviews };
-      localStorage.setItem('weekly_reviews', JSON.stringify(mergedReviews));
+      localStorage.setItem('weekly_reviews', JSON.stringify({ ...cloud.weeklyReviews, ...localReviews }));
     }
     setSyncStatus('done');
     return true;
   } catch (e) {
+    console.error('cloudLoad error:', e);
     setSyncStatus('idle');
     return false;
   }
 }
 
+// 同期ボタン: ダウンロード → ローカルマージ → アップロード
 async function manualSync() {
   const badge = document.getElementById('syncBadge');
   if (badge.classList.contains('syncing')) return;
   await cloudLoad();
   loadReport(datePicker.value);
   updateStreak();
-  await cloudSave();
-  showToast('☁️ 同期完了！');
+  const ok = await cloudSave();
+  if (ok) showToast('☁️ 同期完了！');
 }
 
 // ── Init ──
@@ -964,6 +999,7 @@ async function manualSync() {
   datePicker.addEventListener('change', onDateChange);
   const savedName = localStorage.getItem('comment_name');
   if (savedName) document.getElementById('commentName').value = savedName;
+  // ページ読み込み時にクラウドからデータ取得
   const loaded = await cloudLoad();
   if (loaded) { loadReport(datePicker.value); updateStreak(); }
 })();
