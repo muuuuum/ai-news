@@ -13,7 +13,7 @@ import requests
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from config import RSS_FEEDS, AI_KEYWORDS, MAX_ARTICLES_PER_SOURCE, FETCH_TIMEOUT, LOOKBACK_HOURS
+from config import RSS_FEEDS, AI_KEYWORDS, AI_NEGATIVE_KEYWORDS, MAX_ARTICLES_PER_SOURCE, FETCH_TIMEOUT, LOOKBACK_HOURS
 
 
 @dataclass
@@ -36,6 +36,15 @@ def _matches_ai_keywords(text: str) -> bool:
     """テキストがAI関連キーワードを含むか"""
     text_lower = text.lower()
     for kw in AI_KEYWORDS:
+        if kw.lower() in text_lower:
+            return True
+    return False
+
+
+def _matches_negative_keywords(text: str) -> bool:
+    """テキストがAI非関連キーワードを含むか"""
+    text_lower = text.lower()
+    for kw in AI_NEGATIVE_KEYWORDS:
         if kw.lower() in text_lower:
             return True
     return False
@@ -83,7 +92,7 @@ def fetch_feed(feed_config: dict) -> list[RawArticle]:
         print(f"  [WARN] {name}: フィード取得失敗 - {e}")
         return []
 
-    for entry in feed.entries[:MAX_ARTICLES_PER_SOURCE * 2]:  # 余裕を持って取得
+    for entry in feed.entries:
         title = getattr(entry, "title", "").strip()
         link = getattr(entry, "link", "").strip()
         summary = getattr(entry, "summary", getattr(entry, "description", "")).strip()
@@ -94,6 +103,10 @@ def fetch_feed(feed_config: dict) -> list[RawArticle]:
         # 日付フィルタ
         pub = _parse_published(entry)
         if pub and pub < cutoff:
+            continue
+
+        # ネガティブキーワードフィルタ（全ソース共通）
+        if _matches_negative_keywords(title):
             continue
 
         # AI関連キーワードフィルタ（一般テック媒体のみ）
@@ -111,9 +124,6 @@ def fetch_feed(feed_config: dict) -> list[RawArticle]:
             published=pub,
             language=lang,
         ))
-
-        if len(articles) >= MAX_ARTICLES_PER_SOURCE:
-            break
 
     return articles
 

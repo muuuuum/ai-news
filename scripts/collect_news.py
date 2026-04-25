@@ -25,8 +25,9 @@ from config import MAX_FINAL_ARTICLES
 from sources.rss_feeds import fetch_all as fetch_rss
 from sources.arxiv_fetcher import fetch as fetch_arxiv
 from sources.hackernews import fetch as fetch_hn
+from sources.reddit_fetcher import fetch as fetch_reddit
 from processing.deduplicator import deduplicate
-from processing.classifier import classify
+from processing.classifier import classify, filter_non_ai
 from processing.ranker import rank
 from processing.summarizer import summarize
 from output.json_writer import write
@@ -49,6 +50,7 @@ def main():
     raw_articles.extend(fetch_rss())
     raw_articles.extend(fetch_arxiv())
     raw_articles.extend(fetch_hn())
+    raw_articles.extend(fetch_reddit())
 
     print(f"収集完了: 合計 {len(raw_articles)}件の生記事\n")
 
@@ -64,8 +66,11 @@ def main():
     # 重複排除
     deduplicated = deduplicate(raw_articles)
 
+    # AI関連フィルタ
+    filtered = filter_non_ai(deduplicated)
+
     # カテゴリ分類
-    classified = classify(deduplicated)
+    classified = classify(filtered)
 
     # 重要度ランキング
     ranked = rank(classified)
@@ -91,7 +96,7 @@ def main():
     print("\n" + "=" * 60)
     print(f"  完了！")
     print(f"  処理時間: {elapsed:.1f}秒")
-    print(f"  収集: {len(raw_articles)}件 → 重複排除: {len(deduplicated)}件 → 最終: {len(summarized)}件")
+    print(f"  収集: {len(raw_articles)}件 → 重複排除: {len(deduplicated)}件 → AIフィルタ: {len(filtered)}件 → 最終: {len(summarized)}件")
     print(f"  カテゴリ分布:")
     cats = {}
     for a in summarized:

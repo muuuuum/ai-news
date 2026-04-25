@@ -45,6 +45,9 @@ def write(articles: list, date_str: str = None):
             "importance": art.get("importance", 5.0),
             "published": art.get("published").isoformat() if art.get("published") else date_str,
             "language": art.get("language", "en"),
+            "key_stats": art.get("key_stats", []),
+            "related_topics": art.get("related_topics", []),
+            "timeline_context": art.get("timeline_context", ""),
         })
 
     day_report = {

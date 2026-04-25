@@ -37,6 +37,8 @@ CAT_CONFIG = {
                         "bar_color": "var(--accent)", "grad": ("#7f1d1d", "#991b1b"), "emoji": "🔒"},
     "startup":        {"tag": "STARTUP", "tc": "tag-startup", "label": "スタートアップ",
                         "bar_color": "var(--teal)", "grad": ("#134e4a", "#0d9488"), "emoji": "🚀"},
+    "research_paper": {"tag": "PAPER", "tc": "tag-paper", "label": "研究論文",
+                        "bar_color": "var(--orange)", "grad": ("#78350f", "#d97706"), "emoji": "📄"},
 }
 
 
@@ -202,8 +204,8 @@ def generate_html(date_str: str = None):
         print("[HTML] 記事が0件")
         return
 
-    # 最大15件に絞る（ページが長くなりすぎない）
-    articles = articles[:15]
+    # 最大40件に絞る
+    articles = articles[:40]
 
     # 既存HTMLを読み込み
     with open(INDEX_PATH, "r", encoding="utf-8") as f:
@@ -224,17 +226,36 @@ def generate_html(date_str: str = None):
     # === 1b. ナビゲーション（カテゴリリンク化） ===
     nav_items = (
         '<div class="nav-item active" onclick="scrollToSec(\'top\')">トップ</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-key-numbers\')">注目数字</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-trends\')">トレンド</div>'
         '<div class="nav-item" onclick="scrollToSec(\'sec-model_research\')">モデル・研究</div>'
         '<div class="nav-item" onclick="scrollToSec(\'sec-agent_ai\')">エージェントAI</div>'
         '<div class="nav-item" onclick="scrollToSec(\'sec-business\')">ビジネス</div>'
         '<div class="nav-item" onclick="scrollToSec(\'sec-startup\')">スタートアップ</div>'
         '<div class="nav-item" onclick="scrollToSec(\'sec-security\')">セキュリティ</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-timeline\')">タイムライン</div>'
     )
     html = re.sub(
         r'<div class="nav-inner">.*?</div></div>',
         f'<div class="nav-inner">{nav_items}</div></div>',
         html, count=1, flags=re.DOTALL
     )
+
+    # Add CSS for new elements
+    new_css = """
+.tag-paper{background:var(--orange-light);color:var(--orange);}
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.card-v{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.card-v:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);}
+.card-v-thumb{width:100%;height:140px;overflow:hidden;}
+.card-v-thumb svg{width:100%;height:100%;}
+.card-v-body{padding:14px 16px 8px;}
+.card-v-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;margin-bottom:6px;}
+.card-v-title{font-size:14px;font-weight:800;line-height:1.5;margin-bottom:6px;}
+.card-v-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.card-v-footer{display:flex;justify-content:space-between;padding:8px 16px 14px;font-size:11px;color:var(--muted2);}
+"""
+    html = html.replace('</style>', new_css + '</style>')
 
     # === 2. ティッカー ===
     ticker = ""
@@ -249,21 +270,24 @@ def generate_html(date_str: str = None):
 
     # === 3. メインコンテンツ ===
     hero = articles[0]
-    pickups = articles[1:5]
+    pickups = articles[1:9]
 
-    # カテゴリ分類（各カテゴリ最大3件）
+    # カテゴリ分類（各カテゴリ最大6件）
     by_cat = {}
-    for a in articles[5:]:
+    for a in articles[9:]:
         cat = a.get("category", "model_research")
         by_cat.setdefault(cat, [])
-        if len(by_cat[cat]) < 3:
+        if len(by_cat[cat]) < 6:
             by_cat[cat].append(a)
 
     main = ""
     main += _hero_section(hero, rich)
     main += _pickup_section(pickups)
+    main += _key_numbers_section(articles)
+    main += _trending_topics_section(articles)
     for cat_id, cat_arts in by_cat.items():
         main += _category_section(cat_id, cat_arts)
+    main += _timeline_section(articles)
     main += _sources_section(articles)
 
     html = re.sub(r'<main>.*?</main>', f'<main>\n{main}\n</main>', html, flags=re.DOTALL)
@@ -356,29 +380,131 @@ def _category_section(cat_id: str, articles: list) -> str:
     cards = ""
     for a in articles:
         aid = _article_id(a)
-        svg = _make_svg(a, 220, 140)
-        src = a["sources"][0]["name"] if a.get("sources") else ""
+        svg = _make_svg(a, 300, 140)
+        src_name = a["sources"][0]["name"] if a.get("sources") else ""
         pub = _fmt_date(a.get("published", ""))
-        summary = a.get("summary_ja", "")[:120]
-        src_links = ""
-        for s in a.get("sources", []):
-            src_links += f'<a class="src-link" href="{s["url"]}" target="_blank" onclick="event.stopPropagation()">{s["name"]}</a>'
+        summary = a.get("summary_ja", "")[:100]
+        title_ja = a.get("title_ja", a["title"])
 
         cards += f'''
-      <div class="card-h" onclick="openArticle('{aid}')">
-        <div class="card-h-thumb">{svg}</div>
-        <div class="card-h-body">
-          <span class="card-h-tag {cfg["tc"]}">{cfg["tag"]}</span>
-          <div class="card-h-title">{a.get("title_ja", a["title"])}</div>
-          <div class="card-h-desc">{summary}</div>
-          <div class="card-h-meta">{src_links}<span class="card-h-meta-dot"></span><span>{pub}</span></div>
+      <div class="card-v" onclick="openArticle('{aid}')">
+        <div class="card-v-thumb">{svg}</div>
+        <div class="card-v-body">
+          <span class="card-v-tag {cfg["tc"]}">{cfg["tag"]}</span>
+          <div class="card-v-title">{title_ja}</div>
+          <div class="card-v-desc">{summary}</div>
+        </div>
+        <div class="card-v-footer">
+          <span>{src_name}</span><span>{pub}</span>
         </div>
       </div>'''
 
     return f'''
   <div class="sec" id="sec-{cat_id}">
     <div class="sec-header"><div class="sec-bar" style="background:{cfg["bar_color"]}"></div><div class="sec-title">{cfg["label"]}</div><div class="sec-more">すべて見る →</div></div>
-    <div class="card-list">{cards}
+    <div class="card-grid">{cards}
+    </div>
+  </div>
+'''
+
+
+def _key_numbers_section(articles: list) -> str:
+    """記事からkey_statsを抽出し、数字カードのグリッドとして表示"""
+    numbers = []
+    for a in articles:
+        # key_stats フィールドから抽出
+        for stat in a.get("key_stats", []):
+            val = stat.get("value", "")
+            label = stat.get("label", "")
+            if val and label:
+                numbers.append((val, label))
+        # rich content の stats からも抽出
+        for stat in a.get("stats", []):
+            val = stat.get("value", stat.get("v", ""))
+            label = stat.get("label", stat.get("l", ""))
+            if val and label:
+                numbers.append((val, label))
+    # 重複除去し最大8件
+    seen = set()
+    unique_numbers = []
+    for val, label in numbers:
+        key = f"{val}_{label}"
+        if key not in seen:
+            seen.add(key)
+            unique_numbers.append((val, label))
+    unique_numbers = unique_numbers[:8]
+
+    if not unique_numbers:
+        return ""
+
+    cards = ""
+    for val, label in unique_numbers:
+        cards += f'''
+      <div style="background:var(--white);border-radius:8px;padding:16px 20px;box-shadow:0 1px 3px rgba(0,0,0,.04);text-align:center;">
+        <div style="font-size:24px;font-weight:900;color:var(--blue);letter-spacing:-1px">{val}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">{label}</div>
+      </div>'''
+
+    return f'''
+  <div class="sec" id="sec-key-numbers">
+    <div class="sec-header"><div class="sec-bar"></div><div class="sec-title">📈 注目の数字</div></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+      {cards}
+    </div>
+  </div>
+'''
+
+
+def _timeline_section(articles: list) -> str:
+    """記事を公開日順にタイムライン表示"""
+    sorted_arts = sorted(articles, key=lambda a: a.get("published", ""), reverse=True)
+    items = ""
+    for a in sorted_arts[:12]:
+        pub = _fmt_date(a.get("published", ""))
+        title_ja = a.get("title_ja", a["title"])
+        summary = a.get("summary_ja", "")[:80]
+        items += f'''
+      <div style="margin-bottom:20px;position:relative;">
+        <div style="position:absolute;left:-29px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--white);"></div>
+        <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:4px;">{pub}</div>
+        <div style="font-size:13px;font-weight:700;">{title_ja}</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px;">{summary}</div>
+      </div>'''
+
+    return f'''
+  <div class="sec" id="sec-timeline">
+    <div class="sec-header"><div class="sec-bar" style="background:var(--accent)"></div><div class="sec-title">📅 タイムライン</div></div>
+    <div style="position:relative;padding-left:24px;border-left:2px solid var(--border);">
+      {items}
+    </div>
+  </div>
+'''
+
+
+def _trending_topics_section(articles: list) -> str:
+    """記事のrelated_topicsを集計し、タグクラウドとして表示"""
+    topic_counts = {}
+    for a in articles:
+        for topic in a.get("related_topics", []):
+            topic = topic.strip()
+            if topic:
+                topic_counts[topic] = topic_counts.get(topic, 0) + 1
+    # 頻度順にソート
+    sorted_topics = sorted(topic_counts.items(), key=lambda x: -x[1])[:15]
+
+    if not sorted_topics:
+        return ""
+
+    tags = ""
+    for topic, count in sorted_topics:
+        tags += f'''
+      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">{topic} ({count})</span>'''
+
+    return f'''
+  <div class="sec" id="sec-trends">
+    <div class="sec-header"><div class="sec-bar" style="background:var(--purple)"></div><div class="sec-title">🔥 トレンドトピック</div></div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      {tags}
     </div>
   </div>
 '''
@@ -425,7 +551,38 @@ def _sidebar(articles: list, date_display: str) -> str:
 
     rank_box = f'<div class="sb-box"><div class="sb-title"><span>🏆</span>注目ランキング</div>{rank_html}</div>'
 
-    return f'{nl}\n{stats_box}\n{rank_box}'
+    # トレンドトピック（サイドバー版）
+    topic_counts = {}
+    for a in articles:
+        for topic in a.get("related_topics", []):
+            topic = topic.strip()
+            if topic:
+                topic_counts[topic] = topic_counts.get(topic, 0) + 1
+    sorted_topics = sorted(topic_counts.items(), key=lambda x: -x[1])[:8]
+    trend_tags = ""
+    for topic, count in sorted_topics:
+        trend_tags += f'<span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">{topic} ({count})</span>'
+    trend_box = ""
+    if trend_tags:
+        trend_box = f'<div class="sb-box"><div class="sb-title"><span>🔥</span>トレンドトピック</div><div style="display:flex;flex-wrap:wrap;gap:4px;">{trend_tags}</div></div>'
+
+    # イベント（timeline_contextから日付を抽出）
+    events_html = ""
+    event_items = []
+    for a in articles:
+        tc = a.get("timeline_context", "")
+        if tc:
+            title_ja = a.get("title_ja", a["title"])[:35]
+            pub = _fmt_date(a.get("published", ""))
+            event_items.append((pub, title_ja))
+    event_items = event_items[:5]
+    if event_items:
+        ev_list = ""
+        for pub, title in event_items:
+            ev_list += f'<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:var(--accent);min-width:60px;">{pub}</div><div style="font-size:11.5px;font-weight:600;line-height:1.4;">{title}</div></div>'
+        events_html = f'<div class="sb-box"><div class="sb-title"><span>📅</span>関連イベント</div>{ev_list}</div>'
+
+    return f'{nl}\n{stats_box}\n{rank_box}\n{trend_box}\n{events_html}'
 
 
 def _build_js_data(articles: list, rich: dict) -> str:

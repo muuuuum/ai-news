@@ -16,8 +16,8 @@ ARCHIVE_DIR = os.path.join(DATA_DIR, "archive")
 REPORTS_JSON = os.path.join(DATA_DIR, "reports.json")
 
 # === 収集設定 ===
-MAX_ARTICLES_PER_SOURCE = 10
-MAX_FINAL_ARTICLES = 20
+MAX_ARTICLES_PER_SOURCE = 50
+MAX_FINAL_ARTICLES = 40
 FETCH_TIMEOUT = 15  # seconds
 LOOKBACK_HOURS = 48  # 直近48時間のニュースを収集
 
@@ -30,6 +30,21 @@ AI_KEYWORDS = [
     "agent", "autonomous", "MCP", "tool use",
     "人工知能", "機械学習", "深層学習", "生成AI", "大規模言語モデル",
     "エージェント", "自律", "チャットボット",
+]
+
+# === AI非関連キーワード（これらを含む記事を除外） ===
+AI_NEGATIVE_KEYWORDS = [
+    "CEO steps down", "CEO交代", "CEO退任", "joins board", "advisory board",
+    "event lineup", "conference speaker", "podcast recap",
+    "table tennis", "卓球", "job posting", "hiring",
+    "photo contest", "写真コンテスト",
+]
+
+# === Reddit設定 ===
+REDDIT_SUBREDDITS = [
+    {"name": "r/MachineLearning", "subreddit": "MachineLearning", "min_score": 100},
+    {"name": "r/artificial", "subreddit": "artificial", "min_score": 50},
+    {"name": "r/LocalLLaMA", "subreddit": "LocalLLaMA", "min_score": 80},
 ]
 
 # === カテゴリ定義（サイトのCSSクラスと対応） ===
@@ -64,13 +79,19 @@ CATEGORIES = {
         "keywords": ["startup", "launch", "seed", "series A", "Y Combinator",
                       "founding", "スタートアップ", "新興", "ローンチ"],
     },
+    "research_paper": {
+        "label": "研究論文",
+        "tag_class": "tag-paper",
+        "keywords": ["paper", "arxiv", "preprint", "dataset", "benchmark", "SOTA",
+                      "conference", "ICML", "NeurIPS", "ACL", "論文", "データセット"],
+    },
 }
 
 # === RSSフィード定義 ===
 # tier: 1=通信社/最重要, 2=大手テックメディア, 3=企業ブログ, 4=日本語メディア, 5=アグリゲータ
 RSS_FEEDS = [
     # --- Tier 1: 通信社 ---
-    {"name": "Reuters Technology", "url": "https://www.reutersagency.com/feed/?taxonomy=best-sectors&post_type=best", "tier": 1, "lang": "en", "ai_filter": True},
+    {"name": "Reuters Technology", "url": "https://news.google.com/rss/search?q=AI+artificial+intelligence+site:reuters.com&hl=en-US&gl=US&ceid=US:en", "tier": 1, "lang": "en", "ai_filter": True},
 
     # --- Tier 2: 大手テックメディア ---
     {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "tier": 2, "lang": "en", "ai_filter": False},
@@ -81,18 +102,27 @@ RSS_FEEDS = [
     {"name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "tier": 2, "lang": "en", "ai_filter": True},
 
     # --- Tier 3: 企業ブログ ---
-    {"name": "Anthropic Blog", "url": "https://www.anthropic.com/rss.xml", "tier": 3, "lang": "en", "ai_filter": False},
+    {"name": "Anthropic Blog", "url": "https://www.anthropic.com/feed.xml", "tier": 3, "lang": "en", "ai_filter": False},
     {"name": "OpenAI Blog", "url": "https://openai.com/blog/rss.xml", "tier": 3, "lang": "en", "ai_filter": False},
     {"name": "Google AI Blog", "url": "https://blog.google/technology/ai/rss/", "tier": 3, "lang": "en", "ai_filter": False},
-    {"name": "Meta AI Blog", "url": "https://ai.meta.com/blog/rss/", "tier": 3, "lang": "en", "ai_filter": False},
+    {"name": "Meta AI Blog", "url": "https://news.google.com/rss/search?q=site:ai.meta.com&hl=en-US&gl=US&ceid=US:en", "tier": 3, "lang": "en", "ai_filter": False},
     {"name": "Microsoft AI Blog", "url": "https://blogs.microsoft.com/ai/feed/", "tier": 3, "lang": "en", "ai_filter": False},
     {"name": "NVIDIA Blog", "url": "https://blogs.nvidia.com/feed/", "tier": 3, "lang": "en", "ai_filter": True},
     {"name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "tier": 3, "lang": "en", "ai_filter": False},
+    {"name": "DeepMind Blog", "url": "https://deepmind.google/blog/rss.xml", "tier": 3, "lang": "en", "ai_filter": False},
+    {"name": "Stability AI", "url": "https://stability.ai/blog/feed", "tier": 3, "lang": "en", "ai_filter": False},
+    {"name": "AI2 Blog", "url": "https://blog.allenai.org/feed", "tier": 3, "lang": "en", "ai_filter": False},
 
     # --- Tier 4: 日本語メディア ---
     {"name": "ITmedia AI+", "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml", "tier": 4, "lang": "ja", "ai_filter": False},
     {"name": "Impress Watch", "url": "https://www.watch.impress.co.jp/data/rss/1.0/ipw/feed.rdf", "tier": 4, "lang": "ja", "ai_filter": True},
-    {"name": "ledge.ai", "url": "https://ledge.ai/feed", "tier": 4, "lang": "ja", "ai_filter": False},
+    {"name": "AI Now (旧ledge.ai)", "url": "https://ainow.ai/feed/", "tier": 4, "lang": "ja", "ai_filter": False},
+    {"name": "Gigazine", "url": "https://gigazine.net/news/rss_2.0/", "tier": 4, "lang": "ja", "ai_filter": True},
+    {"name": "PC Watch", "url": "https://pc.watch.impress.co.jp/data/rss/1.0/pcw/feed.rdf", "tier": 4, "lang": "ja", "ai_filter": True},
+
+    # --- Tier 2追加: 大手テックメディア ---
+    {"name": "Axios Tech", "url": "https://api.axios.com/feed/technology", "tier": 2, "lang": "en", "ai_filter": True},
+    {"name": "CNBC Tech", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19854910", "tier": 2, "lang": "en", "ai_filter": True},
 ]
 
 # === ソースティアの重み（ランキング用） ===

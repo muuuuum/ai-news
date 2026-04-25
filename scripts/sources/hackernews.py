@@ -13,7 +13,7 @@ from sources.rss_feeds import RawArticle
 
 
 HN_API = "https://hacker-news.firebaseio.com/v0"
-MIN_SCORE = 30
+MIN_SCORE = 20
 
 
 def _matches_ai(text: str) -> bool:
@@ -29,7 +29,7 @@ def fetch() -> list[RawArticle]:
 
     try:
         resp = requests.get(f"{HN_API}/topstories.json", timeout=FETCH_TIMEOUT)
-        story_ids = resp.json()[:60]
+        story_ids = resp.json()[:200]
     except Exception as e:
         print(f"  [WARN] HN: ストーリーID取得失敗 - {e}")
         return []
@@ -65,9 +65,6 @@ def fetch() -> list[RawArticle]:
             published=pub,
             language="en",
         ))
-
-        if len(articles) >= 10:
-            break
 
     print(f"  [HN] {len(articles)}件取得")
     return articles

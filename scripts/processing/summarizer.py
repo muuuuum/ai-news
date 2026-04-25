@@ -25,6 +25,9 @@ def summarize(articles: list) -> list:
             art["title_ja"] = art["title"]
             art["summary_ja"] = art["summary"][:200]
             art["impact"] = ""
+            art["key_stats"] = []
+            art["related_topics"] = []
+            art["timeline_context"] = ""
         return articles
 
     print(f"[要約] {len(articles)}件の日本語要約を生成中...")
@@ -53,13 +56,16 @@ def _summarize_batch(batch: list):
 - title_ja: 日本語の見出し（30文字以内、具体的な数字や固有名詞を含める）
 - summary_ja: 2-3文の日本語要約（重要な部分を<b>タグで強調）
 - impact: 読者にとってなぜ重要かを1文で
+- key_stats: 記事から抽出できる重要な数値を最大3つ。各要素は {{"value": "数値", "label": "説明"}} の形式。数値がなければ空配列。
+- related_topics: この記事に関連するトレンドトピックを2-3個（例: "LLM競争", "AI規制"）
+- timeline_context: このニュースを時系列で位置づける1文（例: "OpenAIのGPT-4o発表から2ヶ月後の動き"）
 
 トーン: プロフェッショナルだが親しみやすい。事実ベースで、煽らない。
 日本語の記事はそのまま要約。英語の記事は自然な日本語に翻訳して要約。
 
 {article_list}
 
-JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_ja": "...", "impact": "..."}}"""
+JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_ja": "...", "impact": "...", "key_stats": [...], "related_topics": [...], "timeline_context": "..."}}"""
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
     payload = {
@@ -82,6 +88,9 @@ JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_
                 batch[idx]["title_ja"] = item.get("title_ja", batch[idx]["title"])
                 batch[idx]["summary_ja"] = item.get("summary_ja", batch[idx]["summary"][:200])
                 batch[idx]["impact"] = item.get("impact", "")
+                batch[idx]["key_stats"] = item.get("key_stats", [])
+                batch[idx]["related_topics"] = item.get("related_topics", [])
+                batch[idx]["timeline_context"] = item.get("timeline_context", "")
 
     except Exception as e:
         print(f"  [WARN] Gemini要約失敗 - {e}")
@@ -90,3 +99,6 @@ JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_
                 art["title_ja"] = art["title"]
                 art["summary_ja"] = art["summary"][:200]
                 art["impact"] = ""
+                art["key_stats"] = []
+                art["related_topics"] = []
+                art["timeline_context"] = ""

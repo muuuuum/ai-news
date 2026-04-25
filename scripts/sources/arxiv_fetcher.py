@@ -31,11 +31,11 @@ def fetch() -> list[RawArticle]:
         "search_query": CATEGORIES,
         "sortBy": "submittedDate",
         "sortOrder": "descending",
-        "max_results": 30,
+        "max_results": 100,
     }
 
     try:
-        resp = requests.get(ARXIV_API, params=params, timeout=FETCH_TIMEOUT * 2)
+        resp = requests.get(ARXIV_API, params=params, timeout=FETCH_TIMEOUT * 4)
         resp.raise_for_status()
     except Exception as e:
         print(f"  [WARN] arXiv: 取得失敗 - {e}")
@@ -86,9 +86,6 @@ def fetch() -> list[RawArticle]:
             published=pub,
             language="en",
         ))
-
-        if len(articles) >= 10:
-            break
 
     print(f"  [arXiv] {len(articles)}件取得")
     return articles

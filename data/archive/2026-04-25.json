@@ -1,13 +1,47 @@
 {
-  "generated_at": "2026-04-25T19:26:53.109323+09:00",
-  "article_count": 20,
+  "generated_at": "2026-04-25T20:34:07.994744+09:00",
+  "article_count": 40,
   "articles": [
     {
       "id": "2026-04-25-001",
+      "title": "DeepSeek-V4, the Chinese AI model adapted for Huawei chips - Reuters",
+      "title_ja": "DeepSeek-V4、ファーウェイ向けAIモデル",
+      "summary_ja": "中国のAI企業DeepSeekが、<b>ファーウェイ製チップに最適化された最新AIモデル「DeepSeek-V4」を発表</b>しました。これにより、中国国内でのAI開発におけるハードウェア依存度を低減し、国産エコシステムの強化を目指します。",
+      "impact": "中国のAI技術が国産ハードウェアとの連携を深めることで、グローバルなAI競争における地政学的な動向を理解する上で重要です。",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNWHNGM0lqMWwzNGo5QXFCYjBNYzlKc0VWT05hOUg0RWVscnlHRnVVVWMtS1hEOWtuSzQ3SUVyT2hTZWJZR18tSkRSVXhzWnhsMnNuakM0ZmNHMzlmMGt6MDBWODhsdUZRWVR3eGRnZVJaS2t1Nl9hd200QUduM2ZMb0tEMWl4Tzd5dk8wQnE5OTJVaTU1TEk4bHlRNEZSUQ?oc=5"
+        },
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models"
+        },
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/918035/deepseek-preview-v4-ai-model"
+        }
+      ],
+      "importance": 6.2,
+      "published": "2026-04-24T14:04:52+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "中国AI",
+        "国産チップ",
+        "AIモデル開発"
+      ],
+      "timeline_context": "米中間の技術摩擦が続く中で、中国が国産AIエコシステムを強化する動きの一環です。"
+    },
+    {
+      "id": "2026-04-25-002",
       "title": "Google to invest up to $40B in Anthropic in cash and compute",
-      "title_ja": "GoogleがAnthropicに最大400億ドル投資",
-      "summary_ja": "Googleは、強力なサイバーセキュリティモデル「Mythos」の限定リリースに続き、<b>Anthropicに最大400億ドルを投資する計画</b>です。これは、AI企業が大規模な計算能力を確保しようと競争する中で行われるものです。",
-      "impact": "この投資は、AI分野における主要企業の競争激化と、計算リソース確保の重要性を示しており、今後のAI技術の発展方向を理解する上で重要です。",
+      "title_ja": "Google、Anthropicに最大400億ドル投資",
+      "summary_ja": "Googleは、AIスタートアップのAnthropicに対し、<b>現金と計算資源を合わせて最大400億ドル（約6兆円）を投資</b>する計画です。これは、強力なサイバーセキュリティ特化型モデル「Mythos」の限定公開に続く動きで、AI企業間の大規模な計算能力確保競争が激化していることを示しています。",
+      "impact": "この巨額投資は、AI分野における主要企業の競争戦略と、計算資源の確保が今後のAI開発の鍵となることを示唆しており、業界の動向を理解する上で重要です。",
       "category": "business",
       "category_label": "ビジネス",
       "tag_class": "tag-biz",
@@ -17,20 +51,96 @@
           "url": "https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute"
         },
         {
+          "name": "CNBC Tech",
+          "url": "https://www.cnbc.com/2026/04/24/google-to-invest-up-to-40-billion-in-anthropic-as-search-giant-spreads-its-ai-bets.html"
+        },
+        {
           "name": "Hacker News",
           "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic"
         }
       ],
-      "importance": 5.0,
+      "importance": 5.8,
       "published": "2026-04-24T18:00:03+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "$40B",
+          "label": "GoogleのAnthropicへの最大投資額"
+        }
+      ],
+      "related_topics": [
+        "AI投資",
+        "LLM競争",
+        "クラウドコンピューティング"
+      ],
+      "timeline_context": "主要AI企業が計算資源の確保とパートナーシップ強化に注力する中で、GoogleがAnthropicへの投資を拡大する動きです。"
     },
     {
-      "id": "2026-04-25-002",
+      "id": "2026-04-25-003",
+      "title": "Intel soars on signs AI boom for CPUs is here - Reuters",
+      "title_ja": "Intel株価、AI向けCPU需要で急騰",
+      "summary_ja": "Intelの株価が急騰しており、これは<b>AIブームがCPU市場にも波及し、需要が拡大している兆候</b>と見られています。これまでGPUが注目されてきましたが、AI処理におけるCPUの重要性も再認識されつつあります。",
+      "impact": "AIの進化がGPUだけでなくCPU市場にも大きな影響を与え始めていることを示しており、半導体業界全体の投資動向や技術開発の方向性を理解する上で重要です。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPSTljTXlld2NZUEpMNUZ6RFlXS2VVNFJWcTd6UGQ5M3d5RkJJU1U3WEJnOXhnbVI5UmRIT09mdnNmQXk4QW9tcVVESzJyaU1KM3BQSndIdWowN19fSHdlY2ZWN1kxTTNId1VWTDZKRzlpUHB1MGNFbml0dWNqajNIVUg0Yl9nbG00RnNXbi1DeTBFU2dCOFZ2U0VZcHRWR3lDZkVVZE1FVWhqZEw0WXVV?oc=5"
+        },
+        {
+          "name": "Hacker News",
+          "url": "https://unsung.aresluna.org/plain-text-has-been-around-for-decades-and-its-here-to-stay"
+        }
+      ],
+      "importance": 5.4,
+      "published": "2026-04-24T09:28:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIハードウェア",
+        "半導体産業",
+        "CPU市場"
+      ],
+      "timeline_context": "AI開発の加速に伴い、高性能な計算資源への需要が高まる中で、CPUメーカーであるIntelがその恩恵を受け始めている状況です。"
+    },
+    {
+      "id": "2026-04-25-004",
+      "title": "Canadian AI startup Cohere buys Germany's Aleph Alpha to expand in Europe - Reuters",
+      "title_ja": "Cohere、ドイツAleph Alphaを買収し欧州進出",
+      "summary_ja": "カナダのAIスタートアップCohereが、<b>ドイツのAI企業Aleph Alphaを買収</b>しました。この買収により、Cohereは<b>欧州市場での事業拡大と競争力強化</b>を目指します。",
+      "impact": "北米のAI企業が欧州市場への足がかりを築く動きであり、グローバルなAI競争における地域戦略やM&Aのトレンドを理解する上で重要です。",
+      "category": "startup",
+      "category_label": "スタートアップ",
+      "tag_class": "tag-startup",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQWkRJSFo2ZzVYTkVSNkNVZE45TnY4X0ZXOGllYUVzSEMzd0UxelFiLURqVU9SdWlmY1JoM0VBZjZEVWhzX2pNWW96VXlNanZRZmRXVkFsRDJIZW1iTGZLdEw5ZFBUNFNrOS1ZVnJGc1lENmM2dTRPTEJLUHpqTDJfdGVuN0loYW9JYTVjYVY3UUh3akIyYkU3YTcyMDBZemhWLVJnTTlGbGxmM195a29ncFdBdUV6cWRxY1RiV240ME42b05qNWRV?oc=5"
+        },
+        {
+          "name": "CNBC Tech",
+          "url": "https://www.cnbc.com/2026/04/24/cohere-aleph-alpha-germany-ai-europe-expansion.html"
+        }
+      ],
+      "importance": 5.4,
+      "published": "2026-04-24T05:21:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIスタートアップ",
+        "M&A",
+        "欧州市場"
+      ],
+      "timeline_context": "AI分野での競争が激化する中、主要なAIスタートアップがグローバル展開を加速させるためのM&A戦略の一環です。"
+    },
+    {
+      "id": "2026-04-25-005",
       "title": "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B",
-      "title_ja": "AppleのCEOがジョン・ターナスに交代",
-      "summary_ja": "Appleは、<b>ティム・クックCEOが9月に退任し、ハードウェア責任者のジョン・ターナス氏が後任となる</b>ことで、新時代を迎えます。ターナス氏は、テック業界で最も安定したビジネスの一つを引き継ぎますが、非常に異なるエコシステムに足を踏み入れることになります。",
-      "impact": "Appleのリーダーシップ交代は、同社の将来の戦略や製品開発に大きな影響を与える可能性があり、株主やユーザーにとって注目すべき変化です。",
+      "title_ja": "Apple新CEO就任とMuskのCursor買収意向",
+      "summary_ja": "Appleでは、<b>ティム・クックCEOが9月に退任し、ハードウェア担当責任者のジョン・ターナス氏が新CEOに就任</b>する予定です。また、イーロン・マスク氏がAIコーディングアシスタントのCursorを<b>600億ドル（約9兆円）で買収する意向</b>を示していることが報じられました。",
+      "impact": "Appleのリーダーシップ交代は同社の将来的なAI戦略に影響を与え、マスク氏の巨額買収意向はAI開発ツール市場の価値と競争の激化を示しており、テック業界の主要な動向を理解する上で重要です。",
       "category": "business",
       "category_label": "ビジネス",
       "tag_class": "tag-biz",
@@ -46,37 +156,86 @@
       ],
       "importance": 5.0,
       "published": "2026-04-24T17:45:57+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "$60B",
+          "label": "イーロン・マスク氏のCursor買収意向額"
+        }
+      ],
+      "related_topics": [
+        "Appleのリーダーシップ",
+        "AI開発ツール",
+        "M&A"
+      ],
+      "timeline_context": "主要テック企業のリーダーシップ交代や、AI分野での巨額投資・買収が相次ぐ中で報じられたニュースです。"
     },
     {
-      "id": "2026-04-25-003",
-      "title": "DeepSeek previews new AI model that ‘closes the gap’ with frontier models",
-      "title_ja": "DeepSeekが新AIモデルで性能向上",
-      "summary_ja": "DeepSeekは、<b>新しいAIモデルがアーキテクチャの改善によりDeepSeek V3.2よりも効率的かつ高性能になった</b>と発表しました。このモデルは、推論ベンチマークにおいて、既存の主要なオープンおよびクローズドモデルとの「ギャップをほぼ埋めた」とされています。",
-      "impact": "DeepSeekの新しいモデルは、最先端のAI性能に近づいており、AIモデルの進化が加速していることを示唆しているため、開発者や研究者にとって注目すべき進展です。",
+      "id": "2026-04-25-006",
+      "title": "OpenAI releases GPT-5.5, bringing company one step closer to an AI ‘super app’",
+      "title_ja": "OpenAIがGPT-5.5をリリース",
+      "summary_ja": "OpenAIが最新モデル「GPT-5.5」をリリースした。このモデルは、<b>幅広いカテゴリで機能が向上</b>しており、同社が目指すAI「スーパーアプリ」実現へ一歩近づいたとされている。",
+      "impact": "AIモデルの進化は、私たちの仕事や日常生活におけるAIの活用方法を大きく変える可能性を秘めているため、その動向は重要です。",
       "category": "model_research",
       "category_label": "モデル・研究",
       "tag_class": "tag-model",
       "sources": [
         {
           "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models"
+          "url": "https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp"
         },
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/918035/deepseek-preview-v4-ai-model"
+          "name": "Hacker News",
+          "url": "https://developers.openai.com/api/docs/changelog"
         }
       ],
       "importance": 5.0,
-      "published": "2026-04-24T13:30:59+00:00",
-      "language": "en"
+      "published": "2026-04-23T18:29:29+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "LLM進化",
+        "AIスーパーアプリ",
+        "モデル性能向上"
+      ],
+      "timeline_context": "OpenAIがGPT-5.4をリリースした直後の、最新モデル発表の動き。"
     },
     {
-      "id": "2026-04-25-004",
+      "id": "2026-04-25-007",
+      "title": "Anthropic&#8217;s Mythos breach was humiliating",
+      "title_ja": "AnthropicのClaude Mythosが流出",
+      "summary_ja": "Anthropicが厳重に管理していたAIモデル「Claude Mythos」が、<b>公開前に不正アクセスにより流出した</b>。同社はサイバーセキュリティ能力が高すぎて公開が危険だと主張していたが、Bloombergによると少数のグループの手に渡った模様。",
+      "impact": "高度なAIモデルのセキュリティ脆弱性は、AI技術の信頼性や悪用リスクに直結するため、開発企業だけでなく利用者にとっても重要な懸念事項です。",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/917644/anthropic-claude-mythos-breach-humiliation"
+        },
+        {
+          "name": "r/artificial",
+          "url": "https://www.theregister.com/2026/04/22/anthropic_mythos_hype_nothingburger"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-23T18:24:56+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIセキュリティ",
+        "モデル流出",
+        "AI倫理"
+      ],
+      "timeline_context": "AnthropicがClaude Mythosのサイバーセキュリティ能力を強調していた矢先のセキュリティ侵害。"
+    },
+    {
+      "id": "2026-04-25-008",
       "title": "OpenAI says its new GPT-5.5 model is more efficient and better at coding",
-      "title_ja": "OpenAIがGPT-5.5を発表、コーディング強化",
-      "summary_ja": "OpenAIは、<b>新しいGPT-5.5モデルを発表し、これを「これまでで最もスマートで直感的に使えるモデル」</b>と位置づけています。このモデルは、先月リリースされたGPT-5.4に続き、特にライティングやデバッグなどのタスクで「優れている」とされています。",
-      "impact": "GPT-5.5のリリースは、AIモデルの機能が急速に向上していることを示しており、特にコーディングや文章作成の効率化に関心のあるユーザーにとって、業務への応用が期待されます。",
+      "title_ja": "OpenAI、GPT-5.5の効率とコーディング強化",
+      "summary_ja": "OpenAIは、最新モデル「GPT-5.5」を発表し、これを「これまでで最もスマートで直感的なモデル」と称している。GPT-5.4が先月リリースされたばかりだが、GPT-5.5は<b>ライティングやコーディングなどのタスクで特に優れている</b>とされる。",
+      "impact": "AIのコーディング能力向上は、ソフトウェア開発の効率化や新たなアプリケーションの創出に繋がり、多くの開発者や企業に影響を与えるでしょう。",
       "category": "model_research",
       "category_label": "モデル・研究",
       "tag_class": "tag-model",
@@ -92,60 +251,499 @@
       ],
       "importance": 5.0,
       "published": "2026-04-23T18:00:00+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "LLM進化",
+        "AIプログラミング",
+        "生産性向上"
+      ],
+      "timeline_context": "OpenAIが前モデルGPT-5.4をリリースしたわずか1ヶ月後に発表された、急速なモデル更新の動き。"
     },
     {
-      "id": "2026-04-25-005",
-      "title": "THE PEOPLE DO NOT YEARN FOR AUTOMATION",
-      "title_ja": "人々は自動化を熱望していない",
-      "summary_ja": "この記事では、「ソフトウェア脳」という概念を通じて、<b>人々が必ずしも自動化を熱望しているわけではない</b>という考えを提示しています。AIに関する報道や議論の中で、世界を特定の視点から捉え、すべてをその枠に当てはめる傾向について考察しています。",
-      "impact": "AIと自動化の導入が進む中で、技術が人間のニーズや願望とどのように調和すべきかについて深く考えるきっかけを提供し、技術開発の方向性を見直す上で重要です。",
+      "id": "2026-04-25-009",
+      "title": "Discord Sleuths Gained Unauthorized Access to Anthropic’s Mythos",
+      "title_ja": "DiscordユーザーがAnthropic Mythosに不正アクセス",
+      "summary_ja": "AnthropicのAIモデル「Mythos」に対し、<b>Discordのユーザーが不正アクセスに成功した</b>ことが明らかになった。これは、同モデルが公開前に流出したとされる問題の詳細を裏付けるもの。",
+      "impact": "AIモデルのセキュリティは、その開発元だけでなく、コミュニティの監視や脆弱性発見の動きにも注目が集まることを示しており、AIの安全な利用には多角的な視点が必要です。",
       "category": "security",
       "category_label": "セキュリティ",
       "tag_class": "tag-sec",
       "sources": [
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/podcast/917029/software-brain-ai-backlash-databases-automation"
-        },
-        {
           "name": "Wired AI",
-          "url": "https://www.wired.com/story/ace-the-robot-wants-to-become-the-world-table-tennis-champion"
+          "url": "https://www.wired.com/story/security-news-this-week-discord-sleuths-gained-unauthorized-access-to-anthropics-mythos"
         }
       ],
       "importance": 5.0,
-      "published": "2026-04-23T14:00:00+00:00",
-      "language": "en"
+      "published": "2026-04-25T10:30:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIセキュリティ",
+        "コミュニティハッキング",
+        "データプライバシー"
+      ],
+      "timeline_context": "AnthropicのClaude Mythos流出報道を受け、その詳細な経緯が明らかになった続報。"
     },
     {
-      "id": "2026-04-25-006",
-      "title": "Introducing GPT-5.5",
-      "title_ja": "GPT-5.5発表：OpenAIの最新モデル",
-      "summary_ja": "OpenAIは、最新モデル<b>「GPT-5.5」を発表</b>しました。これは、これまでで最もスマートなモデルであり、より高速で高性能です。特に、<b>コーディング、研究、データ分析といった複雑なタスク</b>に対応できるよう設計されています。",
-      "impact": "このモデルの進化は、AIを活用した業務の効率化や新たな可能性を広げるため、ビジネスや研究分野に大きな影響を与えるでしょう。",
+      "id": "2026-04-25-010",
+      "title": "Applied Digital signs $7.5 billion AI data center lease with US hyperscaler - Reuters",
+      "title_ja": "Applied Digitalが75億ドルのAIデータセンター契約",
+      "summary_ja": "Applied Digitalは、米国のハイパースケーラーと<b>75億ドル規模のAIデータセンターリース契約を締結した</b>。この契約は、AIインフラへの大規模な投資が続いている現状を浮き彫りにしている。",
+      "impact": "AI技術の急速な発展を支えるデータセンターインフラへの巨額投資は、AI産業全体の成長と、それに伴う経済効果や電力消費の増加に直結するため、非常に重要です。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWERocTM1dGVVOElOd0h5V3c5UkNJUWtyMTBqNEVIY2lLcGVJc2Q0UE5KbHdMNGlnVVdBTWJjcEp6VmVpcVRabXpHa2ZtVVd3MUF5cGJSRHc1YnVLa01LX1QxQkw4Y2NyREdNX25KOFdlcVBHMXF0R3FaSkN5QWYwRl84QmJCRklZYVRzOFhmQmNqQkZNZTdIUWZfcE5MbWJDaW42c0VlZ2FqbFNwS2xYOVVYMzFlSEFfYUE?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-23T13:45:33+00:00",
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "75億ドル",
+          "label": "AIデータセンターリース契約額"
+        }
+      ],
+      "related_topics": [
+        "AIインフラ",
+        "データセンター投資",
+        "ハイパースケーラー"
+      ],
+      "timeline_context": "AI需要の急増が続く中で、大規模なAIインフラ投資が活発化している最新の動き。"
+    },
+    {
+      "id": "2026-04-25-011",
+      "title": "Japan launches financial task force amid AI security fears - Reuters",
+      "title_ja": "日本、金融AIセキュリティ対策本部を設置",
+      "summary_ja": "日本は、AIの急速な普及に伴う<b>金融システムへのサイバー攻撃や詐欺のリスク</b>に対処するため、金融庁内に新たなタスクフォースを立ち上げた。この組織は、AI技術の悪用から金融機関や顧客を保護するための<b>セキュリティ対策と規制の枠組み</b>を検討する。",
+      "impact": "AIの悪用による金融犯罪から自身の資産を守るための国の取り組みを知ることで、読者は金融サービスの安全性向上に期待できる。",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOa1NrRm5iSmY3R0RNUXNpdlZVRlJVR2ZiX1pmRVltNHJpTUg1MXRZcXJydE5iRGw5RDVLbVVXVkpBQ2dwNl9OYVhYRVIxeWYzSEZ1LVpNZ3dMWXQ3Qk9lNmh5WFJrUGs1cFhTSVpHV3RTUl8yMlJEVm5XMm9idk5UdjJsbmUwYmpPWF9tOFhCUENaeUpuRThJaG5KdUs4R09ERGpKdDNtYy1KY2t5bnJ4aDE1UEprMklJZ1NQSEgwdlVtaF9mbl93a2JGQ3VPZlU?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T05:53:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIセキュリティ",
+        "金融規制",
+        "サイバー犯罪対策"
+      ],
+      "timeline_context": "AI技術の金融分野への導入が加速する中で、日本政府がセキュリティ強化に乗り出した動き。"
+    },
+    {
+      "id": "2026-04-25-012",
+      "title": "Exclusive: SpaceX conquered the stars, now eyes bigger opportunity in AI - Reuters",
+      "title_ja": "SpaceX、AI分野へ本格参入",
+      "summary_ja": "宇宙開発で知られるSpaceXが、<b>AI分野での大規模な機会</b>に注目し、事業拡大を計画している。同社は、衛星通信ネットワーク「Starlink」やロケット技術で培ったデータ処理能力とエンジニアリング力を活かし、<b>AI関連の新たなサービスや製品</b>を開発する見込みだ。",
+      "impact": "宇宙産業のリーダーであるSpaceXがAIに参入することで、AI技術の応用範囲が広がり、新たなイノベーションが生まれる可能性を示唆している。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOYkU0MVV1QlJvMDZDT1BaaXlnS1VmdlcwYTdOLS1oZ0pQbmowbmpjLU53VV9nUGNSQ1NNNmR5RzU0dzlKd3NJYW54OWNTd1BreDdkRkU2WnhCTU5Nb3FRcXBBUVl1MjZmd050Y0QwSktlOWxHWHZMMDNhc2d0azc4QVZnMkJFN2QwZTVuNmt0dUZjWnhlV01YeDVXOA?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T05:17:32+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AI応用",
+        "宇宙産業",
+        "技術革新"
+      ],
+      "timeline_context": "宇宙開発の成功を収めたSpaceXが、次の成長分野としてAIに焦点を当てた戦略的な動き。"
+    },
+    {
+      "id": "2026-04-25-013",
+      "title": "Singapore emerging as neutral ground as AI firms navigate Sino-US rivalry - Reuters",
+      "title_ja": "シンガポール、米中AI競争の「中立地」に",
+      "summary_ja": "米中間の技術覇権争いが激化する中、シンガポールが<b>AI企業にとっての中立的な拠点</b>として浮上している。同国は、両国からの投資を誘致し、<b>データプライバシーとAI倫理に関する明確な規制枠組み</b>を提供することで、国際的なAIハブとしての地位を確立しようとしている。",
+      "impact": "地政学的な緊張が高まる中で、シンガポールのような中立的な拠点の台頭は、AI技術の国際的な発展と協力の新たなモデルを示す可能性がある。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQZ3dqS3loMEw5OGZKWDhDbnYzY2NlV1Q0U0ZRbG5DMWVuUmU5S092b0hFSi1lSEJ4Q2ZxV2E3YTFfeXVnMlh4VVhrVmRBeDdWTzdLc2VHc2d2RjZFUk5WaTB4WFFjSTk2VFdJVFM3ZVhOenJDWGgxdWNIMWlXYWNrUEp4Zi1MYWMya1BWZnpnSWJ4Rmpsd3M0MnZ1dWlaZFhFRlJsMTJMTC1zZDZleHhfSTNWTkt5QQ?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T00:31:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AI地政学",
+        "AI規制",
+        "国際協力"
+      ],
+      "timeline_context": "米中間の技術競争が激化する中で、シンガポールがAI分野における新たな国際的役割を模索する動き。"
+    },
+    {
+      "id": "2026-04-25-014",
+      "title": "After call from Beijing, China's auto industry races to embed AI in just about everything - Reuters",
+      "title_ja": "中国自動車産業、AI搭載を加速",
+      "summary_ja": "北京からの指示を受け、中国の自動車産業は<b>AI技術を車両のあらゆる側面に急速に統合</b>している。これにより、自動運転システム、インフォテインメント、車両管理など、<b>多岐にわたる機能がAIによって強化</b>され、競争力向上を目指している。",
+      "impact": "中国政府の強力な推進により、自動車のAI化が加速することで、世界の自動車市場における技術競争がさらに激化し、消費者はより高度なAI機能を搭載した車両を体験できるようになる。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNYXdkaHV2WV8wRTFDNmN1amVieWpwZFNyT3cySlBoZkFKbkZacXJBVDgxalJHR29KSk9yZXJYWHhtdzVRbEliN0lOV19abi1fWHd3QjVRcnJRQUpWdjcwSHFIV3VlSHYtOW16MGJvYzJzUVBfbEF3SjNTR3QyVHRUZGM1WlNCNDVMZjFqcXAzM2lzQ1RGNWh1R0Y1UkN5bVg4bmxiNkNGaW5NeXJ6Z0dkQjEwTDY2d2c?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T06:11:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "自動運転",
+        "AI応用",
+        "中国テック政策"
+      ],
+      "timeline_context": "中国政府の強力な後押しを受け、同国の自動車産業がAI技術の導入を加速させる動き。"
+    },
+    {
+      "id": "2026-04-25-015",
+      "title": "AI boom lifts Nokia sales, shares hit 16-year high after earnings beat - Reuters",
+      "title_ja": "ノキア、AIブームで売上増・株価16年ぶり高値",
+      "summary_ja": "AIブームがノキアの業績を押し上げ、<b>売上が予想を上回り</b>、株価が<b>16年ぶりの高値</b>を記録した。同社は、通信インフラやネットワーク技術におけるAIの需要増に対応し、<b>新たなソリューションを提供</b>することで市場の期待に応えている。",
+      "impact": "AI技術の普及が通信インフラ企業にもたらす経済的恩恵を示しており、AI関連投資の広範な影響を理解する上で重要である。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNVTJrUzA4SWRoS2U2T0RzY2E5U3JiX0JoNFBJa3ZxY3B4RzlwbkJJUHdPN0FiYkFfZXB4MWJ1T082eDdwSnN1YmhKdExudkx0UVZsSWZoSGlxZENzNTZBQ3BsSjJrQ1h1MDJ0bHViQm1WNDM5VTlXaVQ1aC1TNVJFVVlzRHRnWG5jSHdabXU2b1c1THVwdUFQY3dGZkZzZFVMUThteHFRZm9FQQ?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-23T14:42:24+00:00",
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "16年",
+          "label": "株価高値の期間"
+        }
+      ],
+      "related_topics": [
+        "AI投資",
+        "通信インフラ",
+        "株式市場"
+      ],
+      "timeline_context": "AI技術の急速な発展が、通信インフラ企業であるノキアの業績に直接的な好影響を与えた事例。"
+    },
+    {
+      "id": "2026-04-25-016",
+      "title": "Europe’s markets watchdog warns cyber threats are growing as AI speeds up risks - Reuters",
+      "title_ja": "欧州規制機関、AIによるサイバー脅威増大を警告",
+      "summary_ja": "欧州の市場監視機関は、<b>AI技術の急速な進化がサイバー脅威を加速させている</b>と警告しました。これにより、金融市場におけるシステム障害やデータ侵害のリスクが高まっています。",
+      "impact": "金融機関や企業は、AIを活用した新たなサイバー攻撃手法への対策を強化する必要があることを示唆しています。",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcHViOHRRU1pYb293N0MyYnp0N2VRNkhCOHp1bGhLWEItUUNGMnVidGo4dnNDclRURTdvdGR6LWdITjNUMzQ1RkVTX3hobTRZOVBfai03d29uTXVmSmkxR2YzbE9WTTJlaUlST2VRc3ZpdU9XQjVfUUY5SjVNb2pOU1VpV0JMWDJtcU5OQkpINnZHVDkybU5LNlFoSTJiSmlyN2Z5TlVBb0RWaHYzd2lzX3J0X01FZWNi?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T16:05:26+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIセキュリティ",
+        "サイバーリスク",
+        "金融規制"
+      ],
+      "timeline_context": "AIの普及が進む中で、その負の側面であるセキュリティリスクへの懸念が高まっている状況を反映した警告です。"
+    },
+    {
+      "id": "2026-04-25-017",
+      "title": "At SpaceX, AI is burning the cash that Starlink earns - Reuters",
+      "title_ja": "SpaceX、AI開発がStarlink収益を消費",
+      "summary_ja": "SpaceXでは、<b>AI開発への投資が、衛星インターネットサービスStarlinkが生み出す収益を大きく上回っている</b>と報じられています。これは、AI技術への巨額な先行投資が企業の財務に与える影響を示唆しています。",
+      "impact": "AI技術の最先端開発には莫大な資金が必要であり、たとえ成功した事業を持つ企業でも財務的な課題に直面する可能性があることを示しています。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSEc0dUVZdllFemdNaWlmQlRZOHN4NlpTOGQ4WnRIaVB2UThnVklVR3psX3FVV25FREZRODVtTGZ1RzlFd0h4V2hhUGFKRmxyQy1tZ3Vid3ZIaEJPbTY0SndOMk4xOW8tWV9pX2dHT2FZbmVieDAxZXRrNUNoRkg5VDBqMkZpT2lxa1RlSTZBd256S2c2UmhHRDc4TWVGck0?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T10:03:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AI投資",
+        "スタートアップ資金調達",
+        "宇宙産業"
+      ],
+      "timeline_context": "AI技術競争が激化し、大手企業でさえ多額の投資を強いられている現状を示すニュースです。"
+    },
+    {
+      "id": "2026-04-25-018",
+      "title": "Indian IT firms near‑term outlook muted as clients cut spending, AI risks mount - Reuters",
+      "title_ja": "インドIT企業の短期見通し、顧客支出減とAIリスクで低調",
+      "summary_ja": "インドのITサービス企業の短期的な見通しは、<b>顧客企業が支出を削減していることと、AI技術の台頭によるビジネスモデルへのリスク</b>から低調に推移しています。AIが業務効率化を進める一方で、既存のITサービス需要を減少させる可能性が指摘されています。",
+      "impact": "AIの進化が既存産業のビジネスモデルに与える影響は大きく、特にITサービス業界では変革への対応が急務であることを示唆しています。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZDRUazdva1lwNVQxWGYzTWlrNExhZDNpaGM2YzVRYkVHX1pMN2NYQXBEZTZmbmx1cFkzNnVUZnZ6VmJaVTg5NGdXQWxQVEFEOFp0blQ0enV5clZvSXd3eHUzMlh3eGJjSXExXzkyMlBmR04zRjdwNk52NVBVVC1kRjktUVl2NVlKSVIzWjhETm9tV1dSYm1F?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T03:54:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIの雇用影響",
+        "ITサービス変革",
+        "経済減速"
+      ],
+      "timeline_context": "AIが産業構造に大きな変化をもたらしつつある中で、特にITサービス業界がその影響を直接受けている状況を伝えるものです。"
+    },
+    {
+      "id": "2026-04-25-019",
+      "title": "Powered land and zombie projects: Real estate in the age of AI - Reuters",
+      "title_ja": "AI時代の不動産：電力供給地とゾンビ計画",
+      "summary_ja": "AI時代において、不動産市場は<b>データセンターに必要な電力供給が豊富な土地の価値が上昇</b>する一方で、AIによる自動化で不要になるオフィスビルなどが「ゾンビプロジェクト」化する可能性に直面しています。これは、AIが不動産の需要と価値を根本的に変えつつあることを示しています。",
+      "impact": "不動産投資家や開発者は、AIの進化がもたらす新たな需要とリスクを考慮し、戦略を再構築する必要があることを示唆しています。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNYUxiVldMX0l3Z0lsWFZPbi1oazVkQzhDTk83T3VPZ2lBYkNDUUU5Ul9FeWp4Wnp3SEVCYXVLdmNvbC1DNGlfbEgzTEdFbElGMVVuMm92TzdTZlVMem11S0o2WWFucGJNVXoyRU9Mb2wwWDdnSV9sVzFsNHRPTGlyQ1R6a2J0Wk5yOFd2LXdNNkszLXNNWVFHVnM5UEI?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T08:36:56+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIデータセンター",
+        "不動産市場",
+        "都市開発"
+      ],
+      "timeline_context": "AIの急速な普及が、データセンター需要の急増とオフィス需要の変化を通じて、不動産市場に新たなトレンドを生み出している現状を報じています。"
+    },
+    {
+      "id": "2026-04-25-020",
+      "title": "US Justice Department intervenes in xAI challenge to Colorado tech law - Reuters",
+      "title_ja": "米司法省、xAIのコロラド州法異議に介入",
+      "summary_ja": "米司法省は、イーロン・マスク氏のAI企業xAIがコロラド州の新たなテクノロジー法に異議を唱えている件に介入しました。この法律は、<b>オンラインプラットフォームがユーザーのコンテンツをモデレートする方法を規制</b>しようとするもので、言論の自由や企業の運営に影響を与える可能性があります。",
+      "impact": "AI企業と州政府間の規制を巡る対立は、今後のAI規制の方向性や、テクノロジー企業の事業運営に大きな影響を与える可能性があります。",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcjdyTjJ6ZHptLTJ0enRYd3JGaE9CZXhDaGxiS09WdGI1am9PaTMtX3FUbV9nejdmOHJCSGM1eU05WnRxVG9jRFAxMkRhckpxaHdYdmRvMDdwWnl4R21KUmFYY0VEV3FMX1lOcGpZNHRSLXl1X2JDZHRjem50clVhUlFjMXQ3dXVtdF9jdFRhN1N5S2VUdDhna2xwdXhJR2J0cmNaejQtbFI3QQ?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T20:31:43+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AI規制",
+        "言論の自由",
+        "州法と連邦法"
+      ],
+      "timeline_context": "AI技術の急速な発展に伴い、各国・地域でAIやオンラインプラットフォームに対する規制の動きが活発化している中で発生した事例です。"
+    },
+    {
+      "id": "2026-04-25-021",
+      "title": "AI deepens US tech divide as IBM, ServiceNow spark software selloff, TI lifts chipmakers - Reuters",
+      "title_ja": "AIでIBMなどソフトウェア株下落",
+      "summary_ja": "<b>AIの進化が米国テクノロジー業界に格差を生み出しています。</b>IBMとServiceNowのソフトウェア部門の業績不振がソフトウェア株の広範な下落を引き起こした一方、<b>Texas Instruments (TI) の好調なチップ需要が半導体メーカーの株価を押し上げました。</b>",
+      "impact": "AIがテクノロジー業界全体に与える影響は一様ではなく、投資家は異なるセクターへの影響を理解することが重要です。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZ2x4dW1pNXpqSldUQkR2MGNlaGQ4cDBIeFZ5MzVOU2hQV1BNSmppN2dvaVZTUnRmeWFyMGNsb0JXcWVSSHJnY2VIUDNndDFpcHZZdklmSzJ3bjlYRXl1SnpKYnViVDFnLUEwTS1FRTBiWWVxS29sWDNwSTZDbUpjdkVLRmFvdjdMWTVGRGZnQktKaGpidjd6azRUR1BoYXl2QlZQaGl3V1F6QkcyaURNVFFUOG1rdUNtWjB4OHRn?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-23T14:05:12+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIの経済影響",
+        "株式市場の動向",
+        "テック業界の再編"
+      ],
+      "timeline_context": "AI技術の普及が各企業の業績に影響を与え始めた時期の市場動向を示しています。"
+    },
+    {
+      "id": "2026-04-25-022",
+      "title": "SK Hynix sets record as quarterly profit jumps five-fold, says AI chip demand exceeds capacity - Reuters",
+      "title_ja": "SKハイニックス、AIチップ需要で5倍増益",
+      "summary_ja": "<b>SKハイニックスは、四半期利益が5倍に急増し、過去最高を記録しました。</b>同社は、<b>AIチップ、特にHBM（高帯域幅メモリ）の需要が生産能力を上回っている</b>と述べています。",
+      "impact": "AIの急速な発展が、関連する半導体メーカーに莫大なビジネスチャンスをもたらしていることがわかります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOV3BuQlFjUHFLQnJuM0p5MGZlUzF2TkE4UmR4M19pWm9pSGdVa29fdGRrRlI3VE15OFF6U0lTLXJLemt0VXg5X0t6djdBdVExaGNVMTAtenBuU2JjUmZzNzhTS19vQ0lCSVZ3R2NYTERCSUtnWlhTS1Jsd2tMSjM3TXBmQjRxOW1mTTU1QTJacVZTOE42emJ6cldMNEc2SVVsSmVYSDZUbGItWXIxOHFJR2xuS2ZMUQ?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-23T21:18:09+00:00",
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "5倍",
+          "label": "四半期利益の増加率"
+        }
+      ],
+      "related_topics": [
+        "AI半導体",
+        "HBM",
+        "サプライチェーン"
+      ],
+      "timeline_context": "AI技術の進化に伴う高性能メモリ需要が急増している現在の市場状況を反映しています。"
+    },
+    {
+      "id": "2026-04-25-023",
+      "title": "「DeepSeek-V4」登場　オープンながら“世界トップのクローズドモデルに匹敵”うたう",
+      "title_ja": "DeepSeek-V4、オープンでトップモデルに匹敵",
+      "summary_ja": "中国DeepSeekは、オープンウェイトのAIモデル「DeepSeek-V4」のプレビュー版を公開しました。同モデルは、<b>「世界トップクラスのクローズドモデルに匹敵するパフォーマンス」</b>を持つと謳われています。",
+      "impact": "オープンソースAIモデルの性能向上が、より多くの開発者や企業が高度なAI技術を利用できる可能性を広げます。",
       "category": "model_research",
       "category_label": "モデル・研究",
       "tag_class": "tag-model",
       "sources": [
         {
-          "name": "OpenAI Blog",
-          "url": "https://openai.com/index/introducing-gpt-5-5"
+          "name": "ITmedia AI+",
+          "url": "https://www.itmedia.co.jp/aiplus/articles/2604/24/news100.html"
         },
         {
-          "name": "Hacker News",
-          "url": "https://openai.com/index/introducing-gpt-5-5"
+          "name": "Gigazine",
+          "url": "https://gigazine.net/news/20260424-deepseek-v4"
         }
       ],
       "importance": 4.6,
-      "published": "2026-04-23T11:00:00+00:00",
-      "language": "en"
+      "published": "2026-04-24T05:03:00+00:00",
+      "language": "ja",
+      "key_stats": [],
+      "related_topics": [
+        "オープンソースAI",
+        "LLM競争",
+        "モデル性能評価"
+      ],
+      "timeline_context": "主要なAI企業がクローズドモデルを開発する中で、オープンソースモデルがその性能に追いつこうとしている最新の動きです。"
     },
     {
-      "id": "2026-04-25-007",
+      "id": "2026-04-25-024",
+      "title": "「Claude」の連携機能「コネクタ」、Uber EatsやSpotifyなど日常アプリに対応",
+      "title_ja": "Claudeの「コネクタ」がUber Eatsなど日常アプリに対応",
+      "summary_ja": "Anthropicは、AIアシスタント「Claude」の外部連携機能<b>「コネクタ」を拡充し、Uber EatsやSpotify、Booking.comなどの日常的なサービスに対応</b>させました。これにより、Claudeは会話の文脈から最適なアプリを動的に提案し、ユーザーはAIを通じて予約や検索を行えるようになります。",
+      "impact": "AIアシスタントが日常生活に深く統合され、より便利で実用的なツールとなる可能性を示しています。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "ITmedia AI+",
+          "url": "https://www.itmedia.co.jp/news/articles/2604/24/news075.html"
+        },
+        {
+          "name": "Impress Watch",
+          "url": "https://www.watch.impress.co.jp/docs/news/2104636.html"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T01:27:00+00:00",
+      "language": "ja",
+      "key_stats": [],
+      "related_topics": [
+        "エージェントAI",
+        "AIアシスタント",
+        "アプリ連携"
+      ],
+      "timeline_context": "AIモデルが単なる情報提供だけでなく、具体的なタスク実行へと進化している最近の動向を示しています。"
+    },
+    {
+      "id": "2026-04-25-025",
+      "title": "ソフトウェアをリリースした経験がなかった人がAnthropic主催のOpus 4.6ハッカソンで優勝した理由とは、AI製品に求められているものとは？",
+      "title_ja": "Opus 4.6ハッカソンで非専門家が優勝",
+      "summary_ja": "Anthropicが主催した「Built with Opus 4.6」ハッカソンで、<b>ソフトウェア開発経験のないカリフォルニア州の弁護士が優勝しました。</b>このハッカソンには約1万3000人が応募し、選抜された500人が参加。非専門家が多数受賞したことは、<b>AI製品が専門知識なしでも革新的な成果を生み出せる</b>ことを示唆しています。",
+      "impact": "AIツールが専門知識を持たない人々にもイノベーションの機会を提供し、多様なバックグラウンドを持つ人々がAI製品を開発できる可能性を広げています。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "Gigazine",
+          "url": "https://gigazine.net/news/20260425-anthropic-hackathon"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-25T10:00:00+00:00",
+      "language": "ja",
+      "key_stats": [
+        {
+          "value": "2026年2月",
+          "label": "Claude Opus 4.6発表予定月"
+        },
+        {
+          "value": "約1万3000人",
+          "label": "ハッカソン応募者数"
+        },
+        {
+          "value": "500人",
+          "label": "ハッカソン参加者数"
+        }
+      ],
+      "related_topics": [
+        "ノーコードAI",
+        "AIの民主化",
+        "ハッカソン"
+      ],
+      "timeline_context": "AI技術が専門家だけでなく、一般のユーザーにも広く活用され始めている現在の状況を象徴する出来事です。"
+    },
+    {
+      "id": "2026-04-25-026",
       "title": "Meta’s loss is Thinking Machines’ gain",
       "title_ja": "MetaとThinking Machinesの人材交流",
-      "summary_ja": "MetaがAI研究機関<b>Thinking Machines Labから人材を引き抜いている</b>一方で、Thinking Machines LabもMetaから人材を獲得しており、両社間で<b>双方向の人材交流</b>が活発化しています。",
-      "impact": "AI業界におけるトップ企業間の人材流動は、技術革新の動向や競争環境を理解する上で重要な指標となります。",
+      "summary_ja": "MetaがAI研究機関のThinking Machines Labから人材を引き抜いている一方で、<b>Thinking Machines LabもMetaから人材を獲得している</b>という、双方向の人材流動が起きていることが報じられました。これは、AI分野における<b>トップタレントの獲得競争が激化している</b>ことを示唆しています。",
+      "impact": "AI分野の企業間における人材獲得競争の現状と、それが業界の勢力図に与える影響を理解する上で重要です。",
       "category": "business",
       "category_label": "ビジネス",
       "tag_class": "tag-biz",
@@ -157,17 +755,24 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T20:52:07+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AI人材争奪戦",
+        "AIスタートアップ",
+        "大手テック企業"
+      ],
+      "timeline_context": "AI技術の急速な発展に伴い、優秀なAIエンジニアや研究者の需要が高まる中で報じられた動きです。"
     },
     {
-      "id": "2026-04-25-008",
+      "id": "2026-04-25-027",
       "title": "ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
-      "title_ja": "ComfyUIが評価額5億ドルに到達",
-      "summary_ja": "AI生成メディアのクリエイターに<b>より高い制御性を提供するツール</b>で知られるComfyUIが、<b>3,000万ドルの資金調達</b>を実施し、評価額が5億ドルに達しました。これにより、AI画像、動画、音声生成におけるクリエイターのニーズに応える動きが加速しています。",
-      "impact": "クリエイターがAI生成コンテンツをより細かく制御できるツールの需要が高まっていることを示しており、今後のAIコンテンツ制作の方向性を示唆しています。",
-      "category": "business",
-      "category_label": "ビジネス",
-      "tag_class": "tag-biz",
+      "title_ja": "ComfyUIが$5億評価額で$3000万調達",
+      "summary_ja": "AI画像・動画・音声生成においてクリエイターにより多くの制御を提供するツール「ComfyUI」が、<b>3,000万ドルの資金調達</b>を実施しました。これにより同社の評価額は<b>5億ドルに達した</b>と報じられています。",
+      "impact": "クリエイターがAI生成メディアをより細かく制御できるツールの需要が高まっていること、およびその市場価値の急上昇を示しています。",
+      "category": "startup",
+      "category_label": "スタートアップ",
+      "tag_class": "tag-startup",
       "sources": [
         {
           "name": "TechCrunch AI",
@@ -176,14 +781,30 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T19:49:35+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "$500M",
+          "label": "評価額"
+        },
+        {
+          "value": "$30M",
+          "label": "調達額"
+        }
+      ],
+      "related_topics": [
+        "生成AI",
+        "AIクリエイティブツール",
+        "スタートアップ資金調達"
+      ],
+      "timeline_context": "クリエイターがAI生成コンテンツの品質と制御を重視する傾向が強まる中で、そのニーズに応える企業が評価されている事例です。"
     },
     {
-      "id": "2026-04-25-009",
+      "id": "2026-04-25-028",
       "title": "Marked-up Mac minis flood eBay amid shortages driven by AI",
-      "title_ja": "AI需要でMac miniが品薄高騰",
-      "summary_ja": "Appleの<b>Mac miniが品切れ状態</b>となり、eBayでは高値で転売されるケースが多発しています。これは、<b>ローカルAIモデルやツールを実行するための需要が急増</b>しているためです。",
-      "impact": "AIモデルのローカル実行需要の高まりが、特定のハードウェア市場に影響を与えている現状を理解する上で重要です。",
+      "title_ja": "AI需要でMac mini品薄、eBayで高値転売",
+      "summary_ja": "AppleのMac miniが品薄となり、eBayでは<b>高値で転売される事態</b>が発生しています。これは、コンパクトなデスクトップPCであるMac miniが、<b>ローカルAIモデルやツールの実行に好まれている</b>ため、需要が急増していることが原因です。",
+      "impact": "AI技術の普及が、特定のハードウェア製品の需要と供給に予期せぬ影響を与え、市場に新たなトレンドを生み出していることを示しています。",
       "category": "business",
       "category_label": "ビジネス",
       "tag_class": "tag-biz",
@@ -195,52 +816,21 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T16:42:19+00:00",
-      "language": "en"
-    },
-    {
-      "id": "2026-04-25-010",
-      "title": "Uber CTO Praveen Neppalli Naga joins stacked StrictlyVC SF lineup for April 30 event",
-      "title_ja": "Uber CTOがStrictlyVC SFに登壇",
-      "summary_ja": "TechCrunch主催のイベント「StrictlyVC San Francisco」（4月30日開催）に、<b>UberのCTOであるPraveen Neppalli Naga氏が新たなスピーカーとして追加</b>されました。同氏は、イベントで運用について議論する予定です。",
-      "impact": "主要企業の技術リーダーがどのようなテーマに関心を持ち、何を語るのかを知ることで、業界のトレンドや将来の方向性を予測する手がかりとなります。",
-      "category": "business",
-      "category_label": "ビジネス",
-      "tag_class": "tag-biz",
-      "sources": [
-        {
-          "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/04/24/uber-cto-praveen-neppalli-naga-joins-stacked-strictlyvc-sf-lineup-for-april-30-event"
-        }
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "ローカルAI",
+        "AIハードウェア",
+        "サプライチェーン"
       ],
-      "importance": 4.2,
-      "published": "2026-04-24T14:00:00+00:00",
-      "language": "en"
+      "timeline_context": "AIモデルのローカル実行が注目され、高性能な小型デバイスへの需要が高まる中で発生した市場現象です。"
     },
     {
-      "id": "2026-04-25-011",
-      "title": "Tim Cook is stepping down. What happens to Apple now?",
-      "title_ja": "Apple、ティム・クックCEOが9月退任",
-      "summary_ja": "Appleのティム・クックCEOが<b>9月に退任し、ハードウェア責任者のジョン・ターナス氏が後任となる</b>予定です。ターナス氏は、クック氏が長年築き上げたものとは異なるエコシステムを引き継ぐことになります。",
-      "impact": "Appleの経営トップ交代は、同社の将来の製品戦略や企業文化に大きな影響を与える可能性があります。",
-      "category": "business",
-      "category_label": "ビジネス",
-      "tag_class": "tag-biz",
-      "sources": [
-        {
-          "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now"
-        }
-      ],
-      "importance": 4.2,
-      "published": "2026-04-24T14:00:00+00:00",
-      "language": "en"
-    },
-    {
-      "id": "2026-04-25-012",
+      "id": "2026-04-25-029",
       "title": "Nothing introduces an AI-powered dictation tool",
-      "title_ja": "NothingがAI音声入力ツール発表",
-      "summary_ja": "Nothingが<b>100以上の言語に対応するAI搭載の音声入力ツール</b>を発表しました。このツールはデバイス上で動作します。",
-      "impact": "多言語対応のAI音声入力ツールは、グローバルなコミュニケーションやアクセシビリティを向上させる可能性を秘めています。",
+      "title_ja": "NothingがAI音声認識ツール発表、100言語対応",
+      "summary_ja": "Nothing社が、<b>100以上の言語に対応するAI搭載のオンデバイス音声認識ツール</b>を発表しました。このツールは、ユーザーがデバイス上で直接、高精度な音声入力を行えるように設計されています。",
+      "impact": "スマートフォンなどのデバイス上でAIがより高度な機能を提供し、多言語対応によってユーザー体験が向上する可能性を示しています。",
       "category": "startup",
       "category_label": "スタートアップ",
       "tag_class": "tag-startup",
@@ -252,14 +842,26 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T13:41:42+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "100+",
+          "label": "対応言語数"
+        }
+      ],
+      "related_topics": [
+        "オンデバイスAI",
+        "音声認識",
+        "多言語対応"
+      ],
+      "timeline_context": "スマートフォンメーカーがAI機能をデバイスに直接統合し、ユーザーの利便性を高める動きが活発化する中で発表されました。"
     },
     {
-      "id": "2026-04-25-013",
+      "id": "2026-04-25-030",
       "title": "In another wild turn for AI chips, Meta signs deal for millions of Amazon AI CPUs",
-      "title_ja": "Meta、Amazon製AI向けCPUを大量調達",
-      "summary_ja": "Metaが<b>Amazon製のAI向けCPUを大量に調達する契約を締結</b>しました。これは、AIエージェントのワークロード向けであり、GPUだけでなくCPUもAIチップ競争の新たな局面に入ったことを示唆しています。",
-      "impact": "AI開発におけるチップの多様化は、特定のハードウェアへの依存を減らし、より効率的でコスト効果の高いAIソリューションの登場を促すかもしれません。",
+      "title_ja": "MetaがAmazon製AI CPUを大量調達、新たなチップ競争",
+      "summary_ja": "Metaが、<b>Amazonが自社開発したAI向けCPU（GPUではない）を数百万個規模で調達する契約</b>を締結しました。これは、AIエージェントのワークロードに対応するためのものであり、<b>AIチップ競争が新たな局面に入った</b>ことを示唆しています。",
+      "impact": "AIワークロードの多様化に伴い、GPUだけでなくCPUもAIチップ競争の重要な要素となりつつあり、業界のハードウェア戦略に大きな変化をもたらす可能性があります。",
       "category": "business",
       "category_label": "ビジネス",
       "tag_class": "tag-biz",
@@ -271,14 +873,136 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T12:00:00+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "millions",
+          "label": "調達するCPUの数（数百万個）"
+        }
+      ],
+      "related_topics": [
+        "AIチップ",
+        "CPU vs GPU",
+        "AIエージェント",
+        "クラウドインフラ"
+      ],
+      "timeline_context": "AIモデルの進化と多様なAIワークロードの出現により、従来のGPU中心のAIチップ戦略が見直され始めた時期の重要な動きです。"
     },
     {
-      "id": "2026-04-25-014",
+      "id": "2026-04-25-031",
+      "title": "Bret Taylor’s Sierra buys YC-backed AI startup Fragment",
+      "title_ja": "ブレット・テイラーのSierraが仏AIスタートアップFragmentを買収",
+      "summary_ja": "テクノロジストのブレット・テイラー氏が設立したAI顧客サービスエージェントのスタートアップ<b>Sierraが、YC支援のフランスのスタートアップFragmentを買収</b>したと発表しました。この買収により、SierraはAI技術と人材を強化し、顧客サービスソリューションの拡充を目指します。",
+      "impact": "大手テクノロジストが率いるAI企業によるスタートアップ買収は、AI業界の統合と成長の加速を示唆しており、今後のサービス進化に影響を与える可能性があります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/23/bret-taylors-sierra-buys-yc-backed-ai-startup-fragment"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-23T21:00:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIスタートアップ",
+        "M&A",
+        "顧客サービスAI"
+      ],
+      "timeline_context": "AI顧客サービス分野での競争が激化する中で、Sierraが技術力強化のために行った戦略的な動きです。"
+    },
+    {
+      "id": "2026-04-25-032",
+      "title": "Meet Noscroll, an AI bot that does your doomscrolling for you",
+      "title_ja": "AIボットNoscrollが「ドゥームスクロール」を解消",
+      "summary_ja": "Noscrollは、<b>AIボットがインターネットを読み込み、ユーザーに代わって「ドゥームスクロール」を解消</b>することを目指しています。このAIは、ネガティブな情報に過度に触れることを防ぎ、より健全な情報消費をサポートする設計です。",
+      "impact": "情報過多な現代において、AIがユーザーの精神的健康をサポートする新たな活用法を示しており、デジタルウェルビーイングに関心のある読者にとって重要です。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/23/meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-23T19:38:25+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "デジタルウェルビーイング",
+        "パーソナルAI",
+        "情報フィルタリング"
+      ],
+      "timeline_context": "AIが個人の情報消費習慣に介入し、その質を向上させる試みが進む中で登場した新しいサービスです。"
+    },
+    {
+      "id": "2026-04-25-033",
+      "title": "Era raises $11M to build a software platform for AI gadgets",
+      "title_ja": "EraがAIガジェット向けプラットフォームで1100万ドル調達",
+      "summary_ja": "Eraは、AIハードウェアがメガネ、指輪、ペンダントなど多様な形態で登場すると予測しており、そのための<b>ソフトウェアプラットフォーム構築に向けて1100万ドルを調達</b>しました。この資金は、次世代AIデバイスのエコシステムを支える基盤技術の開発に充てられます。",
+      "impact": "AIがスマートフォン以外の多様なデバイスに普及する未来を示唆しており、ウェアラブルAIやIoTデバイスの進化に関心のある読者にとって注目すべき動向です。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/23/era-computer-raises-11m-to-build-a-software-platform-for-ai-gadgets"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-23T16:00:00+00:00",
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "1100万ドル",
+          "label": "調達額"
+        }
+      ],
+      "related_topics": [
+        "ウェアラブルAI",
+        "AIハードウェア",
+        "AIエコシステム"
+      ],
+      "timeline_context": "AIがスマートフォン中心の時代から、より多様なフォームファクターのデバイスへと広がる中で、その基盤を支える動きが活発化しています。"
+    },
+    {
+      "id": "2026-04-25-034",
+      "title": "AI galaxy hunters are adding to the global GPU crunch",
+      "title_ja": "AIによる銀河探索がGPU不足を加速",
+      "summary_ja": "天文学者たちは、広大な宇宙データの中から<b>銀河を発見するためにGPUを活用したAI技術に注目</b>しており、これが世界的なGPU不足に拍車をかけています。AIを用いたデータ解析は、これまで見過ごされてきた天体を発見する可能性を秘めています。",
+      "impact": "AIの応用範囲が天文学のような科学分野にも広がり、その結果としてAI開発に必要なGPUリソースの需要がさらに高まっている現状を理解する上で重要です。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/23/ai-galaxy-hunters-are-adding-to-the-global-gpu-crunch"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-23T13:00:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "科学AI",
+        "GPU需要",
+        "天文学"
+      ],
+      "timeline_context": "AIの活用が科学研究のフロンティアを拡大する一方で、その計算資源への需要が業界全体の課題となっている時期のニュースです。"
+    },
+    {
+      "id": "2026-04-25-035",
       "title": "How Project Maven taught the military to love AI",
-      "title_ja": "米軍、AIで攻撃目標選定を加速",
-      "summary_ja": "米軍は、イランへの攻撃開始から24時間で<b>1,000以上の目標を攻撃</b>しました。これは20年前のイラク攻撃の約2倍の規模です。この加速は、<b>目標選定プロセスを高速化するAIシステム「Maven Smart」</b>によって可能になりました。",
-      "impact": "軍事分野におけるAIの活用は、紛争の規模や速度を劇的に変化させる可能性があり、倫理的・国際的な議論を深める必要があります。",
+      "title_ja": "プロジェクトMavenが軍事AI活用を加速",
+      "summary_ja": "イランへの攻撃開始から24時間で、米軍は<b>1,000以上の標的を攻撃</b>し、これは20年以上前のイラク攻撃の約2倍の規模でした。この迅速な作戦は、<b>標的選定プロセスを高速化するAIシステム「プロジェクトMaven」</b>によって可能になりました。",
+      "impact": "軍事分野におけるAIの導入が、作戦の規模と速度を劇的に変化させる可能性を示しており、AI倫理や国家安全保障に関心のある読者にとって極めて重要な情報です。",
       "category": "agent_ai",
       "category_label": "エージェントAI",
       "tag_class": "tag-agent",
@@ -290,33 +1014,30 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T17:00:00+00:00",
-      "language": "en"
-    },
-    {
-      "id": "2026-04-25-015",
-      "title": "AirPods, Touch Bars, and the rest of Tim Cook&#8217;s legacy",
-      "title_ja": "Apple、ティム・クックCEOの功績と後任",
-      "summary_ja": "Appleのティム・クックCEOがいつか退任することは予想されていましたが、<b>ジョン・ターナス氏が後任となる可能性</b>がこの1年で明らかになっていました。今週の退任報道は驚きをもって受け止められており、<b>今年の交代はAppleに重要な変化をもたらす</b>可能性があります。",
-      "impact": "Appleのリーダーシップ交代は、同社の製品開発や戦略に新たな方向性をもたらし、テクノロジー業界全体に影響を与える可能性があります。",
-      "category": "business",
-      "category_label": "ビジネス",
-      "tag_class": "tag-biz",
-      "sources": [
+      "language": "en",
+      "key_stats": [
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/podcast/917965/apple-ceo-cook-ternus-transition"
+          "value": "1,000以上",
+          "label": "イラン攻撃24時間での標的数"
+        },
+        {
+          "value": "2倍",
+          "label": "イラク攻撃と比較した規模"
         }
       ],
-      "importance": 4.2,
-      "published": "2026-04-24T14:43:07+00:00",
-      "language": "en"
+      "related_topics": [
+        "軍事AI",
+        "AI倫理",
+        "国家安全保障"
+      ],
+      "timeline_context": "AIが軍事作戦の意思決定と実行に深く組み込まれ、その有効性が大規模な実戦で示された重要な事例です。"
     },
     {
-      "id": "2026-04-25-016",
+      "id": "2026-04-25-036",
       "title": "Musk vs. Altman is here, and it&#8217;s going to get messy",
-      "title_ja": "イーロン・マスク氏、OpenAIを提訴",
-      "summary_ja": "イーロン・マスク氏がOpenAIを共同設立後、CEOになれなかったことで離脱し、現在サム・アルトマン氏が主導しています。<b>マスク氏はOpenAIを提訴し、4月27日にカリフォルニア州オークランドで裁判が開始される予定</b>です。これは、OpenAIの設立経緯や方向性に関する法的な争いとなるでしょう。",
-      "impact": "AI業界の主要人物間の対立は、OpenAIの将来やAI開発の倫理・方向性に大きな影響を与える可能性があります。",
+      "title_ja": "Musk vs. Altman訴訟、4月27日開始",
+      "summary_ja": "Elon Musk氏がOpenAIを共同設立後、CEOになれなかったことで離脱し、Sam Altman氏が残った。現在、Musk氏はOpenAIを提訴しており、**4月27日**にオークランドで裁判が開始される予定。この訴訟は、OpenAIの設立理念に関する法的な争点を含んでいる。",
+      "impact": "AI業界の主要人物間の法廷闘争は、OpenAIの将来やAI開発の方向性に大きな影響を与える可能性があるため、注目すべきです。",
       "category": "business",
       "category_label": "ビジネス",
       "tag_class": "tag-biz",
@@ -328,33 +1049,26 @@
       ],
       "importance": 4.2,
       "published": "2026-04-24T12:00:00+00:00",
-      "language": "en"
-    },
-    {
-      "id": "2026-04-25-017",
-      "title": "Prestigious photo contest answers ‘what is a photo?’",
-      "title_ja": "世界報道写真展、AI時代の写真定義",
-      "summary_ja": "生成AIの普及により「本物の写真」の定義が問われる中、<b>世界報道写真コンテストがその問いへの答えを示すかもしれません</b>。この権威ある賞は、現実を捉えることが最重要視されるフォトジャーナリズムの最高峰を称えるものです。2026年の受賞作品が、AI時代における写真のあり方を提示するでしょう。",
-      "impact": "AI技術が写真表現に与える影響を理解し、報道写真における「真実性」の価値を再認識するきっかけとなります。",
-      "category": "security",
-      "category_label": "セキュリティ",
-      "tag_class": "tag-sec",
-      "sources": [
+      "language": "en",
+      "key_stats": [
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/gadgets/918016/prestigious-photo-contest-answers-what-is-a-photo"
+          "value": "4月27日",
+          "label": "裁判開始日"
         }
       ],
-      "importance": 4.2,
-      "published": "2026-04-24T09:40:07+00:00",
-      "language": "en"
+      "related_topics": [
+        "AIガバナンス",
+        "AI倫理",
+        "企業訴訟"
+      ],
+      "timeline_context": "OpenAIの共同創設者間の長年の確執が、法廷闘争という新たな段階に入った動き。"
     },
     {
-      "id": "2026-04-25-018",
+      "id": "2026-04-25-037",
       "title": "Claude is connecting directly to your personal apps like Spotify, Uber Eats, and TurboTax",
-      "title_ja": "Claude、個人向けアプリと連携強化",
-      "summary_ja": "AnthropicのAI「Claude」は、<b>SpotifyやUber Eatsなどの個人向けアプリと直接連携できるようになりました</b>。これにより、ユーザーはハイキングから食料品の買い物まで、より幅広い日常的なタスクでClaudeを活用できます。これまで対応していたMicrosoftアプリなどの仕事関連アプリに加え、個人利用の利便性が大幅に向上します。",
-      "impact": "AIアシスタントが日常生活に深く統合され、個人の生産性や利便性が向上する可能性を示しています。",
+      "title_ja": "ClaudeがSpotifyなど個人アプリと連携拡大",
+      "summary_ja": "AnthropicのAI「Claude」が、Spotify、Uber Eats、Audible、TurboTaxといった**個人向けアプリとの連携を拡大**した。これにより、ユーザーはハイキングから食料品の買い物まで、より幅広い日常タスクでClaudeを活用できるようになる。以前からMicrosoftアプリなどの業務関連アプリとの連携はサポートされていたが、今回の拡張は個人利用に焦点を当てている。",
+      "impact": "AIアシスタントが日常生活に深く統合されることで、ユーザーの利便性が向上し、AIの利用範囲がさらに広がる可能性を示しています。",
       "category": "agent_ai",
       "category_label": "エージェントAI",
       "tag_class": "tag-agent",
@@ -366,45 +1080,97 @@
       ],
       "importance": 4.2,
       "published": "2026-04-23T22:27:11+00:00",
-      "language": "en"
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "エージェントAI",
+        "パーソナルAI",
+        "AI連携"
+      ],
+      "timeline_context": "主要なLLMがユーザーの生活に密着したサービス連携を強化するトレンドの一環。"
     },
     {
-      "id": "2026-04-25-019",
-      "title": "Meta is laying off 10 percent of its staff",
-      "title_ja": "Meta、従業員約8,000人を解雇へ",
-      "summary_ja": "Bloombergが報じたMetaの人事担当役員のメモによると、<b>Metaは5月に全従業員の約10%、およそ8,000人を解雇する計画</b>です。さらに、約6,000の募集中の職も閉鎖される予定です。これは、同社の組織再編とコスト削減の一環と見られます。",
-      "impact": "大手テクノロジー企業の雇用動向は、経済全体やAI業界の成長戦略に影響を与える可能性があります。",
-      "category": "business",
-      "category_label": "ビジネス",
-      "tag_class": "tag-biz",
+      "id": "2026-04-25-038",
+      "title": "AI-Designed Drugs by a DeepMind Spinoff Are Headed to Human Trials",
+      "title_ja": "DeepMindスピンオフのAI創薬がヒト治験へ",
+      "summary_ja": "DeepMindのスピンオフ企業であるIsomorphic Labsが、AIによって設計された新薬の**ヒト治験を開始**する予定。同社の社長Max Jaderberg氏がWIRED Healthで発表し、**「広範で刺激的な新薬のパイプライン」**を構築していると述べた。これは、AIが医薬品開発の初期段階から臨床試験へと進む重要なマイルストーンとなる。",
+      "impact": "AIが創薬プロセスを加速し、これまで困難だった病気の治療法発見に貢献する可能性を示しており、医療分野に革命をもたらすかもしれません。",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
       "sources": [
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/tech/917690/meta-is-laying-off-10-percent-of-its-staff"
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/wired-health-2026-how-ai-is-powering-drug-discovery-max-jaderberg"
         }
       ],
       "importance": 4.2,
-      "published": "2026-04-23T19:41:07+00:00",
-      "language": "en"
+      "published": "2026-04-24T17:17:36+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AI創薬",
+        "医療AI",
+        "DeepMind"
+      ],
+      "timeline_context": "AIが研究開発段階から実用化、特に医療分野での臨床応用へと進む最新の動き。"
     },
     {
-      "id": "2026-04-25-020",
-      "title": "Anthropic&#8217;s Mythos breach was humiliating",
-      "title_ja": "AnthropicのAIモデル『Mythos』流出",
-      "summary_ja": "Anthropicが厳重に管理していたAIモデル「Claude Mythos」の展開が思わぬ事態に陥りました。同社は<b>サイバーセキュリティ能力が高すぎて公開には危険だと主張していたにもかかわらず、このモデルが誤って少数の人々の手に渡った</b>とBloombergが報じています。これは、AIモデルの安全性管理における課題を浮き彫りにしています。",
-      "impact": "高度なAIモデルのセキュリティ管理の難しさを示しており、将来のAI開発におけるリスクと責任について考えるきっかけとなります。",
+      "id": "2026-04-25-039",
+      "title": "These AI Thirst Trap Creators Say They’re Misunderstood",
+      "title_ja": "AIイケメンインフルエンサー、誤解を訴える",
+      "summary_ja": "バイラルになったレッドカーペットの瞬間が、**AIによって生成されたハンサムなInstagramインフルエンサー**とそのフォロワーに注目を集めた。これらのAIクリエイターは、自分たちが誤解されていると主張しているが、フォロワーは彼らが実在しないことを気にせず熱狂している。",
+      "impact": "AI生成コンテンツがソーシャルメディア上で現実と区別なく受け入れられ、倫理的・社会的な課題を提起している現状を理解する上で重要です。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/gay-ai-instagram-influencers-red-carpet"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T09:30:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [
+        "AIと倫理",
+        "AI生成コンテンツ",
+        "ソーシャルメディア"
+      ],
+      "timeline_context": "AIによる画像生成技術の進化が、ソーシャルメディアにおけるインフルエンサー文化に新たな現象をもたらした事例。"
+    },
+    {
+      "id": "2026-04-25-040",
+      "title": "5 Reasons to Think Twice Before Using ChatGPT—or Any Chatbot—for Financial Advice",
+      "title_ja": "ChatGPTなどAIチャットボットの金融助言に注意すべき5つの理由",
+      "summary_ja": "人々が金融問題を含め、AIチャットボットに助言を求める傾向が高まる中、**健全な懐疑心を持つことの重要性**が強調されている。この記事では、ChatGPTなどのチャットボットを金融アドバイスに利用する前に、**再考すべき5つの理由**を提示している。AIの限界や誤情報の可能性について警告している。",
+      "impact": "AIの普及に伴い、その利用におけるリスクと限界を理解することは、個人が誤った情報に基づいて重要な意思決定をするのを防ぐために不可欠です。",
       "category": "security",
       "category_label": "セキュリティ",
       "tag_class": "tag-sec",
       "sources": [
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/917644/anthropic-claude-mythos-breach-humiliation"
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/5-reasons-to-think-twice-before-using-chatgpt-for-financial-advice"
         }
       ],
       "importance": 4.2,
-      "published": "2026-04-23T18:24:56+00:00",
-      "language": "en"
+      "published": "2026-04-24T09:00:00+00:00",
+      "language": "en",
+      "key_stats": [
+        {
+          "value": "5",
+          "label": "金融助言にAIを使う前に再考すべき理由の数"
+        }
+      ],
+      "related_topics": [
+        "AI倫理",
+        "AIリスク",
+        "金融AI"
+      ],
+      "timeline_context": "AIチャットボットの普及が進む中で、その利用における倫理的・実用的な課題が顕在化している状況を反映。"
     }
   ]
 }
