@@ -209,8 +209,8 @@ def generate_html(date_str: str = None):
     with open(INDEX_PATH, "r", encoding="utf-8") as f:
         html = f.read()
 
-    # リッチコンテンツ生成（Gemini）
-    rich = _generate_rich_content(articles[:10])
+    # リッチコンテンツ生成（Gemini） — 全記事に対して生成
+    rich = _generate_rich_content(articles)
 
     # 日付
     dt = datetime.strptime(date_str, "%Y-%m-%d")
@@ -220,6 +220,21 @@ def generate_html(date_str: str = None):
     # === 1. ヘッダー日付 ===
     html = re.sub(r'<div class="header-date">[^<]*</div>',
                   f'<div class="header-date">{date_display}</div>', html)
+
+    # === 1b. ナビゲーション（カテゴリリンク化） ===
+    nav_items = (
+        '<div class="nav-item active" onclick="scrollToSec(\'top\')">トップ</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-model_research\')">モデル・研究</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-agent_ai\')">エージェントAI</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-business\')">ビジネス</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-startup\')">スタートアップ</div>'
+        '<div class="nav-item" onclick="scrollToSec(\'sec-security\')">セキュリティ</div>'
+    )
+    html = re.sub(
+        r'<div class="nav-inner">.*?</div></div>',
+        f'<div class="nav-inner">{nav_items}</div></div>',
+        html, count=1, flags=re.DOTALL
+    )
 
     # === 2. ティッカー ===
     ticker = ""
@@ -258,8 +273,8 @@ def generate_html(date_str: str = None):
     html = re.sub(r'<aside class="sidebar">.*?</aside>',
                   f'<aside class="sidebar">\n{sidebar}\n</aside>', html, flags=re.DOTALL)
 
-    # === 5. JavaScript記事データ ===
-    js_data = _build_js_data(articles[:10], rich)
+    # === 5. JavaScript記事データ（全記事分） ===
+    js_data = _build_js_data(articles, rich)
     # const A={...}; を丸ごと差し替え
     html = re.sub(r'const A=\{.*?\};', js_data, html, flags=re.DOTALL)
 
@@ -361,7 +376,7 @@ def _category_section(cat_id: str, articles: list) -> str:
       </div>'''
 
     return f'''
-  <div class="sec">
+  <div class="sec" id="sec-{cat_id}">
     <div class="sec-header"><div class="sec-bar" style="background:{cfg["bar_color"]}"></div><div class="sec-title">{cfg["label"]}</div><div class="sec-more">すべて見る →</div></div>
     <div class="card-list">{cards}
     </div>
@@ -457,7 +472,17 @@ def _build_js_data(articles: list, rich: dict) -> str:
         )
         entries.append(entry)
 
-    return "const A={\n" + ",\n".join(entries) + "\n};"
+    js = "const A={\n" + ",\n".join(entries) + "\n};"
+
+    # ナビゲーションのスクロール関数を追加
+    js += """
+function scrollToSec(id){
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  var el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+}"""
+
+    return js
 
 
 if __name__ == "__main__":
