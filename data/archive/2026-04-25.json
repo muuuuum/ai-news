@@ -1,0 +1,394 @@
+{
+  "generated_at": "2026-04-25T18:40:19.276795+09:00",
+  "article_count": 20,
+  "articles": [
+    {
+      "id": "2026-04-25-001",
+      "title": "Google to invest up to $40B in Anthropic in cash and compute",
+      "title_ja": "Google、Anthropicに最大400億ドル投資",
+      "summary_ja": "Googleは、AI開発競争が激化する中、Anthropicに対し<b>最大400億ドル（現金と計算資源）の投資</b>を計画しています。これは、Anthropicが強力なサイバーセキュリティ特化型AIモデル「Mythos」を限定公開した直後の動きです。この投資は、大規模な計算能力を確保するための競争の一環と見られています。",
+      "impact": "この投資は、AI業界における計算資源確保の競争激化と、主要プレイヤー間の提携戦略の重要性を示しており、今後のAI技術の方向性に影響を与える可能性があります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute"
+        },
+        {
+          "name": "Hacker News",
+          "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-24T18:00:03+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-002",
+      "title": "Ace the Ping-Pong Robot Can Whup Your Ass",
+      "title_ja": "卓球ロボット「Ace」が人間とラリー",
+      "summary_ja": "卓球ロボット「Ace」は、<b>ボールの軌道を読み取り、ラケットの角度を調整</b>し、人間プレイヤーとのラリーを続けるためのストロークで応答できます。これにより、まるで人間と対戦しているかのような自然なラリーを実現しています。",
+      "impact": "この技術は、ロボットが複雑な物理環境で人間と協調する能力の向上を示しており、将来的にサービスロボットや産業用ロボットの応用範囲を広げる可能性を秘めています。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/ace-the-robot-wants-to-become-the-world-table-tennis-champion"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-25T09:30:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-003",
+      "title": "Three reasons why DeepSeek’s new model matters",
+      "title_ja": "DeepSeek、新フラッグシップモデルV4公開",
+      "summary_ja": "中国のAI企業DeepSeekは、待望の新しいフラッグシップモデル「V4」のプレビュー版を公開しました。このモデルは、<b>効率的なテキスト処理を可能にする新設計</b>により、前世代よりもはるかに長いプロンプトを処理できる点が特筆されます。",
+      "impact": "長いコンテキストを効率的に処理できるAIモデルの登場は、より複雑なタスクや大規模なデータ分析においてAIの能力を大幅に向上させ、開発者や企業にとって新たな可能性を開きます。",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-24T21:40:58+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-004",
+      "title": "Introducing GPT-5.5",
+      "title_ja": "OpenAI、最新モデルGPT-5.5を発表",
+      "summary_ja": "OpenAIは、これまでで最もスマートなモデル「GPT-5.5」を発表しました。このモデルは、<b>より高速で高性能</b>であり、<b>コーディング、研究、データ分析といった複雑なタスク</b>をツールを横断して実行するために構築されています。",
+      "impact": "GPT-5.5の登場は、AIがより高度な専門的タスクを効率的に処理できるようになることを意味し、開発者や研究者、ビジネスユーザーの生産性を大きく向上させる可能性があります。",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "OpenAI Blog",
+          "url": "https://openai.com/index/introducing-gpt-5-5"
+        },
+        {
+          "name": "Hacker News",
+          "url": "https://openai.com/index/introducing-gpt-5-5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-23T11:00:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-005",
+      "title": "Meta’s loss is Thinking Machines’ gain",
+      "title_ja": "MetaとThinking Machinesの人材交流",
+      "summary_ja": "MetaはThinking Machines Labから人材を引き抜いていますが、これは一方的な動きではなく、<b>両社間で人材の行き来がある</b>ことを示しています。AI業界における<b>トップティアの人材獲得競争</b>が激化している状況を反映しています。",
+      "impact": "AI分野における人材の流動性は、企業の競争力や技術革新の速度に直結するため、この動向はAI業界全体の成長と発展に重要な影響を与えます。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T20:52:07+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-006",
+      "title": "ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
+      "title_ja": "ComfyUIが5億ドル評価額に到達",
+      "summary_ja": "AI生成メディアのクリエイターに高い制御性を提供するComfyUIが、<b>3,000万ドルの資金調達</b>を実施しました。これにより、同社の評価額は<b>5億ドルに達し</b>、AI画像、動画、音声生成におけるクリエイターのニーズに応える動きが加速しています。",
+      "impact": "AIコンテンツ制作において、より高度な制御を求めるクリエイターにとって、ComfyUIの成長は新たな可能性を示唆しています。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T19:49:35+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-007",
+      "title": "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B",
+      "title_ja": "Apple新CEOにジョン・ターナス氏就任へ",
+      "summary_ja": "Appleのティム・クックCEOが<b>9月に退任</b>し、ハードウェア責任者の<b>ジョン・ターナス氏が後任</b>となる予定です。ターナス氏は強固な事業を引き継ぎますが、クック氏が築き上げたエコシステムとは異なる新たな時代にAppleを導くことになります。",
+      "impact": "Appleのリーダーシップ交代は、同社の将来の方向性、特にAI時代における戦略に大きな影響を与える可能性があります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/podcast/apples-new-ceo-and-why-elon-musk-wants-to-buy-cursor-for-60b"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T17:45:57+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-008",
+      "title": "Marked-up Mac minis flood eBay amid shortages driven by AI",
+      "title_ja": "AI需要でMac miniが品薄、eBayで高騰",
+      "summary_ja": "Appleの<b>Mac miniが品薄状態</b>となり、eBayでは高値で取引されています。これは、<b>ローカルAIモデルやツールを実行する</b>ための需要が急増しているためです。",
+      "impact": "AI開発や利用が身近になるにつれ、高性能なコンパクトPCへの需要が高まっており、今後のハードウェア市場に影響を与える可能性があります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T16:42:19+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-009",
+      "title": "Uber CTO Praveen Neppalli Naga joins stacked StrictlyVC SF lineup for April 30 event",
+      "title_ja": "Uber CTOがStrictlyVC SFに登壇",
+      "summary_ja": "TechCrunchが主催するイベント「StrictlyVC San Francisco」に、<b>UberのCTOであるPraveen Neppalli Naga氏が追加登壇</b>することが決定しました。同イベントは<b>4月30日</b>に開催され、テクノロジー業界の著名人が集結します。",
+      "impact": "業界の主要人物が語る最新の動向は、テクノロジー分野のビジネスチャンスや将来のトレンドを理解する上で貴重な情報源となります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/uber-cto-praveen-neppalli-naga-joins-stacked-strictlyvc-sf-lineup-for-april-30-event"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T14:00:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-010",
+      "title": "Tim Cook is stepping down. What happens to Apple now?",
+      "title_ja": "ティム・クック氏、9月にApple CEO退任",
+      "summary_ja": "Appleのティム・クックCEOが<b>9月に退任</b>し、後任にはハードウェア責任者の<b>ジョン・ターナス氏が就任</b>する予定です。ターナス氏は強固な事業を引き継ぎますが、クック氏が長年築き上げたエコシステムとは異なる、新たな時代にAppleを導くことになります。",
+      "impact": "Appleのトップ交代は、同社の将来の製品戦略やAI分野への取り組みに大きな影響を与える可能性があり、注目されます。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T14:00:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-011",
+      "title": "Nothing introduces an AI-powered dictation tool",
+      "title_ja": "Nothing、100言語対応のAI音声入力ツールを発表",
+      "summary_ja": "Nothingが<b>100以上の言語に対応するAI搭載の音声入力ツール</b>を導入しました。このツールはデバイス上で動作し、ユーザーは多言語でのテキスト入力をより効率的に行えるようになります。",
+      "impact": "多言語対応のAI音声入力は、グローバルなコミュニケーションや生産性向上に貢献する可能性を秘めています。",
+      "category": "startup",
+      "category_label": "スタートアップ",
+      "tag_class": "tag-startup",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/nothing-introduces-an-ai-powered-dictation-tool"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T13:41:42+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-012",
+      "title": "DeepSeek previews new AI model that ‘closes the gap’ with frontier models",
+      "title_ja": "DeepSeek、新AIモデルで最先端モデルとの差を縮める",
+      "summary_ja": "DeepSeekは、アーキテクチャの改善により、既存のDeepSeek V3.2よりも<b>効率的で高性能な新しいAIモデル</b>を発表しました。この新モデルは、推論ベンチマークにおいて、<b>オープンソースおよびクローズドソースの最先端モデルとの性能差をほぼ解消</b>したと述べています。",
+      "impact": "この進展は、AIモデルの性能競争を加速させ、より高度なAIが広く利用可能になる可能性を示唆しています。",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T13:30:59+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-013",
+      "title": "In another wild turn for AI chips, Meta signs deal for millions of Amazon AI CPUs",
+      "title_ja": "Meta、Amazon製AI CPUを数百万個調達",
+      "summary_ja": "Metaは、AIエージェントのワークロード向けに<b>Amazonが自社開発した数百万個のCPU</b>を確保する契約を締結しました。これは、従来のGPU中心のAIチップ競争とは異なる、<b>新たな種類のチップ競争が始まった</b>ことを示唆しています。",
+      "impact": "この動きは、AIチップ市場の多様化と、企業が特定のAIワークロードに最適化されたハードウェアを求める傾向を浮き彫りにします。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/24/in-another-wild-turn-for-ai-chips-meta-signs-deal-for-millions-of-amazon-ai-cpus"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T12:00:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-014",
+      "title": "How Project Maven taught the military to love AI",
+      "title_ja": "米軍、AI「Project Maven」で標的選定を加速",
+      "summary_ja": "米軍は、イランへの攻撃開始から24時間で<b>1,000以上の標的を攻撃</b>し、これは20年前のイラク攻撃の約2倍の規模でした。この迅速な攻撃は、<b>AIシステム「Project Maven」</b>が標的選定プロセスを加速させたことで可能になりました。",
+      "impact": "AIが軍事作戦における意思決定と実行を劇的に加速させる可能性を示しており、倫理的・社会的な議論を深めるきっかけとなります。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/917996/project-maven-military-ai-katrina-manson"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T17:00:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-015",
+      "title": "AirPods, Touch Bars, and the rest of Tim Cook&#8217;s legacy",
+      "title_ja": "Appleティム・クックCEO退任、後継はジョン・ターナスか",
+      "summary_ja": "Appleのティム・クックCEOの退任は以前から予想されていましたが、今週のニュースは驚きをもって受け止められました。過去1年間で、<b>ジョン・ターナス氏が後継者となる可能性</b>が濃厚になっており、今年のCEO交代はAppleに<b>重要な変化をもたらす</b>かもしれません。",
+      "impact": "Appleのリーダーシップ交代は、同社の将来の製品戦略やAIへの取り組みに大きな影響を与える可能性があり、業界全体が注目しています。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/podcast/917965/apple-ceo-cook-ternus-transition"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T14:43:07+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-016",
+      "title": "Musk vs. Altman is here, and it&#8217;s going to get messy",
+      "title_ja": "Musk vs. Altman訴訟、4月27日開始",
+      "summary_ja": "Elon Musk氏がOpenAIを共同設立後、CEOになれなかったことを理由に離脱し、Sam Altman氏が残りました。現在、Musk氏はOpenAIを提訴しており、<b>4月27日にカリフォルニア州オークランドで裁判が開始される予定</b>です。",
+      "impact": "AI業界の主要人物間の法廷闘争は、OpenAIの将来やAI開発の方向性に大きな影響を与える可能性があります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/917755/musk-altman-openai-xai-gossip"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T12:00:00+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-017",
+      "title": "China’s DeepSeek previews new AI model a year after jolting US rivals",
+      "title_ja": "中国DeepSeek、新AIモデルV4を公開",
+      "summary_ja": "中国のAI企業DeepSeekは金曜日、次世代AIモデル<b>「V4」のプレビューを公開</b>し、このオープンソースモデルが米国の主要なクローズドソースシステムと競合できると主張しています。DeepSeekは、V4が以前のモデルから大幅な改善を遂げたと述べています。",
+      "impact": "中国のAI技術の進歩は、世界のAI競争を激化させ、オープンソースAIの可能性を広げる可能性があります。",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/918035/deepseek-preview-v4-ai-model"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T09:45:30+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-018",
+      "title": "Prestigious photo contest answers ‘what is a photo?’",
+      "title_ja": "世界報道写真展、AI時代の写真定義を問う",
+      "summary_ja": "生成AIが普及する中で「本物の写真」の定義が問われる中、世界報道写真コンテストがその答えを示唆しています。この権威ある賞は、現実を捉えることが最重要視されるフォトジャーナリズムの最高峰を称えるもので、<b>2026年の受賞作品がAIと写真の関係性について議論を呼ぶ</b>可能性があります。",
+      "impact": "AI技術が芸術やジャーナリズムに与える影響について、写真の定義を巡る議論は、クリエイターやメディア関係者にとって重要な示唆を与えます。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/gadgets/918016/prestigious-photo-contest-answers-what-is-a-photo"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-24T09:40:07+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-019",
+      "title": "Claude is connecting directly to your personal apps like Spotify, Uber Eats, and TurboTax",
+      "title_ja": "Claude、Spotifyなど個人アプリと連携強化",
+      "summary_ja": "AnthropicのAI「Claude」は、ハイキングから食料品の買い物まで、より多くの個人向けアプリと接続できるようになります。これまで仕事関連アプリとの連携をサポートしていましたが、今回の拡張では<b>Audible、Spotify、Uber Eatsといった個人向けアプリとの連携に焦点</b>が当てられています。",
+      "impact": "AIアシスタントが日常生活に深く統合されることで、ユーザーはよりパーソナライズされた便利な体験を得られるようになります。",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/917871/anthropic-claude-personal-app-connectors"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-23T22:27:11+00:00",
+      "language": "en"
+    },
+    {
+      "id": "2026-04-25-020",
+      "title": "Meta is laying off 10 percent of its staff",
+      "title_ja": "Meta、従業員の10%を解雇へ",
+      "summary_ja": "Bloombergが公開したMetaの最高人事責任者Janelle Gale氏のメモによると、Metaは<b>5月に従業員の約10%を解雇する計画</b>です。これは約8,000人の人員削減を意味し、さらに約6,000の募集中の職務も閉鎖される予定です。",
+      "impact": "大手テクノロジー企業のレイオフは、AI投資と効率化のバランスを示すものであり、業界全体の雇用情勢や経済動向に影響を与える可能性があります。",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/tech/917690/meta-is-laying-off-10-percent-of-its-staff"
+        }
+      ],
+      "importance": 4.2,
+      "published": "2026-04-23T19:41:07+00:00",
+      "language": "en"
+    }
+  ]
+}
