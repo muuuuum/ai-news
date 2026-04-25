@@ -77,7 +77,7 @@ def deduplicate(articles: list) -> list:
         for j, item_b in enumerate(unique):
             if j in used or j <= i:
                 continue
-            if _title_similarity(item_a["title"], item_b["title"]) > 0.65:
+            if _title_similarity(item_a["title"], item_b["title"]) > 0.45:
                 cluster.append(item_b)
                 used.add(j)
 

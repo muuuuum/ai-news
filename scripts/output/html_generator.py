@@ -202,6 +202,9 @@ def generate_html(date_str: str = None):
         print("[HTML] 記事が0件")
         return
 
+    # 最大15件に絞る（ページが長くなりすぎない）
+    articles = articles[:15]
+
     # 既存HTMLを読み込み
     with open(INDEX_PATH, "r", encoding="utf-8") as f:
         html = f.read()
@@ -233,11 +236,13 @@ def generate_html(date_str: str = None):
     hero = articles[0]
     pickups = articles[1:5]
 
-    # カテゴリ分類
+    # カテゴリ分類（各カテゴリ最大3件）
     by_cat = {}
     for a in articles[5:]:
         cat = a.get("category", "model_research")
-        by_cat.setdefault(cat, []).append(a)
+        by_cat.setdefault(cat, [])
+        if len(by_cat[cat]) < 3:
+            by_cat[cat].append(a)
 
     main = ""
     main += _hero_section(hero, rich)
