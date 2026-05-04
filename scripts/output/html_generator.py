@@ -285,6 +285,16 @@ def generate_html(date_str: str = None):
     # Add CSS for new elements
     new_css = """
 .hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.topic-chip{display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;border:1px solid transparent;}
+.topic-chip:hover{background:var(--purple,#7c3aed);color:#fff;transform:translateY(-1px);box-shadow:0 2px 6px rgba(124,58,237,.3);}
+.topic-chip-sm{padding:4px 10px;border-radius:12px;font-size:11px;margin:2px;}
+.topic-list{padding:8px 0;}
+.topic-list-item{display:block;padding:14px 16px;border-bottom:1px solid var(--border-light);cursor:pointer;transition:background .15s;border-radius:6px;}
+.topic-list-item:last-child{border-bottom:none;}
+.topic-list-item:hover{background:var(--bg);}
+.topic-list-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:3px;margin-right:8px;letter-spacing:.04em;}
+.topic-list-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.5;margin:6px 0 4px;}
+.topic-list-meta{font-size:11px;color:var(--muted2);}
 .card-text-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .card-text{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--border);border-radius:8px;padding:16px 18px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:8px;}
 .card-text:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px);}
@@ -527,14 +537,13 @@ def _timeline_section(articles: list) -> str:
 
 
 def _trending_topics_section(articles: list) -> str:
-    """記事のrelated_topicsを集計し、タグクラウドとして表示"""
+    """記事のrelated_topicsを集計し、クリッカブルなタグクラウドとして表示"""
     topic_counts = {}
     for a in articles:
         for topic in a.get("related_topics", []):
             topic = topic.strip()
             if topic:
                 topic_counts[topic] = topic_counts.get(topic, 0) + 1
-    # 頻度順にソート
     sorted_topics = sorted(topic_counts.items(), key=lambda x: -x[1])[:15]
 
     if not sorted_topics:
@@ -542,12 +551,13 @@ def _trending_topics_section(articles: list) -> str:
 
     tags = ""
     for topic, count in sorted_topics:
+        topic_esc = _js_esc(topic)
         tags += f'''
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">{topic} ({count})</span>'''
+      <span class="topic-chip" onclick="openTopic('{topic_esc}')">{topic} ({count})</span>'''
 
     return f'''
   <div class="sec" id="sec-trends">
-    <div class="sec-header"><div class="sec-bar" style="background:var(--purple)"></div><div class="sec-title">🔥 トレンドトピック</div></div>
+    <div class="sec-header"><div class="sec-bar" style="background:var(--purple)"></div><div class="sec-title">🔥 トレンドトピック</div><div style="margin-left:auto;font-size:11px;color:var(--muted);font-weight:500;">クリックで関連記事を表示</div></div>
     <div style="display:flex;flex-wrap:wrap;gap:8px;">
       {tags}
     </div>
@@ -606,7 +616,8 @@ def _sidebar(articles: list, date_display: str) -> str:
     sorted_topics = sorted(topic_counts.items(), key=lambda x: -x[1])[:8]
     trend_tags = ""
     for topic, count in sorted_topics:
-        trend_tags += f'<span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">{topic} ({count})</span>'
+        topic_esc = _js_esc(topic)
+        trend_tags += f'<span class="topic-chip topic-chip-sm" onclick="openTopic(\'{topic_esc}\')">{topic} ({count})</span>'
     trend_box = ""
     if trend_tags:
         trend_box = f'<div class="sb-box"><div class="sb-title"><span>🔥</span>トレンドトピック</div><div style="display:flex;flex-wrap:wrap;gap:4px;">{trend_tags}</div></div>'
@@ -683,12 +694,37 @@ def _build_js_data(articles: list, rich: dict) -> str:
 
     js = "const A={\n" + ",\n".join(entries) + "\n};"
 
-    # ナビゲーションのスクロール関数を追加
+    # トピック → 記事IDマップ（再生成で重複しないようvar）
+    topic_map = {}
+    for a in articles:
+        aid = _article_id(a)
+        for topic in a.get("related_topics", []):
+            topic = topic.strip()
+            if topic:
+                topic_map.setdefault(topic, []).append(aid)
+    topic_entries = []
+    for topic, aids in topic_map.items():
+        aids_js = ",".join(f"'{aid}'" for aid in aids)
+        topic_entries.append(f"  '{_js_esc(topic)}':[{aids_js}]")
+    js += "\nwindow.T={\n" + ",\n".join(topic_entries) + "\n};"
+
+    # ナビゲーションのスクロール関数 + トピックモーダル関数
     js += """
 function scrollToSec(id){
   if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
   var el=document.getElementById(id);
   if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+function openTopic(name){
+  const aids=window.T[name];if(!aids||!aids.length)return;
+  const items=aids.map(id=>{
+    const a=A[id];if(!a)return '';
+    return `<div class="topic-list-item" onclick="closeArticle();setTimeout(()=>openArticle('${id}'),100)"><span class="topic-list-tag ${a.tc}">${a.tag}</span><span class="topic-list-meta">${a.date}</span><div class="topic-list-title">${a.title}</div></div>`;
+  }).join('');
+  document.getElementById('modalHero').innerHTML=`<div style="background:linear-gradient(135deg,#7c3aed,#5b21b6);width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;"><div style="text-align:center;"><div style="font-size:48px;margin-bottom:8px;">🔥</div><div style="font-size:24px;font-weight:800;">${name}</div><div style="font-size:13px;opacity:.8;margin-top:4px;">${aids.length}件の関連記事</div></div></div>`;
+  document.getElementById('modalBody').innerHTML=`<div class="modal-tag" style="background:#f3e8ff;color:#7c3aed;">トピック</div><div class="modal-title">「${name}」に関する記事一覧</div><div class="modal-meta"><span>${aids.length}件の記事</span></div><div class="topic-list">${items}</div>`;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow='hidden';
 }"""
 
     return js

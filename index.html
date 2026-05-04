@@ -308,6 +308,38 @@
 .card-v-title{font-size:14px;font-weight:800;line-height:1.5;margin-bottom:6px;}
 .card-v-desc{font-size:12px;color:var(--muted);line-height:1.6;}
 .card-v-footer{display:flex;justify-content:space-between;padding:8px 16px 14px;font-size:11px;color:var(--muted2);}
+
+.hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.topic-chip{display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;border:1px solid transparent;}
+.topic-chip:hover{background:var(--purple,#7c3aed);color:#fff;transform:translateY(-1px);box-shadow:0 2px 6px rgba(124,58,237,.3);}
+.topic-chip-sm{padding:4px 10px;border-radius:12px;font-size:11px;margin:2px;}
+.topic-list{padding:8px 0;}
+.topic-list-item{display:block;padding:14px 16px;border-bottom:1px solid var(--border-light);cursor:pointer;transition:background .15s;border-radius:6px;}
+.topic-list-item:last-child{border-bottom:none;}
+.topic-list-item:hover{background:var(--bg);}
+.topic-list-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:3px;margin-right:8px;letter-spacing:.04em;}
+.topic-list-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.5;margin:6px 0 4px;}
+.topic-list-meta{font-size:11px;color:var(--muted2);}
+.card-text-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.card-text{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--border);border-radius:8px;padding:16px 18px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:8px;}
+.card-text:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px);}
+.card-text-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:3px;align-self:flex-start;letter-spacing:.04em;}
+.card-text-title{font-size:14.5px;font-weight:700;line-height:1.55;color:var(--text);margin:0;}
+.card-text-desc{font-size:12.5px;color:var(--muted);line-height:1.65;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card-text-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted2);font-weight:500;margin-top:auto;padding-top:6px;}
+.card-text-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--muted3);}
+@media(max-width:640px){.card-text-grid{grid-template-columns:1fr;}}
+.tag-paper{background:var(--orange-light);color:var(--orange);}
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.card-v{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.card-v:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);}
+.card-v-thumb{width:100%;height:140px;overflow:hidden;}
+.card-v-thumb svg{width:100%;height:100%;}
+.card-v-body{padding:14px 16px 8px;}
+.card-v-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;margin-bottom:6px;}
+.card-v-title{font-size:14px;font-weight:800;line-height:1.5;margin-bottom:6px;}
+.card-v-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.card-v-footer{display:flex;justify-content:space-between;padding:8px 16px 14px;font-size:11px;color:var(--muted2);}
 </style>
 </head>
 <body>
@@ -331,7 +363,7 @@
 </div></div>
 
 <!-- NAV -->
-<div class="nav"><div class="nav-inner"><div class="nav-item active" onclick="scrollToSec('top')">トップ</div><div class="nav-item" onclick="scrollToSec('sec-key-numbers')">注目数字</div><div class="nav-item" onclick="scrollToSec('sec-trends')">トレンド</div><div class="nav-item" onclick="scrollToSec('sec-model_research')">モデル・研究</div><div class="nav-item" onclick="scrollToSec('sec-agent_ai')">エージェントAI</div><div class="nav-item" onclick="scrollToSec('sec-business')">ビジネス</div><div class="nav-item" onclick="scrollToSec('sec-startup')">スタートアップ</div><div class="nav-item" onclick="scrollToSec('sec-security')">セキュリティ</div><div class="nav-item" onclick="scrollToSec('sec-timeline')">タイムライン</div></div></div></div></div></div></div></div></div></div>
+<div class="nav"><div class="nav-inner"><div class="nav-item active" onclick="scrollToSec('top')">トップ</div><div class="nav-item" onclick="scrollToSec('sec-key-numbers')">注目数字</div><div class="nav-item" onclick="scrollToSec('sec-trends')">トレンド</div><div class="nav-item" onclick="scrollToSec('sec-model_research')">モデル・研究</div><div class="nav-item" onclick="scrollToSec('sec-agent_ai')">エージェントAI</div><div class="nav-item" onclick="scrollToSec('sec-business')">ビジネス</div><div class="nav-item" onclick="scrollToSec('sec-startup')">スタートアップ</div><div class="nav-item" onclick="scrollToSec('sec-security')">セキュリティ</div><div class="nav-item" onclick="scrollToSec('sec-timeline')">タイムライン</div></div></div></div></div></div></div></div></div></div></div>
 
 <div class="page"><div class="layout">
 <main>
@@ -428,24 +460,24 @@
   </div>
 
   <div class="sec" id="sec-trends">
-    <div class="sec-header"><div class="sec-bar" style="background:var(--purple)"></div><div class="sec-title">🔥 トレンドトピック</div></div>
+    <div class="sec-header"><div class="sec-bar" style="background:var(--purple)"></div><div class="sec-title">🔥 トレンドトピック</div><div style="margin-left:auto;font-size:11px;color:var(--muted);font-weight:500;">クリックで関連記事を表示</div></div>
     <div style="display:flex;flex-wrap:wrap;gap:8px;">
       
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">AI倫理 (9)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">AIエージェント (4)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">エッジAI (3)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">医療AI (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">LLMの医療応用 (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">診断支援システム (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">開発者ツール (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">コード生成AI (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">著作権 (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">エンターテイメント業界の変革 (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">AIガバナンス (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">プロンプトエンジニアリング (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">AIと著作権 (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">プライバシー保護 (2)</span>
-      <span style="background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">AIの透明性 (2)</span>
+      <span class="topic-chip" onclick="openTopic('AI倫理')">AI倫理 (9)</span>
+      <span class="topic-chip" onclick="openTopic('AIエージェント')">AIエージェント (4)</span>
+      <span class="topic-chip" onclick="openTopic('エッジAI')">エッジAI (3)</span>
+      <span class="topic-chip" onclick="openTopic('医療AI')">医療AI (2)</span>
+      <span class="topic-chip" onclick="openTopic('LLMの医療応用')">LLMの医療応用 (2)</span>
+      <span class="topic-chip" onclick="openTopic('診断支援システム')">診断支援システム (2)</span>
+      <span class="topic-chip" onclick="openTopic('開発者ツール')">開発者ツール (2)</span>
+      <span class="topic-chip" onclick="openTopic('コード生成AI')">コード生成AI (2)</span>
+      <span class="topic-chip" onclick="openTopic('著作権')">著作権 (2)</span>
+      <span class="topic-chip" onclick="openTopic('エンターテイメント業界の変革')">エンターテイメント業界の変革 (2)</span>
+      <span class="topic-chip" onclick="openTopic('AIガバナンス')">AIガバナンス (2)</span>
+      <span class="topic-chip" onclick="openTopic('プロンプトエンジニアリング')">プロンプトエンジニアリング (2)</span>
+      <span class="topic-chip" onclick="openTopic('AIと著作権')">AIと著作権 (2)</span>
+      <span class="topic-chip" onclick="openTopic('プライバシー保護')">プライバシー保護 (2)</span>
+      <span class="topic-chip" onclick="openTopic('AIの透明性')">AIの透明性 (2)</span>
     </div>
   </div>
 
@@ -738,7 +770,7 @@
 <div class="sb-newsletter"><div class="sb-nl-title">📬 AI News Daily</div><div class="sb-nl-desc">世界のAI最新ニュースを毎朝メールでお届け。無料で購読できます。</div><div class="sb-nl-form"><input class="sb-nl-input" type="email" placeholder="メールアドレス"><button class="sb-nl-btn">購読</button></div><div class="sb-nl-note">※ いつでも解除できます</div></div>
 <div class="sb-box"><div class="sb-title"><span>📊</span>本日の注目数字</div><div class="sb-stats"><div class="sb-stat"><span class="sb-stat-name">記事数</span><span class="sb-stat-val" style="color:var(--blue)">40件</span></div><div class="sb-stat"><span class="sb-stat-name">モデル・研究</span><span class="sb-stat-val">14件</span></div><div class="sb-stat"><span class="sb-stat-name">ビジネス</span><span class="sb-stat-val">8件</span></div><div class="sb-stat"><span class="sb-stat-name">セキュリティ</span><span class="sb-stat-val">7件</span></div><div class="sb-stat"><span class="sb-stat-name">エージェントAI</span><span class="sb-stat-val">7件</span></div><div class="sb-stat"><span class="sb-stat-name">スタートアップ</span><span class="sb-stat-val">4件</span></div></div></div>
 <div class="sb-box"><div class="sb-title"><span>🏆</span>注目ランキング</div><div class="rank-item" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px"><div class="rank-num r1" style="font-size:18px;font-weight:900;min-width:24px">1</div><div><div class="rank-text" style="font-size:12.5px;font-weight:700;line-height:1.5">【医療AI革命】ハーバード研究が示す「AIが医師より正確な診断」の衝撃</div><div style="font-size:10.5px;color:var(--muted2)">TechCrunch AI</div></div></div><div class="rank-item" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px"><div class="rank-num r2" style="font-size:18px;font-weight:900;min-width:24px">2</div><div><div class="rank-text" style="font-size:12.5px;font-weight:700;line-height:1.5">【AI医療の奇跡】AIが膵臓がんを「腫瘍発生前」に発見する新技術</div><div style="font-size:10.5px;color:var(--muted2)">r/artificial</div></div></div><div class="rank-item" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px"><div class="rank-num r3" style="font-size:18px;font-weight:900;min-width:24px">3</div><div><div class="rank-text" style="font-size:12.5px;font-weight:700;line-height:1.5">【診断精度に衝撃】OpenAIのAIが救急患者の67%を正確診断、医師を圧倒</div><div style="font-size:10.5px;color:var(--muted2)">Hacker News</div></div></div><div class="rank-item" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px"><div class="rank-num other" style="font-size:18px;font-weight:900;min-width:24px">4</div><div><div class="rank-text" style="font-size:12.5px;font-weight:700;line-height:1.5">【AIコーディング戦争】Kimi K2.6がClaude, GPT-5.5, G</div><div style="font-size:10.5px;color:var(--muted2)">Hacker News</div></div></div><div class="rank-item" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px"><div class="rank-num other" style="font-size:18px;font-weight:900;min-width:24px">5</div><div><div class="rank-text" style="font-size:12.5px;font-weight:700;line-height:1.5">【AIコスト破壊】150ドルの低価格FPGAでLLM推論が爆速化する未来</div><div style="font-size:10.5px;color:var(--muted2)">r/LocalLLaMA</div></div></div></div>
-<div class="sb-box"><div class="sb-title"><span>🔥</span>トレンドトピック</div><div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">AI倫理 (9)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">AIエージェント (4)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">エッジAI (3)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">医療AI (2)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">LLMの医療応用 (2)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">診断支援システム (2)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">開発者ツール (2)</span><span style="display:inline-block;background:var(--purple-light,#f3e8ff);color:var(--purple,#7c3aed);padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin:2px;">コード生成AI (2)</span></div></div>
+<div class="sb-box"><div class="sb-title"><span>🔥</span>トレンドトピック</div><div style="display:flex;flex-wrap:wrap;gap:4px;"><span class="topic-chip topic-chip-sm" onclick="openTopic('AI倫理')">AI倫理 (9)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('AIエージェント')">AIエージェント (4)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('エッジAI')">エッジAI (3)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('医療AI')">医療AI (2)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('LLMの医療応用')">LLMの医療応用 (2)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('診断支援システム')">診断支援システム (2)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('開発者ツール')">開発者ツール (2)</span><span class="topic-chip topic-chip-sm" onclick="openTopic('コード生成AI')">コード生成AI (2)</span></div></div>
 <div class="sb-box"><div class="sb-title"><span>📅</span>関連イベント</div><div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:var(--accent);min-width:60px;">2026.05.03</div><div style="font-size:11.5px;font-weight:600;line-height:1.4;">【医療AI革命】ハーバード研究が示す「AIが医師より正確な診断」の衝撃</div></div><div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:var(--accent);min-width:60px;">2026.05.03</div><div style="font-size:11.5px;font-weight:600;line-height:1.4;">【AI医療の奇跡】AIが膵臓がんを「腫瘍発生前」に発見する新技術</div></div><div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:var(--accent);min-width:60px;">2026.05.03</div><div style="font-size:11.5px;font-weight:600;line-height:1.4;">【診断精度に衝撃】OpenAIのAIが救急患者の67%を正確診断、医師</div></div><div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:var(--accent);min-width:60px;">2026.05.03</div><div style="font-size:11.5px;font-weight:600;line-height:1.4;">【AIコーディング戦争】Kimi K2.6がClaude, GPT-5</div></div><div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:var(--accent);min-width:60px;">2026.05.03</div><div style="font-size:11.5px;font-weight:600;line-height:1.4;">【AIコスト破壊】150ドルの低価格FPGAでLLM推論が爆速化する未</div></div></div>
 </aside>
 </div></div>
@@ -752,7 +784,7 @@
       <div><div class="footer-links-title">Legal</div><ul class="footer-links-list"><li>プライバシーポリシー</li><li>利用規約</li></ul></div>
     </div>
   </div>
-  <div class="footer-bottom"><div>&copy; 2026 AI News Daily. Powered by Claude.</div><div>最終更新: 2026-05-04 15:38 ・ 毎朝 9:00 自動更新</div></div>
+  <div class="footer-bottom"><div>&copy; 2026 AI News Daily. Powered by Claude.</div><div>最終更新: 2026-05-04 15:49 ・ 毎朝 9:00 自動更新</div></div>
 </div></footer>
 
 <!-- MODAL -->
@@ -828,6 +860,139 @@ const A={
   af65e8c:{tag:'BUSINESS',tc:'tag-biz',title:'【生成AI導入】予算申請を「確実に通す」7つの秘訣とは？',sources:[{n:'AI Now (旧ledge.ai)',u:'https://ainow.ai/2026/05/03/278038'}],date:'2026年5月3日',svg:'<svg viewBox=\"0 0 780 260\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gaf65e8c\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a5f\"/><stop offset=\"100%\" stop-color=\"#1d4ed8\"/></linearGradient></defs><rect fill=\"url(#gaf65e8c)\" width=\"780\" height=\"260\"/><text x=\"390\" y=\"140\" text-anchor=\"middle\" font-size=\"86\" opacity=\".15\">📊</text></svg>',stats:[{v:'7ステップ',l:'成功の秘訣',c:'var(--blue)'},{v:'ROI',l:'重要指標',c:'var(--blue)'},{v:'テンプレート',l:'提供資料',c:'var(--blue)'}],body:`<p class=\"modal-text\">生成AI導入を検討する企業にとって朗報です。予算申請を確実に成功させるための<strong>7つの具体的なステップ</strong>が、この記事で詳細に解説されています。特に、<strong>ROI（投資対効果）の計算方法や稟議書のテンプレート</strong>が提供されており、生成AIプロジェクトを円滑に進めるための実践的なガイドラインとして非常に有用です。</p><h3 class=\"modal-subhead\">予算申請成功のための実践的ステップ</h3><ul class=\"modal-list\"><li><strong>明確な課題特定:</strong> 生成AIが解決するビジネス課題を明確にし、その価値を定量的に示すことが重要です。</li><li><strong>ROIの算出:</strong> 投資対効果を具体的に計算し、経営層に経済的メリットを説得力を持って提示。提供されるテンプレートが役立ちます。</li><li><strong>リスク評価と対策:</strong> 導入に伴う潜在的なリスクを洗い出し、具体的な対策を提示することで、信頼性を高めます。</li></ul><p>このガイドラインは、生成AI導入の障壁を低減し、企業のDX推進を加速させるための強力な支援となるでしょう。多くの企業にとって必読の内容です。</p>`},
   a1d3c0a:{tag:'BUSINESS',tc:'tag-biz',title:'【生成AI導入】「失敗する企業」が陥る10の罠！あなたは大丈夫か？',sources:[{n:'AI Now (旧ledge.ai)',u:'https://ainow.ai/2026/05/02/278034'}],date:'2026年5月2日',svg:'<svg viewBox=\"0 0 780 260\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"ga1d3c0a\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a5f\"/><stop offset=\"100%\" stop-color=\"#1d4ed8\"/></linearGradient></defs><rect fill=\"url(#ga1d3c0a)\" width=\"780\" height=\"260\"/><text x=\"390\" y=\"140\" text-anchor=\"middle\" font-size=\"86\" opacity=\".15\">📊</text></svg>',stats:[{v:'10',l:'失敗する罠',c:'var(--blue)'},{v:'4',l:'分析側面',c:'var(--blue)'},{v:'チェックリスト',l:'成功への道',c:'var(--blue)'}],body:`<p class=\"modal-text\">生成AIの導入は多くの企業にとって喫緊の課題ですが、その成功は容易ではありません。この記事では、<strong>生成AI導入プロジェクトが失敗に終わる10の典型的なパターン</strong>を、戦略、計画、技術、運用という4つの側面から深く掘り下げています。<strong>失敗を回避するための具体的なチェックリスト</strong>も提供されており、導入を検討する企業にとって必読の内容です。</p><h3 class=\"modal-subhead\">戦略・計画段階の落とし穴</h3><ul class=\"modal-list\"><li>明確な目標設定の欠如、または過度な期待</li><li>不十分な予算とリソース配分</li><li>組織全体のコミットメント不足</li></ul><h3 class=\"modal-subhead\">技術・運用段階の課題</h3><ul class=\"modal-list\"><li>データ品質の問題と準備不足</li><li>必要なスキルセットの不足と人材育成の遅れ</li><li>既存システムとの統合問題、運用体制の未整備</li><li>従業員の抵抗とチェンジマネジメントの失敗</li></ul><p>これらの罠を認識し、事前に適切な対策を講じることで、生成AI導入プロジェクトの成功確率は飛躍的に向上します。提供されるチェックリストを活用し、自社のAI導入戦略を見直すことが、持続的な競争優位性を確立するための重要な一歩となるでしょう。</p>`}
 };
+window.T={
+  '医療AI':['a73077f','ab9e550'],
+  'LLMの医療応用':['a73077f','ab9e550'],
+  '診断支援システム':['a73077f','ab9e550'],
+  'AI倫理':['a73077f','a92e23f','af0fd7c','a3324b4','acd867b','adda604','a9301c9','a42a2e3','af3c5cf'],
+  '早期がん診断':['a84eae0'],
+  'AIヘルスケア':['a84eae0'],
+  '予防医療':['a84eae0'],
+  '画像診断AI':['a84eae0'],
+  'AIと人間の協調':['ab9e550'],
+  'AIコーディング':['acff5b3'],
+  'LLM競争':['acff5b3'],
+  '開発者ツール':['acff5b3','ae6d2e2'],
+  'コード生成AI':['acff5b3','a7e788b'],
+  'エッジAI':['a0d4956','a266e9b','a531e47'],
+  'LLMの効率化':['a0d4956'],
+  'AIハードウェア':['a0d4956'],
+  '低コストAI':['a0d4956'],
+  'LLM最適化':['a266e9b'],
+  'FPGA活用':['a266e9b'],
+  '著作権':['a92e23f','a112840'],
+  'エンターテイメント業界の変革':['a92e23f','a3324b4'],
+  '自動運転船':['ac1a4a3'],
+  '電動化':['ac1a4a3'],
+  'サプライチェーン最適化':['ac1a4a3'],
+  'AIによる生産性向上':['ae6d2e2'],
+  'AIガバナンス':['ae6d2e2','ac564dd'],
+  '自動運転規制':['af0fd7c'],
+  '法的責任':['af0fd7c'],
+  'ローカルLLM':['a531e47'],
+  'エージェントAI':['a531e47'],
+  'プライバシー保護AI':['a531e47'],
+  'プロンプトエンジニアリング':['aa6c3aa','aaf1251'],
+  'LLMの振る舞い':['aa6c3aa'],
+  'AIの誤情報':['aa6c3aa'],
+  'AIモデル評価':['aa6c3aa'],
+  'GPU競争':['ae6b56c'],
+  'AIインフラ':['ae6b56c'],
+  'AI企業の戦略':['ae6b56c'],
+  '半導体サプライチェーン':['ae6b56c'],
+  'AIと著作権':['a3324b4','a42a2e3'],
+  'コンテンツ生成AI':['a3324b4'],
+  '顔認証技術':['acd867b'],
+  'プライバシー保護':['acd867b','a719a1e'],
+  '生体認証':['acd867b'],
+  '監視社会':['acd867b'],
+  'データプライバシー':['adda604'],
+  '情報セキュリティ':['adda604'],
+  'LLMの内部動作':['a7ef903'],
+  'AIの透明性':['a7ef903','ac564dd'],
+  '情報漏洩リスク':['a7ef903'],
+  'DX推進':['aa1214a','af65e8c'],
+  'AIによる業務効率化':['aa1214a'],
+  'スマートファクトリー':['aa1214a'],
+  'ボット対策':['a41b96b'],
+  'Webセキュリティ':['a41b96b'],
+  'リバースエンジニアリング':['a41b96b'],
+  'LLMの限界':['a9301c9'],
+  'AIの理解度':['a9301c9'],
+  '金融AI':['ac564dd'],
+  '生成AIのビジネス応用':['ac564dd'],
+  'AI音楽':['a112840'],
+  'ストリーミングサービス':['a112840'],
+  '生成AIの倫理':['a112840'],
+  '生成AIの法的課題':['a42a2e3'],
+  'クリエイターエコノミー':['a42a2e3'],
+  '生成AIゲーム':['aaf1251'],
+  'AIとエンターテイメント':['aaf1251'],
+  'Gemini':['aaf1251'],
+  'AIエージェント':['a966387','a7e788b','a4cd76d','a7aea39'],
+  'LLMのコスト最適化':['a966387'],
+  'マルチモデル戦略':['a966387'],
+  'DeepSeek':['a966387'],
+  'AI倫理と責任':['a7e788b'],
+  'ソフトウェア開発プロセス':['a7e788b'],
+  'Transformerモデル':['a1b1f3c'],
+  'AIの解釈可能性 (XAI)':['a1b1f3c'],
+  'モデルの透明性':['a1b1f3c'],
+  'AI研究':['a1b1f3c'],
+  'AIの意識':['af3c5cf'],
+  '人間とAIの関係':['af3c5cf'],
+  'LLMの知覚':['af3c5cf'],
+  'オンデバイスAI':['acc1d82'],
+  'Gemini Nano':['acc1d82'],
+  'モバイルAI':['acc1d82'],
+  'ストレージ最適化':['acc1d82'],
+  'AIエージェントセキュリティ':['a1f391d'],
+  'サンドボックス化':['a1f391d'],
+  'AIの安全性':['a1f391d'],
+  'システムアーキテクチャ':['a1f391d'],
+  'TypeScript開発':['a4cd76d'],
+  'ローコード/ノーコードAI':['a4cd76d'],
+  'LLMファインチューニング':['a8bb6a5'],
+  '人間らしいAI':['a8bb6a5'],
+  'パーソナルAI':['a8bb6a5'],
+  'LLMベンチマーク':['ab1078e'],
+  'モデル選定':['ab1078e'],
+  'AIコスト最適化':['ab1078e'],
+  '音声AI':['a7aea39'],
+  '生産性向上ツール':['a7aea39'],
+  'AIデザイン':['a4dde12'],
+  'コーディングエージェント':['a4dde12'],
+  'UI/UX自動化':['a4dde12'],
+  'ローカルAI':['aa4e5f8'],
+  'データ分析自動化':['aa4e5f8'],
+  'データサイエンスツール':['aa4e5f8'],
+  'クライアントサイドAI':['a719a1e'],
+  'PDF自動化':['a719a1e'],
+  'Hugging Face':['aa59f2f'],
+  'LLM可視化':['aa59f2f'],
+  'AIモデル理解':['aa59f2f'],
+  '生成AI導入':['af65e8c'],
+  'ROI計算':['af65e8c'],
+  '生成AIリスク':['a1d3c0a'],
+  'DX失敗事例':['a1d3c0a'],
+  'プロジェクトマネジメント':['a1d3c0a']
+};
+function scrollToSec(id){
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  var el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+function openTopic(name){
+  const aids=window.T[name];if(!aids||!aids.length)return;
+  const items=aids.map(id=>{
+    const a=A[id];if(!a)return '';
+    return `<div class="topic-list-item" onclick="closeArticle();setTimeout(()=>openArticle('${id}'),100)"><span class="topic-list-tag ${a.tc}">${a.tag}</span><span class="topic-list-meta">${a.date}</span><div class="topic-list-title">${a.title}</div></div>`;
+  }).join('');
+  document.getElementById('modalHero').innerHTML=`<div style="background:linear-gradient(135deg,#7c3aed,#5b21b6);width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;"><div style="text-align:center;"><div style="font-size:48px;margin-bottom:8px;">🔥</div><div style="font-size:24px;font-weight:800;">${name}</div><div style="font-size:13px;opacity:.8;margin-top:4px;">${aids.length}件の関連記事</div></div></div>`;
+  document.getElementById('modalBody').innerHTML=`<div class="modal-tag" style="background:#f3e8ff;color:#7c3aed;">トピック</div><div class="modal-title">「${name}」に関する記事一覧</div><div class="modal-meta"><span>${aids.length}件の記事</span></div><div class="topic-list">${items}</div>`;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow='hidden';
+}
 function scrollToSec(id){
   if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
   var el=document.getElementById(id);
