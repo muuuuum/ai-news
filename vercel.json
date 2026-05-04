@@ -8,6 +8,22 @@
   ],
   "builds": [
     {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "daily-report.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "images/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "data/**",
+      "use": "@vercel/static"
+    },
+    {
       "src": "api/slack_webhook.py",
       "use": "@vercel/python"
     },
@@ -32,6 +48,14 @@
     {
       "src": "/api/daily_post",
       "dest": "/api/daily_post.py"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
