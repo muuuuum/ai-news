@@ -266,8 +266,6 @@
 .card-v-footer{display:flex;justify-content:space-between;padding:8px 16px 14px;font-size:11px;color:var(--muted2);}
 
 .hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
-.archive-select{appearance:none;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px 28px 6px 12px;font-size:13px;color:var(--text2);font-weight:600;cursor:pointer;font-family:inherit;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236b7280'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:14px;transition:border-color .15s;}
-.archive-select:hover{border-color:var(--muted2);}
 .card-text-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .card-text{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--border);border-radius:8px;padding:16px 18px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:8px;}
 .card-text:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px);}
@@ -329,7 +327,7 @@
 <!-- HEADER -->
 <div class="header"><div class="header-inner">
   <div class="logo"><div class="logo-icon">AI</div><div class="logo-text">News<em>Daily</em></div></div>
-  <div class="header-actions"><div class="header-date">2026年5月4日（月）</div><select class="archive-select" onchange="if(this.value)window.location.href=this.value"><option value="">📅 アーカイブ</option><option value="/" selected>5月4日（月） ← 表示中</option><option value="/archive/2026-04-30.html">4月30日（木）</option><option value="/archive/2026-04-29.html">4月29日（水）</option><option value="/archive/2026-04-25.html">4月25日（土）</option></select><div class="search-box"><span>🔍</span><span>記事を検索</span></div></div>
+  <div class="header-actions"><div class="header-date">2026年5月4日（月）</div><div class="search-box"><span>🔍</span><span>記事を検索</span></div></div>
 </div></div>
 
 <!-- NAV -->
