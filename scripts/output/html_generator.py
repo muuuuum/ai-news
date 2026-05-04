@@ -121,22 +121,37 @@ def _make_visual(art: dict, width: int, height: int) -> str:
 
 
 def _generate_rich_content(articles: list) -> dict:
-    """Geminiで各記事のリッチなモーダルコンテンツを生成"""
+    """Geminiで各記事のリッチなモーダルコンテンツを生成。記事IDでキャッシュして再生成しない。"""
     if not GEMINI_API_KEY or not articles:
         return {}
 
-    print("[HTML] Geminiでリッチコンテンツ生成中...")
+    cache_path = os.path.join(DATA_DIR, "rich_content_cache.json")
+    cache = {}
+    if os.path.exists(cache_path):
+        try:
+            with open(cache_path, "r", encoding="utf-8") as f:
+                cache = json.load(f)
+        except Exception:
+            cache = {}
 
-    results = {}
-    batch_size = 5
+    # 既にキャッシュにある記事はスキップ
+    needs_generation = [a for a in articles if _article_id(a) not in cache]
+    print(f"[HTML] リッチコンテンツ: キャッシュ {len(articles) - len(needs_generation)}件 / 新規生成 {len(needs_generation)}件")
 
-    for start in range(0, len(articles), batch_size):
-        batch = articles[start:start + batch_size]
-        batch_results = _generate_rich_batch(batch)
-        results.update(batch_results)
-        print(f"  {min(start + batch_size, len(articles))}/{len(articles)}件完了")
+    if needs_generation:
+        batch_size = 5
+        for start in range(0, len(needs_generation), batch_size):
+            batch = needs_generation[start:start + batch_size]
+            batch_results = _generate_rich_batch(batch)
+            cache.update(batch_results)
+            print(f"  {min(start + batch_size, len(needs_generation))}/{len(needs_generation)}件完了")
 
-    return results
+        # キャッシュ保存
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+
+    # 今回の記事分だけ返す
+    return {_article_id(a): cache[_article_id(a)] for a in articles if _article_id(a) in cache}
 
 
 def _generate_rich_batch(batch: list) -> dict:
@@ -233,17 +248,31 @@ def generate_html(date_str: str = None):
     global _IMAGE_MAP
     _IMAGE_MAP = generate_images_for_articles(articles)
 
-    # リッチコンテンツ生成（Gemini） — 全記事に対して生成
-    rich = _generate_rich_content(articles)
+    # リッチコンテンツ生成（Gemini） — SKIP_RICH=1 でAPI費用節約のためスキップ可
+    if os.environ.get("SKIP_RICH") == "1":
+        print("[HTML] SKIP_RICH=1 — リッチコンテンツ生成をスキップ")
+        rich = {}
+    else:
+        rich = _generate_rich_content(articles)
 
     # 日付
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     weekdays = ["月", "火", "水", "木", "金", "土", "日"]
     date_display = f"{dt.year}年{dt.month}月{dt.day}日（{weekdays[dt.weekday()]}）"
 
-    # === 1. ヘッダー日付 ===
+    # === 1. ヘッダー日付 + アーカイブセレクタ ===
     html = re.sub(r'<div class="header-date">[^<]*</div>',
                   f'<div class="header-date">{date_display}</div>', html)
+
+    # アーカイブセレクタを検索ボックスの隣に挿入
+    archive_html = _build_archive_selector(reports.get("reports", {}), date_str)
+    # 既存のセレクタがあれば差し替え、なければ search-box の前に挿入
+    if 'class="archive-select"' in html:
+        html = re.sub(r'<select class="archive-select"[^>]*>.*?</select>',
+                       archive_html, html, count=1, flags=re.DOTALL)
+    else:
+        html = re.sub(r'(<div class="search-box">)',
+                       f'{archive_html}\\1', html, count=1)
 
     # === 1b. ナビゲーション（カテゴリリンク化） ===
     nav_items = (
@@ -266,6 +295,17 @@ def generate_html(date_str: str = None):
     # Add CSS for new elements
     new_css = """
 .hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.archive-select{appearance:none;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px 28px 6px 12px;font-size:13px;color:var(--text2);font-weight:600;cursor:pointer;font-family:inherit;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236b7280'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:14px;transition:border-color .15s;}
+.archive-select:hover{border-color:var(--muted2);}
+.card-text-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.card-text{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--border);border-radius:8px;padding:16px 18px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:8px;}
+.card-text:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px);}
+.card-text-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:3px;align-self:flex-start;letter-spacing:.04em;}
+.card-text-title{font-size:14.5px;font-weight:700;line-height:1.55;color:var(--text);margin:0;}
+.card-text-desc{font-size:12.5px;color:var(--muted);line-height:1.65;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card-text-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted2);font-weight:500;margin-top:auto;padding-top:6px;}
+.card-text-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--muted3);}
+@media(max-width:640px){.card-text-grid{grid-template-columns:1fr;}}
 .tag-paper{background:var(--orange-light);color:var(--orange);}
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 .card-v{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:transform .15s,box-shadow .15s;}
@@ -332,10 +372,51 @@ def generate_html(date_str: str = None):
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(f"[HTML] index.html 更新完了（{len(articles)}件、リッチコンテンツ{len(rich)}件）")
+    # アーカイブHTMLを保存（過去日として残す）
+    archive_dir = os.path.join(PROJECT_ROOT, "archive")
+    os.makedirs(archive_dir, exist_ok=True)
+    archive_path = os.path.join(archive_dir, f"{date_str}.html")
+    with open(archive_path, "w", encoding="utf-8") as f:
+        f.write(html)
+
+    print(f"[HTML] index.html 更新完了（{len(articles)}件、リッチコンテンツ{len(rich)}件、アーカイブ: {archive_path}）")
 
 
 # === セクション生成関数 ===
+
+def _build_archive_selector(reports: dict, current_date: str) -> str:
+    """過去日アーカイブのドロップダウンを生成。最新の日付から最大30件表示。"""
+    dates = sorted([d for d in reports.keys() if reports[d].get("articles")], reverse=True)
+    dates = dates[:30]
+
+    weekdays = ["月", "火", "水", "木", "金", "土", "日"]
+
+    options = ['<option value="">📅 アーカイブ</option>']
+    for d in dates:
+        try:
+            dt = datetime.strptime(d, "%Y-%m-%d")
+            wd = weekdays[dt.weekday()]
+            label = f"{dt.month}月{dt.day}日（{wd}）"
+        except Exception:
+            label = d
+
+        if d == current_date:
+            label = f"{label} ← 表示中"
+            url = "/"
+            selected = " selected"
+        else:
+            url = f"/archive/{d}.html"
+            selected = ""
+
+        options.append(f'<option value="{url}"{selected}>{label}</option>')
+
+    options_html = "".join(options)
+    return (
+        f'<select class="archive-select" '
+        f'onchange="if(this.value)window.location.href=this.value">'
+        f'{options_html}</select>'
+    )
+
 
 def _hero_section(art: dict, rich: dict) -> str:
     cat = art.get("category", "model_research")
@@ -403,29 +484,23 @@ def _category_section(cat_id: str, articles: list) -> str:
     cards = ""
     for a in articles:
         aid = _article_id(a)
-        svg = _make_visual(a, 300, 140)
         src_name = a["sources"][0]["name"] if a.get("sources") else ""
         pub = _fmt_date(a.get("published", ""))
-        summary = a.get("summary_ja", "")[:100]
+        summary = a.get("summary_ja", "")[:130]
         title_ja = a.get("title_ja", a["title"])
 
         cards += f'''
-      <div class="card-v" onclick="openArticle('{aid}')">
-        <div class="card-v-thumb">{svg}</div>
-        <div class="card-v-body">
-          <span class="card-v-tag {cfg["tc"]}">{cfg["tag"]}</span>
-          <div class="card-v-title">{title_ja}</div>
-          <div class="card-v-desc">{summary}</div>
-        </div>
-        <div class="card-v-footer">
-          <span>{src_name}</span><span>{pub}</span>
-        </div>
-      </div>'''
+      <article class="card-text" onclick="openArticle('{aid}')">
+        <div class="card-text-tag {cfg["tc"]}">{cfg["tag"]}</div>
+        <h3 class="card-text-title">{title_ja}</h3>
+        <p class="card-text-desc">{summary}</p>
+        <div class="card-text-meta"><span>{src_name}</span><span class="card-text-meta-dot"></span><span>{pub}</span></div>
+      </article>'''
 
     return f'''
   <div class="sec" id="sec-{cat_id}">
     <div class="sec-header"><div class="sec-bar" style="background:{cfg["bar_color"]}"></div><div class="sec-title">{cfg["label"]}</div><div class="sec-more">すべて見る →</div></div>
-    <div class="card-grid">{cards}
+    <div class="card-text-grid">{cards}
     </div>
   </div>
 '''
