@@ -28,13 +28,13 @@ IMAGE_GENERATION_LIMIT = int(os.environ.get("IMAGE_GENERATION_LIMIT", "9"))
 IMAGES_DIR = os.path.join(PROJECT_ROOT, "images", "news")
 WEB_PATH_PREFIX = "images/news"
 
-CAT_VISUAL_STYLE = {
-    "model_research": "neural network visualization, brain circuits, glowing nodes, deep purple-indigo color scheme",
-    "agent_ai": "robotic systems, autonomous workflow, connected nodes, emerald-teal color scheme",
-    "business": "corporate finance, stock charts, modern skyscrapers, navy blue-gold color scheme",
-    "security": "digital lock, shield, encrypted data streams, deep red-black color scheme",
-    "startup": "rocket launch, growth trajectory, innovation spark, teal-orange color scheme",
-    "research_paper": "academic papers, mathematical equations, lab equipment, warm amber color scheme",
+CAT_SCENE_HINT = {
+    "model_research": "a research lab, computer screens with data, scientists at work, data center hardware, or a university campus setting",
+    "agent_ai": "a modern office workspace, automated production line, logistics warehouse, or human-computer interaction in a real environment",
+    "business": "corporate headquarters, conference rooms, trading floor, executive meetings, financial district streetscape, or product launch",
+    "security": "government buildings, courtrooms, server rooms with dim lighting, cybersecurity operations center, or police/regulatory press conference",
+    "startup": "modern co-working space, founder portraits in offices, product demos, venture capital meetings, or tech campus exterior",
+    "research_paper": "academic conference hall, university library, whiteboards with equations, scientists presenting research, or peer review setting",
 }
 
 
@@ -49,23 +49,28 @@ def _ensure_dir():
 
 def _build_prompt(article: dict) -> str:
     title_en = article.get("title", "")
-    summary = (article.get("summary_ja", "") or article.get("summary", ""))[:200]
+    title_ja = article.get("title_ja", "")
+    summary = (article.get("summary", "") or article.get("summary_ja", ""))[:300]
     cat = article.get("category", "model_research")
-    style = CAT_VISUAL_STYLE.get(cat, CAT_VISUAL_STYLE["model_research"])
+    scene_hint = CAT_SCENE_HINT.get(cat, CAT_SCENE_HINT["model_research"])
 
-    return f"""Generate a cinematic 16:9 editorial illustration for an AI news article.
+    return f"""You are a photo editor for a major international news website (Reuters, AP, The New York Times, The Verge).
+Select a single editorial photograph that best illustrates the news article below — as if you were choosing a hero image to run with the story.
 
-Topic: {title_en}
-Context: {summary}
+Article headline: {title_en}
+{f'Japanese headline: {title_ja}' if title_ja else ''}
+Summary: {summary}
 
-Visual requirements:
-- {style}
-- Modern, clean, minimal tech illustration style suitable for a news website
-- Abstract/conceptual representation of the topic — no text, no words, no letters in the image
-- Dramatic lighting with depth and cinematic composition
-- High contrast, professional editorial quality (Reuters / The Verge / Wired aesthetic)
-- 16:9 aspect ratio, optimized as a thumbnail
-- No people's faces, no logos, no copyrighted brand marks"""
+Image requirements:
+- Photorealistic editorial / documentary photograph style — NOT an illustration, NOT 3D render, NOT abstract digital art.
+- Depict the actual subject of the news concretely and literally. Possible scenes: {scene_hint}.
+- Natural lighting (daylight, office lighting, or ambient interior lighting). Shallow depth of field is fine.
+- Composition like a Reuters / AP wire photo: real-world setting, real objects, believable scene.
+- Avoid all sci-fi clichés: no glowing neural networks, no holograms, no neon circuits, no floating data, no robotic hands reaching out, no abstract blue/purple gradient backgrounds, no "AI brain" imagery.
+- People can appear but use generic / unrecognizable faces (no real public figures). Body language and setting should match a news context.
+- 16:9 wide aspect ratio.
+- No text, no words, no letters, no logos, no brand marks, no watermarks anywhere in the image.
+- Quality: high resolution, sharp, professional photojournalism quality."""
 
 
 def generate_image(article: dict) -> str:
