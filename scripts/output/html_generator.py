@@ -260,19 +260,9 @@ def generate_html(date_str: str = None):
     weekdays = ["月", "火", "水", "木", "金", "土", "日"]
     date_display = f"{dt.year}年{dt.month}月{dt.day}日（{weekdays[dt.weekday()]}）"
 
-    # === 1. ヘッダー日付 + アーカイブセレクタ ===
+    # === 1. ヘッダー日付 ===
     html = re.sub(r'<div class="header-date">[^<]*</div>',
                   f'<div class="header-date">{date_display}</div>', html)
-
-    # アーカイブセレクタを検索ボックスの隣に挿入
-    archive_html = _build_archive_selector(reports.get("reports", {}), date_str)
-    # 既存のセレクタがあれば差し替え、なければ search-box の前に挿入
-    if 'class="archive-select"' in html:
-        html = re.sub(r'<select class="archive-select"[^>]*>.*?</select>',
-                       archive_html, html, count=1, flags=re.DOTALL)
-    else:
-        html = re.sub(r'(<div class="search-box">)',
-                       f'{archive_html}\\1', html, count=1)
 
     # === 1b. ナビゲーション（カテゴリリンク化） ===
     nav_items = (
@@ -295,8 +285,6 @@ def generate_html(date_str: str = None):
     # Add CSS for new elements
     new_css = """
 .hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
-.archive-select{appearance:none;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px 28px 6px 12px;font-size:13px;color:var(--text2);font-weight:600;cursor:pointer;font-family:inherit;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236b7280'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:14px;transition:border-color .15s;}
-.archive-select:hover{border-color:var(--muted2);}
 .card-text-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .card-text{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--border);border-radius:8px;padding:16px 18px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:8px;}
 .card-text:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px);}
@@ -372,51 +360,10 @@ def generate_html(date_str: str = None):
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
         f.write(html)
 
-    # アーカイブHTMLを保存（過去日として残す）
-    archive_dir = os.path.join(PROJECT_ROOT, "archive")
-    os.makedirs(archive_dir, exist_ok=True)
-    archive_path = os.path.join(archive_dir, f"{date_str}.html")
-    with open(archive_path, "w", encoding="utf-8") as f:
-        f.write(html)
-
-    print(f"[HTML] index.html 更新完了（{len(articles)}件、リッチコンテンツ{len(rich)}件、アーカイブ: {archive_path}）")
+    print(f"[HTML] index.html 更新完了（{len(articles)}件、リッチコンテンツ{len(rich)}件）")
 
 
 # === セクション生成関数 ===
-
-def _build_archive_selector(reports: dict, current_date: str) -> str:
-    """過去日アーカイブのドロップダウンを生成。最新の日付から最大30件表示。"""
-    dates = sorted([d for d in reports.keys() if reports[d].get("articles")], reverse=True)
-    dates = dates[:30]
-
-    weekdays = ["月", "火", "水", "木", "金", "土", "日"]
-
-    options = ['<option value="">📅 アーカイブ</option>']
-    for d in dates:
-        try:
-            dt = datetime.strptime(d, "%Y-%m-%d")
-            wd = weekdays[dt.weekday()]
-            label = f"{dt.month}月{dt.day}日（{wd}）"
-        except Exception:
-            label = d
-
-        if d == current_date:
-            label = f"{label} ← 表示中"
-            url = "/"
-            selected = " selected"
-        else:
-            url = f"/archive/{d}.html"
-            selected = ""
-
-        options.append(f'<option value="{url}"{selected}>{label}</option>')
-
-    options_html = "".join(options)
-    return (
-        f'<select class="archive-select" '
-        f'onchange="if(this.value)window.location.href=this.value">'
-        f'{options_html}</select>'
-    )
-
 
 def _hero_section(art: dict, rich: dict) -> str:
     cat = art.get("category", "model_research")

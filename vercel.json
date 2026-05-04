@@ -24,10 +24,6 @@
       "use": "@vercel/static"
     },
     {
-      "src": "archive/**",
-      "use": "@vercel/static"
-    },
-    {
       "src": "api/slack_webhook.py",
       "use": "@vercel/python"
     },

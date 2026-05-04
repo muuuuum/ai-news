@@ -288,6 +288,28 @@
 .card-v-title{font-size:14px;font-weight:800;line-height:1.5;margin-bottom:6px;}
 .card-v-desc{font-size:12px;color:var(--muted);line-height:1.6;}
 .card-v-footer{display:flex;justify-content:space-between;padding:8px 16px 14px;font-size:11px;color:var(--muted2);}
+
+.hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.card-text-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.card-text{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--border);border-radius:8px;padding:16px 18px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:8px;}
+.card-text:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px);}
+.card-text-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:3px;align-self:flex-start;letter-spacing:.04em;}
+.card-text-title{font-size:14.5px;font-weight:700;line-height:1.55;color:var(--text);margin:0;}
+.card-text-desc{font-size:12.5px;color:var(--muted);line-height:1.65;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card-text-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted2);font-weight:500;margin-top:auto;padding-top:6px;}
+.card-text-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--muted3);}
+@media(max-width:640px){.card-text-grid{grid-template-columns:1fr;}}
+.tag-paper{background:var(--orange-light);color:var(--orange);}
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.card-v{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.card-v:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);}
+.card-v-thumb{width:100%;height:140px;overflow:hidden;}
+.card-v-thumb svg{width:100%;height:100%;}
+.card-v-body{padding:14px 16px 8px;}
+.card-v-tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;margin-bottom:6px;}
+.card-v-title{font-size:14px;font-weight:800;line-height:1.5;margin-bottom:6px;}
+.card-v-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.card-v-footer{display:flex;justify-content:space-between;padding:8px 16px 14px;font-size:11px;color:var(--muted2);}
 </style>
 </head>
 <body>
@@ -311,7 +333,7 @@
 </div></div>
 
 <!-- NAV -->
-<div class="nav"><div class="nav-inner"><div class="nav-item active" onclick="scrollToSec('top')">トップ</div><div class="nav-item" onclick="scrollToSec('sec-key-numbers')">注目数字</div><div class="nav-item" onclick="scrollToSec('sec-trends')">トレンド</div><div class="nav-item" onclick="scrollToSec('sec-model_research')">モデル・研究</div><div class="nav-item" onclick="scrollToSec('sec-agent_ai')">エージェントAI</div><div class="nav-item" onclick="scrollToSec('sec-business')">ビジネス</div><div class="nav-item" onclick="scrollToSec('sec-startup')">スタートアップ</div><div class="nav-item" onclick="scrollToSec('sec-security')">セキュリティ</div><div class="nav-item" onclick="scrollToSec('sec-timeline')">タイムライン</div></div></div></div></div></div></div></div></div>
+<div class="nav"><div class="nav-inner"><div class="nav-item active" onclick="scrollToSec('top')">トップ</div><div class="nav-item" onclick="scrollToSec('sec-key-numbers')">注目数字</div><div class="nav-item" onclick="scrollToSec('sec-trends')">トレンド</div><div class="nav-item" onclick="scrollToSec('sec-model_research')">モデル・研究</div><div class="nav-item" onclick="scrollToSec('sec-agent_ai')">エージェントAI</div><div class="nav-item" onclick="scrollToSec('sec-business')">ビジネス</div><div class="nav-item" onclick="scrollToSec('sec-startup')">スタートアップ</div><div class="nav-item" onclick="scrollToSec('sec-security')">セキュリティ</div><div class="nav-item" onclick="scrollToSec('sec-timeline')">タイムライン</div></div></div></div></div></div></div></div></div></div>
 
 <div class="page"><div class="layout">
 <main>
@@ -732,7 +754,7 @@
       <div><div class="footer-links-title">Legal</div><ul class="footer-links-list"><li>プライバシーポリシー</li><li>利用規約</li></ul></div>
     </div>
   </div>
-  <div class="footer-bottom"><div>&copy; 2026 AI News Daily. Powered by Claude.</div><div>最終更新: 2026-05-04 15:31 ・ 毎朝 9:00 自動更新</div></div>
+  <div class="footer-bottom"><div>&copy; 2026 AI News Daily. Powered by Claude.</div><div>最終更新: 2026-05-04 15:38 ・ 毎朝 9:00 自動更新</div></div>
 </div></footer>
 
 <!-- MODAL -->
@@ -808,6 +830,11 @@ const A={
   af65e8c:{tag:'BUSINESS',tc:'tag-biz',title:'【生成AI導入】予算申請を「確実に通す」7つの秘訣とは？',sources:[{n:'AI Now (旧ledge.ai)',u:'https://ainow.ai/2026/05/03/278038'}],date:'2026年5月3日',svg:'<svg viewBox=\"0 0 780 260\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gaf65e8c\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a5f\"/><stop offset=\"100%\" stop-color=\"#1d4ed8\"/></linearGradient></defs><rect fill=\"url(#gaf65e8c)\" width=\"780\" height=\"260\"/><text x=\"390\" y=\"140\" text-anchor=\"middle\" font-size=\"86\" opacity=\".15\">📊</text></svg>',stats:[{v:'7ステップ',l:'成功の秘訣',c:'var(--blue)'},{v:'ROI',l:'重要指標',c:'var(--blue)'},{v:'テンプレート',l:'提供資料',c:'var(--blue)'}],body:`<p class=\"modal-text\">生成AI導入を検討する企業にとって朗報です。予算申請を確実に成功させるための<strong>7つの具体的なステップ</strong>が、この記事で詳細に解説されています。特に、<strong>ROI（投資対効果）の計算方法や稟議書のテンプレート</strong>が提供されており、生成AIプロジェクトを円滑に進めるための実践的なガイドラインとして非常に有用です。</p><h3 class=\"modal-subhead\">予算申請成功のための実践的ステップ</h3><ul class=\"modal-list\"><li><strong>明確な課題特定:</strong> 生成AIが解決するビジネス課題を明確にし、その価値を定量的に示すことが重要です。</li><li><strong>ROIの算出:</strong> 投資対効果を具体的に計算し、経営層に経済的メリットを説得力を持って提示。提供されるテンプレートが役立ちます。</li><li><strong>リスク評価と対策:</strong> 導入に伴う潜在的なリスクを洗い出し、具体的な対策を提示することで、信頼性を高めます。</li></ul><p>このガイドラインは、生成AI導入の障壁を低減し、企業のDX推進を加速させるための強力な支援となるでしょう。多くの企業にとって必読の内容です。</p>`},
   a1d3c0a:{tag:'BUSINESS',tc:'tag-biz',title:'【生成AI導入】「失敗する企業」が陥る10の罠！あなたは大丈夫か？',sources:[{n:'AI Now (旧ledge.ai)',u:'https://ainow.ai/2026/05/02/278034'}],date:'2026年5月2日',svg:'<svg viewBox=\"0 0 780 260\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"ga1d3c0a\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a5f\"/><stop offset=\"100%\" stop-color=\"#1d4ed8\"/></linearGradient></defs><rect fill=\"url(#ga1d3c0a)\" width=\"780\" height=\"260\"/><text x=\"390\" y=\"140\" text-anchor=\"middle\" font-size=\"86\" opacity=\".15\">📊</text></svg>',stats:[{v:'10',l:'失敗する罠',c:'var(--blue)'},{v:'4',l:'分析側面',c:'var(--blue)'},{v:'チェックリスト',l:'成功への道',c:'var(--blue)'}],body:`<p class=\"modal-text\">生成AIの導入は多くの企業にとって喫緊の課題ですが、その成功は容易ではありません。この記事では、<strong>生成AI導入プロジェクトが失敗に終わる10の典型的なパターン</strong>を、戦略、計画、技術、運用という4つの側面から深く掘り下げています。<strong>失敗を回避するための具体的なチェックリスト</strong>も提供されており、導入を検討する企業にとって必読の内容です。</p><h3 class=\"modal-subhead\">戦略・計画段階の落とし穴</h3><ul class=\"modal-list\"><li>明確な目標設定の欠如、または過度な期待</li><li>不十分な予算とリソース配分</li><li>組織全体のコミットメント不足</li></ul><h3 class=\"modal-subhead\">技術・運用段階の課題</h3><ul class=\"modal-list\"><li>データ品質の問題と準備不足</li><li>必要なスキルセットの不足と人材育成の遅れ</li><li>既存システムとの統合問題、運用体制の未整備</li><li>従業員の抵抗とチェンジマネジメントの失敗</li></ul><p>これらの罠を認識し、事前に適切な対策を講じることで、生成AI導入プロジェクトの成功確率は飛躍的に向上します。提供されるチェックリストを活用し、自社のAI導入戦略を見直すことが、持続的な競争優位性を確立するための重要な一歩となるでしょう。</p>`}
 };
+function scrollToSec(id){
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  var el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+}
 function scrollToSec(id){
   if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
   var el=document.getElementById(id);
