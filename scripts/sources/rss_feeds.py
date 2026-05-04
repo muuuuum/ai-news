@@ -95,7 +95,12 @@ def fetch_feed(feed_config: dict) -> list[RawArticle]:
     for entry in feed.entries:
         title = getattr(entry, "title", "").strip()
         link = getattr(entry, "link", "").strip()
-        summary = getattr(entry, "summary", getattr(entry, "description", "")).strip()
+        summary_raw = getattr(entry, "summary", getattr(entry, "description", "")).strip()
+        # HTMLタグを除去（Google News RSS等でHTMLが混入する）
+        import re as _re
+        summary = _re.sub(r'<[^>]+>', '', summary_raw).strip()
+        # Google Newsのリダイレクトリンクが残っている場合も除去
+        summary = _re.sub(r'https?://news\.google\.com/[^\s]*', '', summary).strip()
 
         if not title or not link:
             continue

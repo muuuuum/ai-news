@@ -22,8 +22,12 @@ import requests
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import DATA_DIR, PROJECT_ROOT, GEMINI_API_KEY, GEMINI_MODEL
+from output.image_generator import generate_images_for_articles
 
 INDEX_PATH = os.path.join(PROJECT_ROOT, "index.html")
+
+# 画像辞書（{article_id: web_path}）— generate_html() 実行中にセットされる
+_IMAGE_MAP: dict = {}
 
 # カテゴリ設定
 CAT_CONFIG = {
@@ -85,7 +89,7 @@ def _article_id(art: dict) -> str:
 
 
 def _make_svg(art: dict, width: int, height: int) -> str:
-    """カテゴリに応じたSVGサムネイルを生成"""
+    """カテゴリに応じたSVGサムネイル（フォールバック）"""
     cat = art.get("category", "model_research")
     cfg = CAT_CONFIG.get(cat, CAT_CONFIG["model_research"])
     g1, g2 = cfg["grad"]
@@ -101,6 +105,19 @@ def _make_svg(art: dict, width: int, height: int) -> str:
         f'<text x="{width//2}" y="{height//2+10}" text-anchor="middle" font-size="{min(width,height)//3}" opacity=".15">{emoji}</text>'
         f'</svg>'
     )
+
+
+def _make_visual(art: dict, width: int, height: int) -> str:
+    """画像があれば<img>タグ、なければSVGフォールバックを返す。"""
+    aid = _article_id(art)
+    img_path = _IMAGE_MAP.get(aid)
+    if img_path:
+        title = art.get("title_ja", art.get("title", "")).replace('"', "&quot;")
+        return (
+            f'<img src="/{img_path}" alt="{title}" loading="lazy" '
+            f'style="width:100%;height:100%;object-fit:cover;display:block;" />'
+        )
+    return _make_svg(art, width, height)
 
 
 def _generate_rich_content(articles: list) -> dict:
@@ -211,6 +228,11 @@ def generate_html(date_str: str = None):
     with open(INDEX_PATH, "r", encoding="utf-8") as f:
         html = f.read()
 
+    # サムネイル画像生成（Gemini Image） — コスト制御のため上位N件のみ
+    # IMAGE_GENERATION_LIMIT 環境変数で枚数を調整可能（デフォルト9件 = Hero+Pickup）
+    global _IMAGE_MAP
+    _IMAGE_MAP = generate_images_for_articles(articles)
+
     # リッチコンテンツ生成（Gemini） — 全記事に対して生成
     rich = _generate_rich_content(articles)
 
@@ -243,6 +265,7 @@ def generate_html(date_str: str = None):
 
     # Add CSS for new elements
     new_css = """
+.hero-visual img,.pickup-thumb img,.card-h-thumb img,.card-v-thumb img,.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
 .tag-paper{background:var(--orange-light);color:var(--orange);}
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 .card-v{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:transform .15s,box-shadow .15s;}
@@ -320,7 +343,7 @@ def _hero_section(art: dict, rich: dict) -> str:
     aid = _article_id(art)
     title_ja = art.get("title_ja", art["title"])
     summary_ja = art.get("summary_ja", "")
-    svg = _make_svg(art, 600, 340)
+    svg = _make_visual(art, 600, 340)
     sources_html = ""
     for s in art.get("sources", []):
         sources_html += f'<a class="src-link" href="{s["url"]}" target="_blank" onclick="event.stopPropagation()">{s["name"]}</a>'
@@ -357,7 +380,7 @@ def _pickup_section(articles: list) -> str:
         cat = a.get("category", "model_research")
         cfg = CAT_CONFIG.get(cat, CAT_CONFIG["model_research"])
         aid = _article_id(a)
-        svg = _make_svg(a, 300, 120)
+        svg = _make_visual(a, 300, 120)
         src = a["sources"][0]["name"] if a.get("sources") else ""
         pub = _fmt_date(a.get("published", ""))
         cards += f'''
@@ -380,7 +403,7 @@ def _category_section(cat_id: str, articles: list) -> str:
     cards = ""
     for a in articles:
         aid = _article_id(a)
-        svg = _make_svg(a, 300, 140)
+        svg = _make_visual(a, 300, 140)
         src_name = a["sources"][0]["name"] if a.get("sources") else ""
         pub = _fmt_date(a.get("published", ""))
         summary = a.get("summary_ja", "")[:100]
@@ -593,7 +616,14 @@ def _build_js_data(articles: list, rich: dict) -> str:
         cat = a.get("category", "model_research")
         cfg = CAT_CONFIG.get(cat, CAT_CONFIG["model_research"])
         title_ja = _js_esc(a.get("title_ja", a["title"]))
-        svg = _make_svg(a, 780, 260)
+        img_path = _IMAGE_MAP.get(aid)
+        if img_path:
+            svg = (
+                f'<img src="/{img_path}" alt="{_js_esc(a.get("title_ja", a["title"]))}" '
+                f'style="width:100%;height:100%;object-fit:cover;display:block;" />'
+            )
+        else:
+            svg = _make_svg(a, 780, 260)
         svg_js = _js_esc(svg)
 
         # ソース

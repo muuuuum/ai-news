@@ -53,19 +53,22 @@ def _summarize_batch(batch: list):
     prompt = f"""以下の{len(batch)}件のAIニュース記事を日本語で要約してください。
 
 要件:
-- title_ja: 日本語の見出し（30文字以内、具体的な数字や固有名詞を含める）
+- title_ja: 日本語の見出し。【核心概念】＋衝撃的な数字 or 問いかけ（例:「【AI投資戦争】Googleが6兆円を賭ける理由」）
 - summary_ja: 2-3文の日本語要約（重要な部分を<b>タグで強調）
-- impact: 読者にとってなぜ重要かを1文で
-- key_stats: 記事から抽出できる重要な数値を最大3つ。各要素は {{"value": "数値", "label": "説明"}} の形式。数値がなければ空配列。
+- impact: 「あなたへの影響」として、エンジニア/ビジネスパーソン/一般人の視点で「だからあなたは○○すべきだ」レベルに落とし込んだ1-2文
+- real_world: このニュースが現実にどう反映されるかの具体例1文（例:「来年のAI開発コストが2倍になる可能性がある」）
+- key_stats: 記事から抽出できる重要な数値を最大3つ。各要素は {{"value": "数値", "label": "説明"}} の形式。数値がなければ空配列。ドルは円換算も併記。
 - related_topics: この記事に関連するトレンドトピックを2-3個（例: "LLM競争", "AI規制"）
 - timeline_context: このニュースを時系列で位置づける1文（例: "OpenAIのGPT-4o発表から2ヶ月後の動き"）
+- hook_question: 視聴者への問いかけ1文（例:「この数字の意味が分かるか？」）
 
-トーン: プロフェッショナルだが親しみやすい。事実ベースで、煽らない。
+トーン: 事実ベースだが、「だからあなたにどう関係するか」を必ず伝える。
+抽象的な業界論ではなく、個人レベルの影響に落とし込む。
 日本語の記事はそのまま要約。英語の記事は自然な日本語に翻訳して要約。
 
 {article_list}
 
-JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_ja": "...", "impact": "...", "key_stats": [...], "related_topics": [...], "timeline_context": "..."}}"""
+JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_ja": "...", "impact": "...", "real_world": "...", "key_stats": [...], "related_topics": [...], "timeline_context": "...", "hook_question": "..."}}"""
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
     payload = {
@@ -88,9 +91,11 @@ JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_
                 batch[idx]["title_ja"] = item.get("title_ja", batch[idx]["title"])
                 batch[idx]["summary_ja"] = item.get("summary_ja", batch[idx]["summary"][:200])
                 batch[idx]["impact"] = item.get("impact", "")
+                batch[idx]["real_world"] = item.get("real_world", "")
                 batch[idx]["key_stats"] = item.get("key_stats", [])
                 batch[idx]["related_topics"] = item.get("related_topics", [])
                 batch[idx]["timeline_context"] = item.get("timeline_context", "")
+                batch[idx]["hook_question"] = item.get("hook_question", "")
 
     except Exception as e:
         print(f"  [WARN] Gemini要約失敗 - {e}")
@@ -99,6 +104,8 @@ JSON配列で回答。各要素: {{"index": 番号, "title_ja": "...", "summary_
                 art["title_ja"] = art["title"]
                 art["summary_ja"] = art["summary"][:200]
                 art["impact"] = ""
+                art["real_world"] = ""
                 art["key_stats"] = []
                 art["related_topics"] = []
                 art["timeline_context"] = ""
+                art["hook_question"] = ""

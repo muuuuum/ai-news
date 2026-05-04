@@ -48,6 +48,8 @@ def write(articles: list, date_str: str = None):
             "key_stats": art.get("key_stats", []),
             "related_topics": art.get("related_topics", []),
             "timeline_context": art.get("timeline_context", ""),
+            "real_world": art.get("real_world", ""),
+            "hook_question": art.get("hook_question", ""),
         })
 
     day_report = {

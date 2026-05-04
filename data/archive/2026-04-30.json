@@ -1,0 +1,994 @@
+{
+  "generated_at": "2026-04-30T20:36:02.348431+09:00",
+  "article_count": 40,
+  "articles": [
+    {
+      "id": "2026-04-30-001",
+      "title": "More Gemini features are coming to Google TV",
+      "title_ja": "More Gemini features are coming to Google TV",
+      "summary_ja": "Google TV just got more Gemini features, including the ability to transform photos and videos with tools Nano Banana and Veo.",
+      "impact": "",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/more-gemini-features-are-coming-to-google-tv"
+        },
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/920479/tumbler-ridge-chagpt-openai-lawsuit"
+        },
+        {
+          "name": "Hugging Face Blog",
+          "url": "https://huggingface.co/blog/evaleval/eval-costs-bottleneck"
+        }
+      ],
+      "importance": 5.8,
+      "published": "2026-04-29T16:40:49+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-002",
+      "title": "The more young people use AI, the more they hate it",
+      "title_ja": "The more young people use AI, the more they hate it",
+      "summary_ja": "It's been almost three years since Silicon Valley started aggressively pushing large language model-based chatbots like ChatGPT as the supposedly inevitable future of everything, and there's no group ",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/920401/gen-z-ai"
+        },
+        {
+          "name": "CNBC Tech",
+          "url": "https://www.cnbc.com/2026/04/30/why-surging-oil-prices-may-not-derail-the-consumer-trade.html"
+        }
+      ],
+      "importance": 5.8,
+      "published": "2026-04-30T11:00:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-003",
+      "title": "Google Cloud pulls ahead as Big Tech's AI bet swells to $700 billion - Reuters",
+      "title_ja": "Google Cloud pulls ahead as Big Tech's AI bet swells to $700 billion - Reuters",
+      "summary_ja": "Google Cloud pulls ahead as Big Tech's AI bet swells to $700 billion&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWVNydmRzT0dCVEZ3OEkzVDdnWW4tZFZJMU5zVTRMSE9ZNS1kRF9BTFFVbjJaMUItbnJZZEdyTjFUT014RmFVRUIzTkltdHljaFRiUHdnRHZDdjN6Z1NRbTVQMmFqMXE1d2dEN0hfdmw0SEl4Y2RrQmdGTnZHYUhjMFBNUzBJaFhES2RBcEtEbmpLVHVkR3VkZkFsb1dDQ1U5dFJ0dW9lVnh3VHhUNWZWN212a3pjS3UtM2gwd2ln?oc=5"
+        }
+      ],
+      "importance": 5.4,
+      "published": "2026-04-30T10:11:25+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-004",
+      "title": "OpenAI's latest AI models, Codex now available on Amazon Bedrock - Reuters",
+      "title_ja": "OpenAI's latest AI models, Codex now available on Amazon Bedrock - Reuters",
+      "summary_ja": "OpenAI's latest AI models, Codex now available on Amazon Bedrock&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPMjJfR0xvY01GSXdacnE2N2pISVlfOU9rakhVU29GeXhCV0x0MlZpX0dnWEJRdTV4QTNoSjAwWUQyalhIa0JabU9hQmNfbWlpT2VXZ0dEUGExZnRzdU51ZUtxc3BkMUlyMjBuN3pxc0MtaGpCVkZfMmU3Nk03WklCdEdlbE1RTElqaWR1Njl4cDlySjZBY1pfSXJrSWZleUZ4TjZGTm9SaEdsMDlvdzZQNGduQ1ZoczBJMFJlUENyR0Z5OGM?oc=5"
+        },
+        {
+          "name": "Hacker News",
+          "url": "https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents"
+        }
+      ],
+      "importance": 5.4,
+      "published": "2026-04-28T19:42:51+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-005",
+      "title": "Australian banks warned frontier AI could create larger, faster cyber attacks - Reuters",
+      "title_ja": "Australian banks warned frontier AI could create larger, faster cyber attacks - Reuters",
+      "summary_ja": "Australian banks warned frontier AI could create larger, faster cyber attacks&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPd0JkN2c0bTFHdFpYY0VGaVdYa3ZucWI1bmw4aV9hV29QeHk4UzRCU0VjT2tzUUJrTk11U2lkVExNSUl2Zmc5RXc5c19mbWwzS2ozVzg1eGpiZzY5OHBlS3Z1c0VPaC1hbUJSYVZRcjlIOFZIblhWQ2J5NTRuY180WUVkNDctaDc5bGRYMU5UZmhLQWFyYnJka2s5cU94cHVpaGdQbGJKN01kazZRZHJr?oc=5"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T00:09:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-006",
+      "title": "Prosecutors detail 'horrifying' steps singer D4vd took to dismember girl's body - Reuters",
+      "title_ja": "Prosecutors detail 'horrifying' steps singer D4vd took to dismember girl's body - Reuters",
+      "summary_ja": "Prosecutors detail 'horrifying' steps singer D4vd took to dismember girl's body&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNSnIyaWc3cmVjUU1xX0JZM20yMktCUk1DVXJEcFZWQ0N2U2RObHo1SFQyaVJ6b3ltcWZfT29jOXA4UFV6cHozUmdfWWlhU0NkQ1FnTHJvQ1YtcUJ4cjJzWVM3SzNEYWI0T0NTNms4aDNYdWlaak1xUHFhS04td3dxemFYSUhXdkt5OU1MMjB3TVZBRk16bDRPVE4tbldSU2liR3BKamZOblRjQlpweWhOaUdIUUNncHR2ZVE?oc=5"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T04:43:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-007",
+      "title": "Google Photos uses AI to make the iconic closet from ‘Clueless’ a reality",
+      "title_ja": "Google Photos uses AI to make the iconic closet from ‘Clueless’ a reality",
+      "summary_ja": "Google says the new feature will leverage AI technology to automatically create a copy of your wardrobe that's based on the pieces of clothing appearing in your Google Photos library.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/google-photos-uses-ai-to-make-the-iconic-closet-from-clueless-a-reality"
+        },
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/tech/920420/google-photos-ai-try-on-wardrobe"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-29T16:42:33+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-008",
+      "title": "At his OpenAI trial, Musk relitigates an old friendship",
+      "title_ja": "At his OpenAI trial, Musk relitigates an old friendship",
+      "summary_ja": "It's a story Musk has told before -- in interviews and to author Walter Isaacson for his bestselling biography of Musk -- but Tuesday was the first time he said it under oath.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/28/at-his-openai-trial-musk-relitigates-an-old-friendship"
+        },
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/chinese-ai-giant-sensetime-is-running-its-new-model-on-chinese-chips"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-29T00:40:16+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-009",
+      "title": "OpenAI’s new security model is for ‘critical cyber defenders’ only",
+      "title_ja": "OpenAI’s new security model is for ‘critical cyber defenders’ only",
+      "summary_ja": "OpenAI is preparing to launch a new frontier cybersecurity model, GPT-5.5-Cyber. CEO Sam Altman said the model will not be available to the general public, but will be first rolled out to a select gro",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/921073/openai-sam-altman-new-cybersecurity-model-gpt-5-5-cyber"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T11:09:01+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-010",
+      "title": "These Men Allegedly Profit Off Teaching People How to Make AI Porn",
+      "title_ja": "These Men Allegedly Profit Off Teaching People How to Make AI Porn",
+      "summary_ja": "Three Arizona women have filed a lawsuit against a group of men that alleges they used the women’s photos to make AI porn influencers, then offered online courses showing others how to do it.",
+      "impact": "",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/ai-porn-lawsuit-arizona"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T10:30:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-011",
+      "title": "Reid Hoffman Thinks Doctors Should Ask AI for a Second Opinion",
+      "title_ja": "Reid Hoffman Thinks Doctors Should Ask AI for a Second Opinion",
+      "summary_ja": "The LinkedIn cofounder now has an AI drug discovery startup—and thinks not asking chatbots for medical advice is “bordering on committing malpractice.”",
+      "impact": "",
+      "category": "startup",
+      "category_label": "スタートアップ",
+      "tag_class": "tag-startup",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/reid-hoffman-ai-doctor-second-opinion-wired-health"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T09:00:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-012",
+      "title": "Nvidia just invested in the AI legal startup that's splashing Jude Law ads everywhere",
+      "title_ja": "Nvidia just invested in the AI legal startup that's splashing Jude Law ads everywhere",
+      "summary_ja": "Swedish startup Legora has raised more than $800 million in the past 12 months, and the latest deal values it at $5.6 billion.",
+      "impact": "",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "CNBC Tech",
+          "url": "https://www.cnbc.com/2026/04/30/nvidia-backs-ai-legal-tech-legora.html"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T08:59:35+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-013",
+      "title": "Samsung profit surges over eightfold to beat estimates as AI boom fuels memory chip crunch",
+      "title_ja": "Samsung profit surges over eightfold to beat estimates as AI boom fuels memory chip crunch",
+      "summary_ja": "Samsung Electronics reported an over eightfold increase in first-quarter operating profits, hitting a new record and beating analysts' estimates.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "CNBC Tech",
+          "url": "https://www.cnbc.com/2026/04/30/samsung-q1-earnings-ai-memory-chip-demand-profit-record.html"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-30T07:34:38+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-014",
+      "title": "OpenAI looms over earnings from tech hyperscalers",
+      "title_ja": "OpenAI looms over earnings from tech hyperscalers",
+      "summary_ja": "Amazon, Alphabet, Meta and Microsoft report quarterly results after the bell, and OpenAI is likely to be a big topic across the board.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "CNBC Tech",
+          "url": "https://www.cnbc.com/2026/04/29/openai-looms-over-earnings-from-tech-hyperscalers.html"
+        },
+        {
+          "name": "Hacker News",
+          "url": "https://handyai.substack.com/p/your-ceo-is-suffering-from-ai-psychosis"
+        }
+      ],
+      "importance": 5.0,
+      "published": "2026-04-29T12:00:02+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-015",
+      "title": "EU rules reining in Big Tech will now target cloud services and AI, regulators say - Reuters",
+      "title_ja": "EU rules reining in Big Tech will now target cloud services and AI, regulators say - Reuters",
+      "summary_ja": "EU rules reining in Big Tech will now target cloud services and AI, regulators say&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQQUV2QzdIWU1HV3NqREFNTWFtbVdSWmJJWkFGZmVDWDIzWDZfTFJxVHpDOXRlLWw1TWVEMHdmbXFxa1hHQTVTMGlyWHNKQ1NNNGU1T2ZjdW5aYmNwTEhRWUUxV3pOTmJSeEM5RDA1Vno1M2FWczF2cy12RFlfbzFmX0dJNlNzaFVpMTNwRENsRlgyMWhadklqSmJhZi1LcnF3VElpRTdzX2REXy1LMm5pVTctOWVCT0p2N0o5MGpGdC1fcE05VWc?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T23:35:27+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-016",
+      "title": "KLA Corp forecasts quarterly revenue above estimates on AI-linked demand - Reuters",
+      "title_ja": "KLA Corp forecasts quarterly revenue above estimates on AI-linked demand - Reuters",
+      "summary_ja": "KLA Corp forecasts quarterly revenue above estimates on AI-linked demand&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZFlzZVg4MzRHa2h6dXZ5NWE2d084M0lyRk5YeERRN1FCenNHVXBtcmVDb255Qzh1bFdpV2NTLVczU0JGRVFxcTcxUEY2dFptb3VUVXhKSDZzaTd6NFdrUEtiaG53MjY2cW5fUjAxTUY3Q0FZaXR2eFRTd1BjMVZfMDJGdTVYMGdhQmpQUS1YZ3RKcmt4Q0tKWllOTm5LU2Flc0YxaTNQZ1k?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T21:17:14+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-017",
+      "title": "Hyperscaler results pose major test for AI-driven US stock market - Reuters",
+      "title_ja": "Hyperscaler results pose major test for AI-driven US stock market - Reuters",
+      "summary_ja": "Hyperscaler results pose major test for AI-driven US stock market&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMGVBLU5Oekh0b3BLUllQdTFmTVcwekNYd2NDdDJEZmRMVU1EcTdiN01UUzUzeFhpODZEYWxtVGZKZ0NWTjFSTG83RkZzMDJOQWpXdl8wMnVlNElFd3pFUGRLdnRHeERoYzlROTN6N3BDM2otNmZDR2ZPYzJLei1PWi1ibTVoWWxtR3ZObGhwYmhQWmVURXZJczNEaUN3bkpZcTZKdmt1TWZmM09WM091R3NybGRxa1hwVGhocFlOVQ?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T10:32:41+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-018",
+      "title": "EU countries, lawmakers fail to reach deal on watered-down AI rules - Reuters",
+      "title_ja": "EU countries, lawmakers fail to reach deal on watered-down AI rules - Reuters",
+      "summary_ja": "EU countries, lawmakers fail to reach deal on watered-down AI rules&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQVkpicWJyZm90enV4bWpYOXpLWEdRUDhjTk5UT3piU3J1R1A0aDhkcUx3d21ud21rdjAtaEltN3dhQmpRYlVCM1VrV2hZcG1UNEhQeDdwV2JMQ3phajJoUUh1Y0x1TjFnVW5sUGxJZml3blVBYUhtTzhlWlJaaUg0ZHFtN0h0Z0pEbkV5OHpmX3NBNFRINWpROWx6aHotdnhScl9XekhSaG1jS3hCODNxdGVJOVRPNk1YeWZTaWpDUU9mcWhtclE3ODhlMHpZR2VmcEE?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T00:36:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-019",
+      "title": "Nasdaq, S&P 500 end lower on renewed AI growth worries ahead of big tech earnings - Reuters",
+      "title_ja": "Nasdaq, S&P 500 end lower on renewed AI growth worries ahead of big tech earnings - Reuters",
+      "summary_ja": "Nasdaq, S&amp;P 500 end lower on renewed AI growth worries ahead of big tech earnings&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNVXExM3g2OXNDemZveUU2enJ0MGEtbks1blpqeXVtUWFDeGhpcHRMUlNVYWpHYUduXzFUNU05Q0RDb3Jxc2hIZXdBUG04UHdhUHpKbUEtQjA2OXU0b3VvVmY3ZVZMei0ySGwxNW8tRkVnMFVPaS1DcVpsYzkwQ2NKVjJ3bnJ1MHVOY0hoMjF0aUFZNHdTTndISElXb1JkWi1BT2lsU2RBU3hZRVRRRF9PekhYcHJLcUU?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T22:18:48+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-020",
+      "title": "Global regulators trail banks in AI as Mythos raises oversight concerns, report finds - Reuters",
+      "title_ja": "Global regulators trail banks in AI as Mythos raises oversight concerns, report finds - Reuters",
+      "summary_ja": "Global regulators trail banks in AI as Mythos raises oversight concerns, report finds&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tag_class": "tag-sec",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUEdVN0RLTEx6Y1VkaUgtZ0NhZDV0MWtJTkRhQWx6NDBMNkhzcU50RzRXYTNSMENkR2p4WF9GNEJlbDNhSWp3ZnhBaXhOa0Y2RDRueFR4TTl2NUh0MnlkRnUtZUtRNWUwelZCQXdublVfVldKZlgtLU1VRmN1emNBTDNLd3BKM1VqODZ6V1p1NW44ZGJNM05HT2labXUzNlQwV1ZUbjllWWplMURWZTdDUFZFYTVuN0IxZDQtOEJRblE4X1pUMEtRZE15WFJaMGJrR3BiX2VNS09DN3VBUVd0cE9QYWdidlRWdVE?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T17:27:57+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-021",
+      "title": "Norway wealth fund CEO warns just using AI for job cuts risks backlash - Reuters",
+      "title_ja": "Norway wealth fund CEO warns just using AI for job cuts risks backlash - Reuters",
+      "summary_ja": "Norway wealth fund CEO warns just using AI for job cuts risks backlash&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMWNKak5SMzl6SDZLSW0tRG51V1c1bWNqY2ZSOXZmd1cwaVlfRklLLTdkT3pvb2toQkVxWjFZT0Z3VGdOb1RHVm1UWFFzdUlvaHNreVRndnRSX2RudXdIQUtxTGV3dmkzMHE0cFRnbm5PU3NxdFF6VU9HZGM0bEhUc3hxdWhsMjhtZkNNVzloeUdpTUFsQmtOOFdyNlBYX3dobm1vOEdTWjdlOW9udlZoRHlITUhQcGQ1UFVac1lNV2hBQmNXbFE?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T12:42:58+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-022",
+      "title": "Data-storage stocks jump as Seagate's upbeat forecast fuels confidence in AI spending - Reuters",
+      "title_ja": "Data-storage stocks jump as Seagate's upbeat forecast fuels confidence in AI spending - Reuters",
+      "summary_ja": "Data-storage stocks jump as Seagate's upbeat forecast fuels confidence in AI spending&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQY1h4UHVIMWZlemNDZEdyOVdxRGx1Uzd1RmZzUGliYjBmX2V3Y0JrLWdMNE9zb01DcXJ1ZlBlckRJYnFoYTZmTTdOLUs0cDc3N1dOQnUyTlBkbjFuM3ZfalJWZHFRR0xMUGdqaEE3d3dWMjJIaVVOUEFjdmphUktSSVQ5UldXMkJrRVVaUExFcVNBVlJ1ZEE3Nm51ZHZ0NFhrckl5NmRhVEhXcGNiUllXcUptQjNYaVY2R3c?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T23:06:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-023",
+      "title": "White House drafts guidance to bypass Anthropic's risk flag for new AI models, Axios reports - Reuters",
+      "title_ja": "White House drafts guidance to bypass Anthropic's risk flag for new AI models, Axios reports - Reuters",
+      "summary_ja": "White House drafts guidance to bypass Anthropic's risk flag for new AI models, Axios reports&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxORUZwakFjZGhSOUhxeVdyTkZPM1VLNmNvZTZiblpycWVXUGNwVUxTaXlBUmplVnlwOVk1b3V3cG8wX3lGRHFSTUxYT0hXS3lVSkdJazdqdkVUeDFmcmpCd1JCQXZ5VlJNWTJXQy0zdVRhLWZHWDJfc2sxMUhEcnFQX1R0U1YwZXFZYUduSzJIT1M2QV9Ydms2V2l5TzJkRE83MGh4TTNDTlBfemU2bEhoeHBZODExMWJ3ZUxuWHN1NkVpZXQ1dkVr?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T02:06:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-024",
+      "title": "Meta shares fall on concerns over AI spending, legal scrutiny - Reuters",
+      "title_ja": "Meta shares fall on concerns over AI spending, legal scrutiny - Reuters",
+      "summary_ja": "Meta shares fall on concerns over AI spending, legal scrutiny&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNFNSQmtUam5teWJnNHNkcDVSSHVwbGl4d0luVzYwSUxaVnVpcVNmcW9LcXFGZ1IyWWxsZ1VPbmJ4N0FrR1ZXbkFfZG16cUJYQUFSdnhmdU95TUVXaUstaWF3M1drcXVDbHRjVlZVMTUwY3h0VnhhMVEycnRWbC1TNElfamZrNDlXQjNGbTg0dGN0MEN6ZDYwSDgtLUV6MW5HcXlDdlEtQmxJQQ?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T20:05:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-025",
+      "title": "Blocking of Meta's AI startup buy raises risk for cross-border China tech deals - Reuters",
+      "title_ja": "Blocking of Meta's AI startup buy raises risk for cross-border China tech deals - Reuters",
+      "summary_ja": "Blocking of Meta's AI startup buy raises risk for cross-border China tech deals&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "startup",
+      "category_label": "スタートアップ",
+      "tag_class": "tag-startup",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxONHhWQXZBbE1kUVFmNlkweWNxajd4TmdQVEYycjVFSmZjY19IM2hZZlhNTDNYVUdJWFUtWDY3cUFsQkRFY3NLSnBvWnNSNlR6WFpHM0R6aVdaUHo0RWRJUG9UbTFCUTV3ZGNRZDlSWmtuaWo2ZkswLUlXUnA3SFFUenFwMXhRekZTTTVxWW90ejA2R21BUTFRbXZ4ZUlINk1GV3kyS3NDcUljUTFXNEZ5WDZFb3hyUGpHc2NQZThjOHdLdzhzZGc?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T14:45:03+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-026",
+      "title": "Taiwan's UMC sees headwinds, but predicts resilient demand and will raise prices - Reuters",
+      "title_ja": "Taiwan's UMC sees headwinds, but predicts resilient demand and will raise prices - Reuters",
+      "summary_ja": "Taiwan's UMC sees headwinds, but predicts resilient demand and will raise prices&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUlh6TTg2MmR1bzJ6bmcydzZfQ0RKandmZ1FxdVlmTFNnWnFRWGFaTjYtSG54RHc3UW9ReHM5N2g4QWg4Tmh3Y2FQMnhqeHJfWXl5Zk12M3NjbUZrbkV0dktUNVpJTXJJX0V1dkFCMXpCdWJfdGppQnVzNWZJZ1pzUEY2TERBNmRCSWY0YmZSOHBxbk9nTG5Dei1xblFJVUM2Tl8zZFY2M0QyemMyakgwdU1lTnh4TERVTG83eGJsbHdobTdDUzdrbg?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T09:42:26+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-027",
+      "title": "Airline body chief flags concern for jet fuel shortage in peak summer period - Reuters",
+      "title_ja": "Airline body chief flags concern for jet fuel shortage in peak summer period - Reuters",
+      "summary_ja": "Airline body chief flags concern for jet fuel shortage in peak summer period&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSXlsenAybUxOYWhMRVMxYVVrYWNCc1g1SjNLWEFBdTBpYWV6SEVRMEJ4X1BtMjFVTGFoVW5iM1NtWXMtYnFCVFlmaEtUakJaaXNFU01fazkwVHFjLUdraUQ4V1NZTWpmT28wVWF0Z2xlX0pQXzE4MjRnY0dhNnd1Z0hMaTN6TVFfdlNOMnpxRHRUaUtUOFRwX1JITGx2bm9JdHk5cllGRnJVZ1ROYlBqQTNPWUVKekk3ZUhYZzZaSXpadw?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T12:33:45+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-028",
+      "title": "Families of Canadian mass shooting victims sue OpenAI, CEO Altman in US court - Reuters",
+      "title_ja": "Families of Canadian mass shooting victims sue OpenAI, CEO Altman in US court - Reuters",
+      "summary_ja": "Families of Canadian mass shooting victims sue OpenAI, CEO Altman in US court&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOa2Zzc3RXcGk5Q1ZBLUdRNVhKN0VkY3g1Q0thQTgyUWdZc0NRWkpTUUdnUmJGcU94a2VzZmJJLVQ2R0l2d1cweEhEeGNXV1VDWVlKT1JUcmVYUHYzT2FuUWt2TjVrWjhVbXliNGFMVHFZR1pXUmY5aW05WVNGZWJyR0hoc1JrS09HYlZnRVFzNjQtODJWajUxdnhaMi1fNGREX2hoLXBIaHgzSzJoQXpzTjZ3?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T22:05:43+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-029",
+      "title": "Lululemon Athletica founder Wilson raises doubts on new CEO pick amid proxy battle - Reuters",
+      "title_ja": "Lululemon Athletica founder Wilson raises doubts on new CEO pick amid proxy battle - Reuters",
+      "summary_ja": "Lululemon Athletica founder Wilson raises doubts on new CEO pick amid proxy battle&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOcTFlRnlpd0Zmckt3dkhOdk56eEdzanJISGhMMHZuOWNQMG5jZTlpaG0xTndNdktOOExFR3lfazhQUk0wbGhnWm5ld1hncjRJSE0welNXQzl4eWxtLUlHSFFuNjNtaEVjMTdoU2N6M0RubzR6M2Y0aElaS1VrVmE4WmJYMXhhTE1pMlo0anNpRzcyRmhvWk9jZExHWEZoRHRtRlBkS0E4cGJlRjNXZXpQNEp6czhjdjVRcmhsb3pfbl9Ja3pfMG1BT21zWjJYT2prZUdLS2pDMlpybGwyS09XOU9wbTd2Y2dw?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T15:36:45+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-030",
+      "title": "US seeks international help to reopen Strait of Hormuz as crude prices surge - Reuters",
+      "title_ja": "US seeks international help to reopen Strait of Hormuz as crude prices surge - Reuters",
+      "summary_ja": "US seeks international help to reopen Strait of Hormuz as crude prices surge&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOcXN0aG5nUkg5TEU5emxCMG9TYjFfRm1mVmp3WFM5Q1hkOGtWbVlxSG45QXBtcXRjb1JfMGE1bjk4SW1Qbk1qRkVvUmdtNmpiRnJQU1hiSXRxeURIbTZrdEtZUnhXdjNDYVY5UWdnaDdUQ29qbFpDdlQxVXlmOTZFN2ljTUFwcWJtc0NuNW5CQTF6alhndnRKcWU1THJrNVctaHlsMGNSQ1k3ejJ0TEdkcFlsZ3ZTaXBsamJsckdxZTBMeXdL?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T10:23:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-031",
+      "title": "Ukraine in diplomatic tussle with Israel over grain Kyiv says 'stolen' by Russia - Reuters",
+      "title_ja": "Ukraine in diplomatic tussle with Israel over grain Kyiv says 'stolen' by Russia - Reuters",
+      "summary_ja": "Ukraine in diplomatic tussle with Israel over grain Kyiv says 'stolen' by Russia&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVldnMll1d3ZXajdjWVQ5Q0RKM3VFc1dHdHpQZnFYSnUzQ0NQc01xSHZwSjVnY1RPZFZTMDBuWHNNQ1hPc3JuU1JlcExaOFV0QnR3cWsyZmh5MWxtM3IzU2NxN2NzZENac0ZYSjJWM05vcngzX1g5NUc1SUFLT09NaldIZkJyNmNJRFVldDlnUHpUMnJwbGdSZ3ptbVd1Wm9IMXJwSDJyaXFodEZtQ0pBUXJpZlZ1bDdjZktaQzRB?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-28T15:13:23+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-032",
+      "title": "China suspends new autonomous vehicle permits after Baidu outage, Bloomberg News reports - Reuters",
+      "title_ja": "China suspends new autonomous vehicle permits after Baidu outage, Bloomberg News reports - Reuters",
+      "summary_ja": "China suspends new autonomous vehicle permits after Baidu outage, Bloomberg News reports&nbsp;&nbsp;Reuters",
+      "impact": "",
+      "category": "agent_ai",
+      "category_label": "エージェントAI",
+      "tag_class": "tag-agent",
+      "sources": [
+        {
+          "name": "Reuters Technology",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNTXN3VlRJLUlHQjNZNlVneU9YUHJrRm5CMVNDYnVQdklBdE9ja2ZRMVloYk5kaUJGOXBGY01yYmR5eFBmazRoZjh3Vm9acUhWa1ZWbVRyNFkxWXg3V1FPaTZPQndfYlJxRGlMVW1qU2dfaVBEa09pY2EtMU5KWk1rNDNLc09ydEEwQ0cwZ0diTlVaNjNmbnhNdTlfVUZ3Q1BmNThpckg3SEVFTjUtR2x3WDNtcmZiRWNyRDNXdXA1QXhoSWhVSGN4R0FRVlBZNU0?oc=5"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T06:00:00+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-033",
+      "title": "SoftBank is creating a robotics company that builds data centers — and already eyeing a $100B IPO",
+      "title_ja": "SoftBank is creating a robotics company that builds data centers — and already eyeing a $100B IPO",
+      "summary_ja": "You need infrastructure to build AI a and robots, but apparently you also need AI and robots to build infrastructure.",
+      "impact": "",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/softbank-is-creating-a-robotics-company-that-builds-data-centers-and-already-eyeing-a-100b-ipo"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-30T03:58:22+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-034",
+      "title": "Amazon’s cloud business is surging — and so is its capital spending",
+      "title_ja": "Amazon’s cloud business is surging — and so is its capital spending",
+      "summary_ja": "The e-commerce giant is making more money than expected from AWS but it's also spending a lot, and will continue to do so in the near term, its chief executive said.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-30T00:14:23+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-035",
+      "title": "Sources: Anthropic could raise a new $50B round at a valuation of $900B",
+      "title_ja": "Sources: Anthropic could raise a new $50B round at a valuation of $900B",
+      "summary_ja": "The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter.",
+      "impact": "",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-30T00:07:15+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-036",
+      "title": "On the stand, Elon Musk can’t escape his own tweets",
+      "title_ja": "On the stand, Elon Musk can’t escape his own tweets",
+      "summary_ja": "Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T23:58:36+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-037",
+      "title": "Meta is still burning money on AR/VR",
+      "title_ja": "Meta is still burning money on AR/VR",
+      "summary_ja": "Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending.",
+      "impact": "",
+      "category": "business",
+      "category_label": "ビジネス",
+      "tag_class": "tag-biz",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T23:58:26+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-038",
+      "title": "Satya Nadella says he’s ready to ‘exploit’ the new OpenAI deal",
+      "title_ja": "Satya Nadella says he’s ready to ‘exploit’ the new OpenAI deal",
+      "summary_ja": "Microsoft gets to offer OpenAI's tech to its cloud customers and doesn't have to pay for it. \"We fully plan to exploit it,\" Nadella said.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/04/29/satya-nadella-says-hes-ready-to-exploit-the-new-openai-deal"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T23:55:23+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-039",
+      "title": "Elon Musk’s worst enemy in court is Elon Musk",
+      "title_ja": "Elon Musk’s worst enemy in court is Elon Musk",
+      "summary_ja": "About five hours into Elon Musk's testimony, I typed the following sentence into my notes: \"I have never been more sympathetic to Sam Altman in my life.\" Musk's direct testimony was an improvement ove",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/tech/921022/elon-musk-cross-openai-altman"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-30T00:01:24+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    },
+    {
+      "id": "2026-04-30-040",
+      "title": "How Elon Musk Squeezed OpenAI: They 'Are Gonna Want to Kill Me’",
+      "title_ja": "How Elon Musk Squeezed OpenAI: They 'Are Gonna Want to Kill Me’",
+      "summary_ja": "Tensions flared on the third day of trial in Musk v. Altman as OpenAI’s lawyers cross-examined Musk.",
+      "impact": "",
+      "category": "model_research",
+      "category_label": "モデル・研究",
+      "tag_class": "tag-model",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/model-behavior-elon-musk-cross-examined-sam-altman"
+        }
+      ],
+      "importance": 4.6,
+      "published": "2026-04-29T23:41:51+00:00",
+      "language": "en",
+      "key_stats": [],
+      "related_topics": [],
+      "timeline_context": "",
+      "real_world": "",
+      "hook_question": ""
+    }
+  ]
+}
