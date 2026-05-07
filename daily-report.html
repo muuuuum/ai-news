@@ -903,7 +903,7 @@ document.querySelectorAll('#view-write textarea').forEach(ta => {
 });
 
 // ── Cloud Storage (GitHub Repo Contents API) ──
-const SYNC_PATH = 'data/reports.json';
+const SYNC_PATH = 'data/daily-reports.json';
 const SYNC_API = `https://api.github.com/repos/muuuuum/ai-news/contents/${SYNC_PATH}`;
 const RAW_URL = `https://raw.githubusercontent.com/muuuuum/ai-news/main/${SYNC_PATH}`;
 let fileSha = null;
