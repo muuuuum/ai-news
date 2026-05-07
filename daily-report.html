@@ -438,10 +438,12 @@ function promptGeminiKey() {
   return '';
 }
 const GH_TOKEN_STORAGE = 'daily_reports_gh_token';
-function getGhToken() { return localStorage.getItem(GH_TOKEN_STORAGE) || ''; }
+function sanitizeToken(s) { return (s || '').replace(/\s+/g, ''); }
+function getGhToken() { return sanitizeToken(localStorage.getItem(GH_TOKEN_STORAGE)); }
 function promptGhToken() {
-  const tok = prompt('GitHub Personal Access Token を入力してください（repo 権限が必要、ghp_ で始まる）:\nhttps://github.com/settings/tokens/new で発行できます');
-  if (tok && tok.trim()) { localStorage.setItem(GH_TOKEN_STORAGE, tok.trim()); showToast('✓ GitHubトークンを保存しました'); return tok.trim(); }
+  const raw = prompt('GitHub Personal Access Token を入力してください（repo 権限が必要、ghp_ で始まる）:\nhttps://github.com/settings/tokens/new で発行できます');
+  const tok = sanitizeToken(raw);
+  if (tok) { localStorage.setItem(GH_TOKEN_STORAGE, tok); showToast('✓ GitHubトークンを保存しました'); return tok; }
   return '';
 }
 function ghAuthHeader() {
