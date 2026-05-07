@@ -437,7 +437,17 @@ function promptGeminiKey() {
   if (key && key.trim()) { localStorage.setItem(GEMINI_KEY_STORAGE, key.trim()); showToast('✓ APIキーを保存しました'); return key.trim(); }
   return '';
 }
-const GH_TOKEN = ['ghp','_mECiSHYEnvaOYVW7','jcaF7wDJ5iWldP26G1AH'].join('');
+const GH_TOKEN_STORAGE = 'daily_reports_gh_token';
+function getGhToken() { return localStorage.getItem(GH_TOKEN_STORAGE) || ''; }
+function promptGhToken() {
+  const tok = prompt('GitHub Personal Access Token を入力してください（repo 権限が必要、ghp_ で始まる）:\nhttps://github.com/settings/tokens/new で発行できます');
+  if (tok && tok.trim()) { localStorage.setItem(GH_TOKEN_STORAGE, tok.trim()); showToast('✓ GitHubトークンを保存しました'); return tok.trim(); }
+  return '';
+}
+function ghAuthHeader() {
+  const t = getGhToken();
+  return t ? { 'Authorization': `token ${t}` } : {};
+}
 const GH_ISSUE_URL = 'https://api.github.com/repos/muuuuum/ai-news/issues/1/comments';
 
 function getReports() { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
@@ -839,6 +849,9 @@ async function postComment() {
   if (!name) { showToast('名前を入力してください'); return; }
   if (!body) { showToast('コメントを入力してください'); return; }
 
+  let token = getGhToken();
+  if (!token) { token = promptGhToken(); if (!token) return; }
+
   const btn = document.getElementById('btnComment');
   btn.disabled = true;
   btn.textContent = '送信中...';
@@ -848,7 +861,7 @@ async function postComment() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `token ${GH_TOKEN}`,
+        'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github+json'
       },
       body: JSON.stringify({ body: `【${name}】\n${body}` })
@@ -905,6 +918,9 @@ function setSyncStatus(status) {
 
 // GitHub にデータをアップロード
 async function cloudSave() {
+  let token = getGhToken();
+  if (!token) { token = promptGhToken(); if (!token) { setSyncStatus('idle'); return false; } }
+
   const reports = getReports();
   const weeklyReviews = JSON.parse(localStorage.getItem('weekly_reviews') || '{}');
   const payload = JSON.stringify({ reports, weeklyReviews, syncedAt: new Date().toISOString() }, null, 2);
@@ -915,7 +931,7 @@ async function cloudSave() {
     // SHA を取得（最新を確認）
     if (!fileSha) {
       const check = await fetch(SYNC_API, {
-        headers: { 'Authorization': `token ${GH_TOKEN}`, 'Accept': 'application/vnd.github+json' }
+        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
       });
       if (check.ok) { fileSha = (await check.json()).sha; }
     }
@@ -923,11 +939,15 @@ async function cloudSave() {
     if (fileSha) body.sha = fileSha;
     const res = await fetch(SYNC_API, {
       method: 'PUT',
-      headers: { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' },
+      headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
+      if (res.status === 401) {
+        localStorage.removeItem(GH_TOKEN_STORAGE);
+        throw new Error('GitHubトークンが無効です。次回保存時に再入力できます。');
+      }
       throw new Error(err.message || res.status);
     }
     const data = await res.json();
@@ -951,9 +971,9 @@ async function cloudLoad() {
     if (!res.ok) { setSyncStatus('idle'); return false; }
     const cloud = await res.json();
 
-    // SHA も取得しておく（保存時に必要）
+    // SHA も取得しておく（保存時に必要）。トークンがあれば認証付きで、無ければ匿名で取得
     const metaRes = await fetch(SYNC_API, {
-      headers: { 'Authorization': `token ${GH_TOKEN}`, 'Accept': 'application/vnd.github+json' }
+      headers: { ...ghAuthHeader(), 'Accept': 'application/vnd.github+json' }
     });
     if (metaRes.ok) { fileSha = (await metaRes.json()).sha; }
 
