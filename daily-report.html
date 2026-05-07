@@ -1016,6 +1016,15 @@ async function manualSync() {
 
 // ── Init ──
 (async () => {
+  // URL ハッシュ #token=ghp_... があれば自動で localStorage に取り込む（取り込み後はハッシュ削除）
+  if (location.hash.startsWith('#token=')) {
+    const tok = sanitizeToken(decodeURIComponent(location.hash.substring(7)));
+    if (tok) {
+      localStorage.setItem(GH_TOKEN_STORAGE, tok);
+      history.replaceState(null, '', location.pathname + location.search);
+      setTimeout(() => showToast('✓ GitHubトークンを設定しました'), 200);
+    }
+  }
   setToday();
   updateStreak();
   datePicker.addEventListener('change', onDateChange);
