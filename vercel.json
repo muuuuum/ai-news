@@ -39,6 +39,10 @@
       "src": "api/daily_post.py",
       "use": "@vercel/python"
     }
+    {
+      "src": "api/wash_schedule.py",
+      "use": "@vercel/python"
+    }
   ],
   "routes": [
     {
@@ -52,6 +56,10 @@
     {
       "src": "/api/daily_post",
       "dest": "/api/daily_post.py"
+    },
+    {
+      "src": "/api/wash_schedule",
+      "dest": "/api/wash_schedule.py"
     },
     {
       "src": "/",
