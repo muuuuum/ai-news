@@ -301,9 +301,6 @@
 <script>
 // ── 定数 ──
 const STORAGE_KEY = 'wash_schedule_bookings';
-const SYNC_PATH = 'data/wash-schedule.json';
-const REPO = 'muuuuum/ai-news';
-const RAW_URL = `https://raw.githubusercontent.com/${REPO}/main/${SYNC_PATH}`;
 const API_URL = '/api/wash_schedule';
 
 const TIME_SLOTS = (() => {
@@ -530,8 +527,10 @@ async function cancelBooking() {
   }
 }
 
-// ── クラウド読み込み (GitHub Contents API・公開読み取りのみ、認証不要) ──
-// 予約・取消の書き込みは /api/wash_schedule (サーバー側) が行う
+// ── クラウド読み込み ──
+// /api/wash_schedule (サーバー側、GitHub Contents APIを直接参照) から読む。
+// raw.githubusercontent.com はCDNキャッシュにより更新が反映されるまで
+// 数十秒〜数分遅れることがあるため使わない。
 function setSyncStatus(status) {
   const badge = document.getElementById('syncBadge');
   if (status === 'syncing') { badge.classList.add('syncing'); badge.textContent = '☁️ 同期中...'; }
@@ -543,7 +542,7 @@ function setSyncStatus(status) {
 async function cloudLoad() {
   setSyncStatus('syncing');
   try {
-    const res = await fetchTimeout(RAW_URL + '?t=' + Date.now());
+    const res = await fetchTimeout(API_URL + '?t=' + Date.now());
     if (!res.ok) { setSyncStatus('idle'); return false; }
     const cloud = await res.json();
     if (cloud.bookings) saveBookings(cloud.bookings);
@@ -569,14 +568,22 @@ async function manualSync() {
   render();
   await cloudLoad();
   render();
-  // 他の人の予約状況を定期的に反映(30秒毎、モーダル操作中は待機)
+  // 他の人の予約状況を定期的に反映(8秒毎、モーダル操作中は待機)
   setInterval(async () => {
     const bookOpen = document.getElementById('bookOverlay').classList.contains('open');
     const detailOpen = document.getElementById('detailOverlay').classList.contains('open');
     if (bookOpen || detailOpen) return;
     await cloudLoad();
     render();
-  }, 30000);
+  }, 8000);
+
+  // タブに戻ってきた時も即座に最新状態を取得
+  document.addEventListener('visibilitychange', async () => {
+    if (document.visibilityState === 'visible') {
+      await cloudLoad();
+      render();
+    }
+  });
 })();
 </script>
 </body>
