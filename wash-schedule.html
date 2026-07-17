@@ -301,12 +301,10 @@
 <script>
 // ── 定数 ──
 const STORAGE_KEY = 'wash_schedule_bookings';
-const GH_TOKEN_STORAGE = 'wash_schedule_gh_token';
 const SYNC_PATH = 'data/wash-schedule.json';
 const REPO = 'muuuuum/ai-news';
-const SYNC_API = `https://api.github.com/repos/${REPO}/contents/${SYNC_PATH}`;
 const RAW_URL = `https://raw.githubusercontent.com/${REPO}/main/${SYNC_PATH}`;
-let fileSha = null;
+const API_URL = '/api/wash_schedule';
 
 const TIME_SLOTS = (() => {
   const slots = [];
@@ -333,22 +331,9 @@ function getMonday(d) {
   return date;
 }
 function bookingKey(dateStr, time) { return `${dateStr}_${time}`; }
-function sanitizeToken(s) { return (s || '').replace(/\s+/g, ''); }
 
 function getBookings() { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
 function saveBookings(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
-
-function getGhToken() { return sanitizeToken(localStorage.getItem(GH_TOKEN_STORAGE)); }
-function promptGhToken() {
-  const raw = prompt('GitHub Personal Access Token を入力してください（repo 権限が必要、ghp_ で始まる）:\nhttps://github.com/settings/tokens/new で発行できます');
-  const tok = sanitizeToken(raw);
-  if (tok) { localStorage.setItem(GH_TOKEN_STORAGE, tok); showToast('✓ GitHubトークンを保存しました'); return tok; }
-  return '';
-}
-function ghAuthHeader() {
-  const t = getGhToken();
-  return t ? { 'Authorization': `token ${t}` } : {};
-}
 
 function fetchTimeout(url, opts = {}, ms = 8000) {
   const controller = new AbortController();
@@ -464,22 +449,39 @@ async function submitBooking() {
   if (!noOk || !nameOk) return;
 
   const { dateStr, time } = activeSlot;
-  // 直前に他の人が予約していないか最新状態を確認
-  await cloudLoad();
-  const bookings = getBookings();
-  const key = bookingKey(dateStr, time);
-  if (bookings[key]) {
-    closeBookModal();
-    render();
-    showToast('⚠️ その時間は既に予約済みです。最新の状態に更新しました');
-    return;
+  const submitBtn = document.querySelector('#bookOverlay .btn-primary');
+  submitBtn.disabled = true;
+  setSyncStatus('syncing');
+  try {
+    const res = await fetchTimeout(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'book', date: dateStr, time, no, name })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok) {
+      saveBookings(data.bookings || {});
+      closeBookModal();
+      render();
+      setSyncStatus('done');
+      showToast('✓ 予約しました');
+    } else if (res.status === 409) {
+      if (data.bookings) saveBookings(data.bookings);
+      closeBookModal();
+      render();
+      setSyncStatus('idle');
+      showToast('⚠️ その時間は既に予約済みです。最新の状態に更新しました');
+    } else {
+      setSyncStatus('error');
+      showToast('⚠️ 予約に失敗しました: ' + (data.error || res.status));
+    }
+  } catch (e) {
+    console.error('submitBooking error:', e);
+    setSyncStatus('error');
+    showToast('⚠️ 通信に失敗しました。もう一度お試しください');
+  } finally {
+    submitBtn.disabled = false;
   }
-  bookings[key] = { no, name, date: dateStr, time, createdAt: new Date().toISOString() };
-  saveBookings(bookings);
-  closeBookModal();
-  render();
-  const ok = await cloudSave();
-  showToast(ok ? '✓ 予約しました' : '✓ 予約しました（同期は保留中）');
 }
 
 // ── 詳細/キャンセルモーダル ──
@@ -498,16 +500,38 @@ function closeDetailModal() {
 async function cancelBooking() {
   if (!activeCancelKey) return;
   if (!confirm('この予約を取り消しますか？')) return;
-  const bookings = getBookings();
-  delete bookings[activeCancelKey];
-  saveBookings(bookings);
-  closeDetailModal();
-  render();
-  const ok = await cloudSave();
-  showToast(ok ? '✓ 予約を取消しました' : '✓ 取消しました（同期は保留中）');
+  const [dateStr, time] = [activeCancelKey.slice(0, 10), activeCancelKey.slice(11)];
+  const cancelBtn = document.querySelector('#detailOverlay .btn-danger');
+  cancelBtn.disabled = true;
+  setSyncStatus('syncing');
+  try {
+    const res = await fetchTimeout(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'cancel', date: dateStr, time })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok) {
+      saveBookings(data.bookings || {});
+      closeDetailModal();
+      render();
+      setSyncStatus('done');
+      showToast('✓ 予約を取消しました');
+    } else {
+      setSyncStatus('error');
+      showToast('⚠️ 取消に失敗しました: ' + (data.error || res.status));
+    }
+  } catch (e) {
+    console.error('cancelBooking error:', e);
+    setSyncStatus('error');
+    showToast('⚠️ 通信に失敗しました。もう一度お試しください');
+  } finally {
+    cancelBtn.disabled = false;
+  }
 }
 
-// ── クラウド同期 (GitHub Contents API) ──
+// ── クラウド読み込み (GitHub Contents API・公開読み取りのみ、認証不要) ──
+// 予約・取消の書き込みは /api/wash_schedule (サーバー側) が行う
 function setSyncStatus(status) {
   const badge = document.getElementById('syncBadge');
   if (status === 'syncing') { badge.classList.add('syncing'); badge.textContent = '☁️ 同期中...'; }
@@ -516,74 +540,13 @@ function setSyncStatus(status) {
   else { badge.classList.remove('syncing'); badge.textContent = '☁️ 同期'; }
 }
 
-async function cloudSave() {
-  let token = getGhToken();
-  if (!token) { token = promptGhToken(); if (!token) { setSyncStatus('idle'); return false; } }
-
-  const bookings = getBookings();
-  const payload = JSON.stringify({ bookings, syncedAt: new Date().toISOString() }, null, 2);
-  const encoded = btoa(unescape(encodeURIComponent(payload)));
-
-  setSyncStatus('syncing');
-  try {
-    if (!fileSha) {
-      const check = await fetchTimeout(SYNC_API, {
-        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
-      });
-      if (check.ok) { fileSha = (await check.json()).sha; }
-    }
-    const body = { message: 'sync wash schedule', content: encoded };
-    if (fileSha) body.sha = fileSha;
-    const res = await fetchTimeout(SYNC_API, {
-      method: 'PUT',
-      headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      if (res.status === 401) {
-        localStorage.removeItem(GH_TOKEN_STORAGE);
-        throw new Error('GitHubトークンが無効です。次回保存時に再入力できます。');
-      }
-      if (res.status === 409) {
-        fileSha = null;
-        throw new Error('他の変更と競合しました。もう一度お試しください。');
-      }
-      throw new Error(err.message || res.status);
-    }
-    const data = await res.json();
-    fileSha = data.content.sha;
-    setSyncStatus('done');
-    return true;
-  } catch (e) {
-    console.error('cloudSave error:', e);
-    setSyncStatus('error');
-    showToast('⚠️ 保存失敗: ' + e.message);
-    return false;
-  }
-}
-
 async function cloudLoad() {
   setSyncStatus('syncing');
   try {
     const res = await fetchTimeout(RAW_URL + '?t=' + Date.now());
     if (!res.ok) { setSyncStatus('idle'); return false; }
     const cloud = await res.json();
-
-    const metaRes = await fetchTimeout(SYNC_API, {
-      headers: { ...ghAuthHeader(), 'Accept': 'application/vnd.github+json' }
-    });
-    if (metaRes.ok) { fileSha = (await metaRes.json()).sha; }
-
-    if (cloud.bookings) {
-      const local = getBookings();
-      // クラウドを正として、ローカルにしかない予約（同期待ち）のみマージ
-      const merged = { ...cloud.bookings };
-      for (const [key, entry] of Object.entries(local)) {
-        if (!merged[key]) merged[key] = entry;
-      }
-      saveBookings(merged);
-    }
+    if (cloud.bookings) saveBookings(cloud.bookings);
     setSyncStatus('done');
     return true;
   } catch (e) {
@@ -596,24 +559,13 @@ async function cloudLoad() {
 async function manualSync() {
   const badge = document.getElementById('syncBadge');
   if (badge.classList.contains('syncing')) return;
-  await cloudLoad();
+  const ok = await cloudLoad();
   render();
-  const ok = await cloudSave();
-  render();
-  if (ok) showToast('☁️ 同期完了！');
+  if (ok) showToast('☁️ 最新の状態に更新しました');
 }
 
 // ── 初期化 ──
 (async () => {
-  // URL ハッシュ #token=ghp_... があれば自動で localStorage に取り込む
-  if (location.hash.startsWith('#token=')) {
-    const tok = sanitizeToken(decodeURIComponent(location.hash.substring(7)));
-    if (tok) {
-      localStorage.setItem(GH_TOKEN_STORAGE, tok);
-      history.replaceState(null, '', location.pathname + location.search);
-      setTimeout(() => showToast('✓ GitHubトークンを設定しました'), 200);
-    }
-  }
   render();
   await cloudLoad();
   render();
