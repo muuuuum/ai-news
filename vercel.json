@@ -16,6 +16,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "wash-schedule.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "images/**",
       "use": "@vercel/static"
     },
