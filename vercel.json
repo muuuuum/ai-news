@@ -38,7 +38,7 @@
     {
       "src": "api/daily_post.py",
       "use": "@vercel/python"
-    }
+    },
     {
       "src": "api/wash_schedule.py",
       "use": "@vercel/python"
